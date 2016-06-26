@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Welcome to FieldNote</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_main">Field Note</string>
+
+    <!-- Menu principal -->
+    <string name="my_fields">Meus Campos</string>
+    <string name="entries">Registo de Entradas</string>
+    <string name="produce_cc">Produzir \n Caderno de Campo</string>
+    <string name="obs_organismo">Observações de Organismos</string>
+    <string name="intervencao_tec">Intervenções Técnicas</string>
+    <string name="statistics">Estatisticas</string>
+
+
+</resources>
