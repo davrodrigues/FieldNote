@@ -16,12 +16,13 @@
     <string name="title_activity_main">Field Note</string>
 
     <!-- Menu principal -->
-    <string name="my_fields">Meus Campos</string>
-    <string name="entries">Registo de Entradas</string>
-    <string name="produce_cc">Produzir \n Caderno de Campo</string>
-    <string name="obs_organismo">Observações de Organismos</string>
-    <string name="intervencao_tec">Intervenções Técnicas</string>
-    <string name="statistics">Estatisticas</string>
+    <string name="my_fields">Meus Campos\n</string>
+    <string name="entries">Registo \n de Entradas</string>
+    <string name="register_feno">Registar Estado\n Fenológico</string>
+    <string name="obs_organism">Observações \n de Organismos</string>
+    <string name="tec_intervention">Intervenções \n Técnicas</string>
+    <string name="statistics">Estatisticas \n</string>
+    <string name="longo">"texto muito longo que \nnão cabe apenas numa linha"</string>
 
 
 </resources>
