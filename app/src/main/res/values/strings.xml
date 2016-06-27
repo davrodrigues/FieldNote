@@ -24,5 +24,18 @@
     <string name="statistics">Estatisticas \n</string>
     <string name="longo">"texto muito longo que \nnão cabe apenas numa linha"</string>
 
+    <!-- Meus Campos  -->
+    <string name="zones">Zonas</string>
+    <string name="portions">Parcelas</string>
+    <string name="campaigns">Campanhas</string>
+    <string name="enemies">Inimigos/Pragas</string>
+    <string name="fenologic">Estados Fenológicos</string>
+    <string name="harvest">Colheitas</string>
+    <string name="products_used">Produtos Utilizados</string>
+    <string name="make_cc">Produzir \nCaderno Campo</string>
+
+
+
+
 
 </resources>
