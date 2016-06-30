@@ -22,10 +22,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" android:theme="@style/AppTheme.NoActionBar" android:label="@string/title_activity_main"/>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".OrganismosActivity"
+            android:label="@string/title_activity_organismos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".RegistarObservacaoActivity" />
+        <activity
+            android:name=".EstadosFenologicosActivity"
+            android:label="@string/title_activity_estados_fenologicos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MostrarEstadoActivity" />
+        <activity android:name=".RegistarEstadoActivity"></activity>
     </application>
 
 </manifest>

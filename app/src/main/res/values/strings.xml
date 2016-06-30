@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Welcome to FieldNote</string>
+    <string name="app_name">FieldNote</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -33,9 +33,10 @@
     <string name="harvest">Colheitas</string>
     <string name="products_used">Produtos Utilizados</string>
     <string name="make_cc">Produzir \nCaderno Campo</string>
-
-
-
+    <string name="title_activity_organismos">OrganismosActivity</string>
+    <string name="title_activity_estados_fenologicos">EstadosFenologicosActivity</string>
+    <string name="estado_fenologico_atual">Estado fenológico atual</string>
+    <string name="cronologia_estados">Cronologia de estados registados</string>
 
 
 </resources>
