@@ -13,7 +13,7 @@ public class RegistarEstadoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pre_activity_registar_estado);
+        setContentView(R.layout.activity_registar_estado);
 
         //toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

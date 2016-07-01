@@ -39,12 +39,15 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_registo_entradas">Registo de Entradas</string>
     <string name="title_activity_estatistitcas">Estatistitcas</string>
-    <string name="title_activity_intervencao_tecnica">IntervencaoTecnica</string>
+    <string name="title_activity_intervencao_tecnica">Intervenções Técnicas</string>
     <string name="title_activity_organismos">Observações de Organismos</string>
     <string name="title_activity_registar_estado">Registar novo estado</string>
     <string name="main_menu">Menu Principal</string>
 
-
+    <!-- Intervenções Técnicas -->
+    <string name="registar_intervencao_tecnica">Nova Intervenção Técnica</string>
+    <string name="justificacao">Justificação da Intervenção</string>
+    <string name="label_data">Data:</string>
 
     <!-- Organismos e estados -->
     <string name="title_activity_mostrar_organismos">OrganismosActivity</string>

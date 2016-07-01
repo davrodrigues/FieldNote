@@ -26,9 +26,11 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
         <activity
             android:name=".MyFieldsActivity"
             android:label="@string/title_activity_my_fields"
@@ -64,15 +66,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.diogo.fieldnote.MainActivity" />
         </activity>
-
         <activity
             android:name=".OrganismosActivity"
             android:label="@string/title_activity_organismos"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.diogo.fieldnote.MainActivity" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.MainActivity" />
         </activity>
         <activity
             android:name=".MostrarOrganismoActivity"
@@ -83,25 +84,22 @@
             android:label="@string/title_activity_registar_estado"
             android:parentActivityName=".EstadosFenologicosActivity"
             android:theme="@style/AppTheme.NoActionBar">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.diogo.fieldnote.EstadosFenologicosActivity" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.EstadosFenologicosActivity" />
         </activity>
-
         <activity
             android:name=".MostrarEstadoActivity"
             android:label="@string/title_activity_mostrar_estado"
             android:theme="@style/AppTheme.NoActionBar" />
-
-
-        <activity android:name=".RegistarObservacaoActivity"
-        android:parentActivityName=".OrganismosActivity"
-        android:label="@string/registar_nova_observacao"
-        android:theme="@style/AppTheme.NoActionBar">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.diogo.fieldnote.OrganismosActivity" />
-
+        <activity
+            android:name=".RegistarObservacaoActivity"
+            android:label="@string/registar_nova_observacao"
+            android:parentActivityName=".OrganismosActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.OrganismosActivity" />
         </activity>
         <activity
             android:name=".EstadosFenologicosActivity"
@@ -112,7 +110,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.diogo.fieldnote.MainActivity" />
         </activity>
-
+        <activity android:name=".RegistarIntervencaoTecnicaActivity"
+            android:label="@string/registar_intervencao_tecnica"
+            android:parentActivityName=".IntervencaoTecnica"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.IntervencaoTecnica" />
+        </activity>
     </application>
 
 </manifest>
