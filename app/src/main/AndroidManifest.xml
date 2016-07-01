@@ -9,7 +9,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/farmer2"
+        android:icon="@mipmap/novo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -25,28 +25,68 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme" />
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        <activity
+            android:name=".MyFieldsActivity"
+            android:label="@string/title_activity_my_fields"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.MainActivity" />
+        </activity>
+        <activity
+            android:name=".RegistoEntradas"
+            android:label="@string/title_activity_registo_entradas"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Estatistitcas"
+            android:label="@string/title_activity_estatistitcas"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.MainActivity" />
+        </activity>
+        <activity
+            android:name=".IntervencaoTecnica"
+            android:label="@string/title_activity_intervencao_tecnica"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.MainActivity" />
+        </activity>
 
         <activity
             android:name=".OrganismosActivity"
             android:label="@string/title_activity_organismos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MostrarOrganismoActivity"
+            android:label="@string/title_activity_mostrar_organismos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RegistarEstadoActivity"
+            android:label="@string/title_activity_registar_estado"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MostrarEstadoActivity"
+            android:label="@string/title_activity_mostrar_estado"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RegistarObservacaoActivity" />
         <activity
             android:name=".EstadosFenologicosActivity"
             android:label="@string/title_activity_estados_fenologicos"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MostrarEstadoActivity" />
-        <activity android:name=".RegistarEstadoActivity" />
-        <activity
-            android:name=".MyFieldsActivity"
-            android:label="@string/title_activity_my_fields"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MostrarOrganismoActivity"></activity>
+
     </application>
 
 </manifest>

@@ -3,8 +3,8 @@ package com.example.diogo.fieldnote;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,8 +13,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
+
+        setSupportActionBar(toolbar);
 
 
         ImageButton meusCampos = (ImageButton) findViewById(R.id.meus_campos_botao);
@@ -22,6 +24,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), MyFieldsActivity.class));
+            }
+        });
+
+        ImageButton registoEntradas = (ImageButton) findViewById(R.id.registo_entradas_botao);
+        registoEntradas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), RegistoEntradas.class));
+            }
+        });
+
+        ImageButton intervTecnicas = (ImageButton) findViewById(R.id.intervencoes_tecnicas_botao);
+        intervTecnicas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), IntervencaoTecnica.class));
+            }
+        });
+
+        ImageButton estatistitcas = (ImageButton) findViewById(R.id.estatistitcas_botao);
+        estatistitcas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Estatistitcas.class));
             }
         });
 
@@ -40,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), OrganismosActivity.class));
             }
         });
-
 
     }
 

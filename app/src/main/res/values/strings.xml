@@ -25,18 +25,33 @@
     <string name="longo">"texto muito longo que \nnão cabe apenas numa linha"</string>
 
     <!-- Meus Campos  -->
-    <string name="zones">Zonas\n</string>
-    <string name="portions">Parcelas\n</string>
-    <string name="campaigns">Campanhas\n</string>
+    <string name="zones">Zonas</string>
+    <string name="portions">Parcelas</string>
+    <string name="campaigns">Campanhas</string>
+    <string name="enemies">Inimigos/Pragas</string>
+    <string name="fenologic">Estados Fenológicos</string>
+    <string name="harvest">Colheitas</string>
     <string name="products_used">Produtos Utilizados</string>
     <string name="make_cc">Produzir \nCaderno Campo</string>
 
-    <!-- Organismos e estados -->
+    <!-- Menus -->
+    <string name="title_activity_my_fields">Meus Campos</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_registo_entradas">Registo de Entradas</string>
+    <string name="title_activity_estatistitcas">Estatistitcas</string>
+    <string name="title_activity_intervencao_tecnica">IntervencaoTecnica</string>
     <string name="title_activity_organismos">OrganismosActivity</string>
+    <string name="title_activity_registar_estado">RegistarEstadoActivity</string>
+    <string name="main_menu">Menu Principal</string>
+
+
+
+    <!-- Organismos e estados -->
+    <string name="title_activity_mostrar_organismos">OrganismosActivity</string>
+    <string name="title_activity_mostrar_estado">EstadoActivity</string>
     <string name="title_activity_estados_fenologicos">EstadosFenologicosActivity</string>
     <string name="estado_fenologico_atual">Estado fenológico atual</string>
     <string name="cronologia_estados">Cronologia de estados registados</string>
 
-    <string name="title_activity_my_fields">Meus Campos</string>
-    <string name="action_settings">Settings</string>
+
 </resources>
