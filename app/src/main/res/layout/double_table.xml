@@ -11,13 +11,18 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal">
 
-
+    <!-- Scroll para modo landscape-->
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:baselineAligned="false"
-        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
         android:gravity="center_horizontal">
+
+
 
         <TableLayout
             android:layout_width="wrap_content"
@@ -39,11 +44,14 @@
                     android:layout_width="115dp"
                     android:layout_height="115dp"
                     android:id="@+id/meus_campos_botao"
-                    android:background="@drawable/farm_barn"
                     android:contentDescription="@string/my_fields"
                     android:layout_weight="0"
                     android:layout_column="0"
-                    android:layout_span="0" />
+                    android:layout_span="0"
+                    android:clickable="false"
+                    android:contextClickable="false"
+                    android:cropToPadding="false"
+                    android:background="@drawable/celeiro" />
 
             </TableRow>
 
@@ -76,11 +84,11 @@
                     android:layout_width="115dp"
                     android:layout_height="115dp"
                     android:id="@+id/registo_entradas_botao"
-                    android:background="@drawable/stock2"
-                    android:contentDescription="@string/my_fields"
+                    android:background="@drawable/sacos"
                     android:layout_weight="0"
                     android:layout_column="0"
-                    android:layout_span="0" />
+                    android:layout_span="0"
+                    android:clickable="false" />
             </TableRow>
 
             <TableRow
@@ -111,11 +119,12 @@
                 <ImageButton
                     android:layout_width="115dp"
                     android:layout_height="115dp"
-                    android:background="@drawable/ladybug2"
+                    android:background="@drawable/joaninha"
                     android:layout_weight="0"
                     android:layout_column="0"
                     android:layout_span="0"
-                    android:id="@+id/observacoes_organismos_botao" />
+                    android:id="@+id/observacoes_organismos_botao"
+                    android:clickable="false" />
             </TableRow>
 
             <TableRow
@@ -158,10 +167,11 @@
                     android:layout_width="115dp"
                     android:layout_height="115dp"
                     android:id="@+id/intervencoes_tecnicas_botao"
-                    android:background="@drawable/hard_helmet"
+                    android:background="@drawable/intervencao2"
                     android:layout_weight="0"
                     android:layout_column="0"
-                    android:layout_span="0" />
+                    android:layout_span="0"
+                    android:clickable="false" />
             </TableRow>
 
             <TableRow
@@ -194,10 +204,11 @@
                     android:layout_width="115dp"
                     android:layout_height="115dp"
                     android:id="@+id/registo_estados_fenologicos_botao"
-                    android:background="@drawable/plant_growing3"
+                    android:background="@drawable/plantinha"
                     android:layout_weight="0"
                     android:layout_column="0"
-                    android:layout_span="0" />
+                    android:layout_span="0"
+                    android:clickable="false" />
             </TableRow>
 
             <TableRow
@@ -230,11 +241,13 @@
                     android:layout_width="115dp"
                     android:layout_height="115dp"
                     android:id="@+id/estatistitcas_botao"
-                    android:background="@drawable/stat2"
-                    android:contentDescription="@string/my_fields"
+                    android:background="@drawable/stats2"
                     android:layout_weight="0"
                     android:layout_column="0"
-                    android:layout_span="0" />
+                    android:layout_span="0"
+                    android:contextClickable="false"
+                    android:clickable="false"
+                    android:longClickable="false" />
             </TableRow>
 
             <TableRow
@@ -261,5 +274,5 @@
 
     </LinearLayout>
 
-
+</ScrollView>
 </RelativeLayout>

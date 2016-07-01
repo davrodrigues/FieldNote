@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources><!-- #3f51b5-->
-    <color name="colorPrimary">#2a7800</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+<resources>
+    <color name="colorPrimary">#2f8700</color>
+    <color name="colorPrimaryDark">#297400</color>
+    <color name="colorAccent">#41ba00</color>
+
+<!--- 2a7800    -->
+    <color name="actionbar_background">#2a7800</color>
+
+    <color name="actionbar_text">#ffffff</color>
 </resources>

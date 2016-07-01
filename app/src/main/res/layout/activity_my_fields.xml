@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.diogo.fieldnote.MainActivity">
+    tools:context=".MyFieldsActivity">
 
-  <!--  <android.support.design.widget.AppBarLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -16,14 +16,10 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            />
 
-            android:textAlignment="center"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </android.support.design.widget.AppBarLayout>
 
-    </android.support.design.widget.AppBarLayout>-->
-    <include layout="@layout/double_table" />
-  <!--<include layout="@layout/unused_content_main" />
-    <include layout="@layout/double_table" /> -->
+    <include layout="@layout/content_my_fields" />
 
-
- </android.support.design.widget.CoordinatorLayout>
+</android.support.design.widget.CoordinatorLayout>
