@@ -40,7 +40,7 @@
     <string name="title_activity_registo_entradas">Registo de Entradas</string>
     <string name="title_activity_estatistitcas">Estatistitcas</string>
     <string name="title_activity_intervencao_tecnica">IntervencaoTecnica</string>
-    <string name="title_activity_organismos">OrganismosActivity</string>
+    <string name="title_activity_organismos">Observações de Organismos</string>
     <string name="title_activity_registar_estado">RegistarEstadoActivity</string>
     <string name="main_menu">Menu Principal</string>
 
@@ -49,7 +49,7 @@
     <!-- Organismos e estados -->
     <string name="title_activity_mostrar_organismos">OrganismosActivity</string>
     <string name="title_activity_mostrar_estado">EstadoActivity</string>
-    <string name="title_activity_estados_fenologicos">EstadosFenologicosActivity</string>
+    <string name="title_activity_estados_fenologicos">Estados Fenológicos</string>
     <string name="estado_fenologico_atual">Estado fenológico atual</string>
     <string name="cronologia_estados">Cronologia de estados registados</string>
 

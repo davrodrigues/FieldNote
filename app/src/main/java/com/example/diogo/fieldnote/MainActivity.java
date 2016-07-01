@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         registarEstado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), RegistarEstadoActivity.class));
+                startActivity(new Intent(getApplicationContext(), EstadosFenologicosActivity.class));
             }
         });
 
