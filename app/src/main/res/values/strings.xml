@@ -41,7 +41,7 @@
     <string name="title_activity_estatistitcas">Estatistitcas</string>
     <string name="title_activity_intervencao_tecnica">IntervencaoTecnica</string>
     <string name="title_activity_organismos">Observações de Organismos</string>
-    <string name="title_activity_registar_estado">RegistarEstadoActivity</string>
+    <string name="title_activity_registar_estado">Registar novo estado</string>
     <string name="main_menu">Menu Principal</string>
 
 
@@ -52,6 +52,7 @@
     <string name="title_activity_estados_fenologicos">Estados Fenológicos</string>
     <string name="estado_fenologico_atual">Estado fenológico atual</string>
     <string name="cronologia_estados">Cronologia de estados registados</string>
+    <string name="registar_nova_observacao">Registar nova observação</string>
 
 
 </resources>

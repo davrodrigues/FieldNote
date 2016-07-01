@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.diogo.fieldnote.IntervencaoTecnica">
+    tools:context="com.example.diogo.fieldnote.RegistarObservacaoActivity"
+    >
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,6 +22,9 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_intervencao_tecnica" />
+    <include layout="@layout/activity_registar_observacao"
+        />
+
+
 
 </android.support.design.widget.CoordinatorLayout>

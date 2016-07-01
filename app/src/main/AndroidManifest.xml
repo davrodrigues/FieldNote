@@ -68,7 +68,12 @@
         <activity
             android:name=".OrganismosActivity"
             android:label="@string/title_activity_organismos"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.diogo.fieldnote.MainActivity" />
+        </activity>
         <activity
             android:name=".MostrarOrganismoActivity"
             android:label="@string/title_activity_mostrar_organismos"
@@ -76,16 +81,37 @@
         <activity
             android:name=".RegistarEstadoActivity"
             android:label="@string/title_activity_registar_estado"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".EstadosFenologicosActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.diogo.fieldnote.EstadosFenologicosActivity" />
+        </activity>
+
         <activity
             android:name=".MostrarEstadoActivity"
             android:label="@string/title_activity_mostrar_estado"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".RegistarObservacaoActivity" />
+
+
+        <activity android:name=".RegistarObservacaoActivity"
+        android:parentActivityName=".OrganismosActivity"
+        android:label="@string/registar_nova_observacao"
+        android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.diogo.fieldnote.OrganismosActivity" />
+
+        </activity>
         <activity
             android:name=".EstadosFenologicosActivity"
             android:label="@string/title_activity_estados_fenologicos"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.MainActivity" />
+        </activity>
 
     </application>
 

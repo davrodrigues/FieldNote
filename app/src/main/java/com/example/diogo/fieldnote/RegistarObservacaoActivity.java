@@ -2,6 +2,7 @@ package com.example.diogo.fieldnote;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -12,7 +13,15 @@ public class RegistarObservacaoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registar_observacao);
+        setContentView(R.layout.pre_activity_registar_observacao);
+
+        //toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //up button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         Spinner dropdown = (Spinner)findViewById(R.id.parcelasdrop);
         String[] items = new String[]{"1", "2", "3"};
