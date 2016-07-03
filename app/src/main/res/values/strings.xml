@@ -38,7 +38,7 @@
     <string name="title_activity_my_fields">Meus Campos</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_registo_entradas">Registo de Entradas</string>
-    <string name="title_activity_estatistitcas">Estatistitcas</string>
+    <string name="title_activity_estatisticas">Estatisticas</string>
     <string name="title_activity_intervencao_tecnica">Intervenções Técnicas</string>
     <string name="title_activity_organismos">Observações de Organismos</string>
     <string name="title_activity_registar_estado">Registar novo estado</string>
@@ -56,6 +56,7 @@
     <string name="estado_fenologico_atual">Estado fenológico atual</string>
     <string name="cronologia_estados">Cronologia de estados registados</string>
     <string name="registar_nova_observacao">Registar nova observação</string>
+    <string name="title_activity_registar_nova_entrada">RegistarNovaEntrada</string>
 
 
 </resources>

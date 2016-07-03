@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         registoEntradas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), RegistoEntradas.class));
+                startActivity(new Intent(getApplicationContext(), RegistoEntradasActivity.class));
             }
         });
 
