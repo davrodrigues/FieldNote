@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/estado_fenologico_atual"
-        android:id="@+id/textView14"
+        android:id="@+id/parcelaEstado"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -21,7 +21,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:id="@+id/imageView"
-        android:layout_below="@+id/textView14"
+        android:layout_below="@+id/parcelaEstado"
         android:layout_centerHorizontal="true"
         android:src="@drawable/plants_growing" />
 
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="3 - Tuberização"
-        android:id="@+id/textView15"
+        android:id="@+id/estadoAtual"
         android:layout_alignBottom="@+id/imageView"
         android:layout_centerHorizontal="true" />
 
@@ -37,15 +37,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="11/10/2016"
-        android:id="@+id/textView16"
-        android:layout_below="@+id/textView15"
+        android:id="@+id/dataEstado"
+        android:layout_below="@+id/estadoAtual"
         android:layout_centerHorizontal="true" />
 
     <ImageSwitcher
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageSwitcher"
-        android:layout_below="@+id/textView16"
+        android:layout_below="@+id/dataEstado"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="85dp" />
 
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:text="@string/cronologia_estados"
         android:id="@+id/textView20"
-        android:layout_below="@+id/textView16"
+        android:layout_below="@+id/dataEstado"
         android:layout_alignParentStart="true"
         android:layout_marginTop="37dp" />
 
@@ -65,7 +65,7 @@
         android:id="@+id/textView21"
         android:layout_below="@+id/textView20"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/textView16" />
+        android:layout_alignRight="@+id/dataEstado" />
 
     <TextView
         android:layout_width="wrap_content"

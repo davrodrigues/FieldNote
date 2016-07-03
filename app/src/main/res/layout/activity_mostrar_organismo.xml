@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="11/10/2016"
-        android:id="@+id/textView24"
+        android:id="@+id/dateObs"
         android:layout_below="@+id/textView23"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="10dp" />
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:text="Parcela"
         android:id="@+id/textView25"
-        android:layout_below="@+id/textView24"
+        android:layout_below="@+id/dateObs"
         android:layout_alignParentStart="true"
         android:layout_marginTop="25dp" />
 
@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1"
-        android:id="@+id/textView26"
+        android:id="@+id/parcelaObs"
         android:layout_below="@+id/textView25"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="10dp" />
@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:text="Campanha"
         android:id="@+id/textView27"
-        android:layout_below="@+id/textView26"
+        android:layout_below="@+id/parcelaObs"
         android:layout_alignParentStart="true"
         android:layout_marginTop="25dp" />
 

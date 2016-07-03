@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "264351919839",
+    "firebase_url": "https://fieldnote-66a39.firebaseio.com",
+    "project_id": "fieldnote-66a39",
+    "storage_bucket": "fieldnote-66a39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264351919839:android:7e79065a8217dde7",
+        "android_client_info": {
+          "package_name": "com.example.diogo.fieldnote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264351919839-i5morpk4blvomkp2alf9gcf85clkijc0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcxYeLZAcyNsydGRa3Dty-HbDsUCktTro"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
