@@ -56,7 +56,7 @@
     <string name="estado_fenologico_atual">Estado fenológico atual</string>
     <string name="cronologia_estados">Cronologia de estados registados</string>
     <string name="registar_nova_observacao">Registar nova observação</string>
-    <string name="title_activity_registar_nova_entrada">RegistarNovaEntrada</string>
+    <string name="title_activity_registar_nova_entrada">Adicionar Entrada</string>
 
 
 </resources>

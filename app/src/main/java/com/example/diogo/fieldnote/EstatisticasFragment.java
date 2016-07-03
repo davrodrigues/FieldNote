@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MyFieldsFragment extends Fragment {
+public class EstatisticasFragment extends Fragment {
 
-    public MyFieldsFragment() {
+    public EstatisticasFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_my_fields, container, false);
+        return inflater.inflate(R.layout.fragment_estatisticas, container, false);
     }
 }

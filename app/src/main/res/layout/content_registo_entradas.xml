@@ -8,12 +8,11 @@
 
     tools:context="com.example.diogo.fieldnote.RegistoEntradasActivity"
     tools:showIn="@layout/activity_registo_entradas"
-
-    android:orientation="horizontal"
-    >
+    android:weightSum="100"
+    android:orientation="horizontal">
 
     <RelativeLayout
-        android:layout_weight="0.5"
+        android:layout_weight="30"
         android:orientation="horizontal"
         android:layout_width="0dp"
         android:layout_height="match_parent">
@@ -22,7 +21,7 @@
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Data de Entrada"
+            android:text="Data:"
             android:id="@+id/textView"
             android:gravity="center"
             android:textSize="20dp"
@@ -39,7 +38,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_weight="0.5"
+        android:layout_weight="30"
         android:orientation="horizontal"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -60,10 +59,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/produtosView"
-            android:textFilterEnabled="false"
             android:layout_below="@+id/textView2"
             android:layout_alignParentStart="true" />
 
     </RelativeLayout>
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_weight="40"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="del"
+            android:id="@+id/textView3"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+
+        <ListView
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/remover"
+            android:layout_below="@+id/textView3"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
 
 </LinearLayout>

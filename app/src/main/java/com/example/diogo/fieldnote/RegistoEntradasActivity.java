@@ -49,7 +49,10 @@ public class RegistoEntradasActivity extends AppCompatActivity {
 
         //firebase
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        // mDatabase.child(id).removeValue();
         mDatabase.addChildEventListener(new ChildEventListener(){
+
+
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -57,18 +60,24 @@ public class RegistoEntradasActivity extends AppCompatActivity {
                 int x = ((int) dataSnapshot.child("entradas").getChildrenCount());
                 String[] datas = new String[x];
                 String[] produto = new String[x];
+                String[] cancelamentos = new String[x];
+
                 for (DataSnapshot postSnapshot: dataSnapshot.child("entradas").getChildren()) {
                     Entrada ent = postSnapshot.getValue(Entrada.class);
                     datas[i] = ent.getData();
                     produto[i] = ent.getProduto();
-                    i++;
+
+                i++;
                 }
                 ListAdapter datasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, datas);
                 ListView datasView = (ListView) findViewById(R.id.datasView);
                 datasView.setAdapter(datasAdapter);
+
                 ListAdapter produtosAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, produto);
                 ListView produtosView = (ListView) findViewById(R.id.produtosView);
                 produtosView.setAdapter(produtosAdapter);
+
+
             }
 
             @Override
@@ -99,7 +108,7 @@ public class RegistoEntradasActivity extends AppCompatActivity {
         final ListView datasView = (ListView) findViewById(R.id.datasView);
         final ListView produtosView = (ListView) findViewById(R.id.produtosView);
 
-        //id: produto - data
+        //Mostrar produto ao clicar numa linha da lista de Datas
        datasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
@@ -112,6 +121,39 @@ public class RegistoEntradasActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        //Mostrar produto ao clicar numa linha da lista de Produtos
+        produtosView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+
+                Intent intent = new Intent(getApplicationContext(), MostrarEntradaActivity.class);
+                Object obj = datasView.getAdapter().getItem(position);
+                Object obj2 = produtosView.getAdapter().getItem(position);
+                intent.putExtra("id", obj2.toString() + " - " + obj.toString() );
+                startActivity(intent);
+            }
+        });
+
+
+
+
+        //botao remover
+        FloatingActionButton del = (FloatingActionButton) findViewById(R.id.del);
+        del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String id = "aa - 745";
+                Intent intent = new Intent(getApplicationContext(), RegistoEntradasActivity.class);
+
+
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

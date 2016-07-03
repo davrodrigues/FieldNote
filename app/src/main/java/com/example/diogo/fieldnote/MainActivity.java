@@ -43,11 +43,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton estatistitcas = (ImageButton) findViewById(R.id.estatistitcas_botao);
-        estatistitcas.setOnClickListener(new View.OnClickListener() {
+        ImageButton estatisticas = (ImageButton) findViewById(R.id.estatisticas_botao);
+        estatisticas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Estatistitcas.class));
+                startActivity(new Intent(getApplicationContext(), Estatisticas.class));
             }
         });
 

@@ -12,4 +12,113 @@
     tools:context="com.example.diogo.fieldnote.RegistarNovaEntrada"
     tools:showIn="@layout/activity_registar_nova_entrada">
 
+    <TextView
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicione uma nova entrada"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:textSize="25dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/nome_prod"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:hint="nome do produto" />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submeter"
+        android:id="@+id/submeter"
+        android:layout_alignParentBottom="false"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/observações"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:textColor="@android:color/white" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fornecedor"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/nome_prod"
+        android:layout_below="@+id/nome_prod"
+        android:layout_marginTop="15dp"
+        android:hint="nome do fornecedor" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fabricante"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/fornecedor"
+        android:layout_below="@+id/fornecedor"
+        android:layout_marginTop="15dp"
+        android:hint="nome do fabricante" />
+
+    <EditText
+        android:inputType="date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/data_entrada"
+        android:hint="dd-mm-aaaa"
+        android:layout_alignBaseline="@+id/textView8"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_alignEnd="@+id/fabricante"
+        android:layout_toEndOf="@+id/textView8"
+        android:layout_marginLeft="10dp" />
+
+    <EditText
+        android:inputType="number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/quantidade"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/fabricante"
+        android:layout_below="@+id/textView8"
+        android:layout_marginTop="20dp"
+        android:hint="Quantidade" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Observações"
+        android:id="@+id/textView6"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/quantidade"
+        android:textSize="16dp"
+        android:textColor="#000000"
+        android:layout_marginLeft="4dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/observações"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/fabricante" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data:"
+        android:id="@+id/textView8"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:layout_below="@+id/fabricante"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="4dp" />
+
 </RelativeLayout>

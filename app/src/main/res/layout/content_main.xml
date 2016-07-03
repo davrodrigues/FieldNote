@@ -240,7 +240,7 @@
                 <ImageButton
                     android:layout_width="115dp"
                     android:layout_height="115dp"
-                    android:id="@+id/estatistitcas_botao"
+                    android:id="@+id/estatisticas_botao"
                     android:background="@drawable/stats2"
                     android:layout_weight="0"
                     android:layout_column="0"

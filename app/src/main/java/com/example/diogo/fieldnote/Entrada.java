@@ -5,7 +5,7 @@ public class Entrada {
     private String Produto;
     private String Fabricante;
     private String Fornecedor;
-    private int Quantidade;
+    private String Quantidade;
     private String Observações;
 
 
@@ -48,11 +48,11 @@ public class Entrada {
         Fornecedor = fornecedor;
     }
 
-    public int getQuantidade() {
+    public String getQuantidade() {
         return Quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(String quantidade) {
         Quantidade = quantidade;
     }
 
