@@ -12,7 +12,7 @@ public class Entrada {
     public Entrada(){}
 
     public Entrada(String data, String Produto ) {
-        this.Data = Data;
+        this.Data = data;
         this.Produto = Produto;
     }
 

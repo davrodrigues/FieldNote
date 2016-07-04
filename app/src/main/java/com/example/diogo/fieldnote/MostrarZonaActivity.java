@@ -1,12 +1,10 @@
 package com.example.diogo.fieldnote;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.SparseArray;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -15,14 +13,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class MostrarEntradaActivity extends AppCompatActivity {
+public class MostrarZonaActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mostrar_entrada);
+        setContentView(R.layout.activity_mostrar_zona);
 
         //toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -33,19 +31,19 @@ public class MostrarEntradaActivity extends AppCompatActivity {
 
 
         Intent myIntent = getIntent();
-        final String id = myIntent.getStringExtra("id");
+        final String id = myIntent.getStringExtra("id").toUpperCase();
 
 
-        getSupportActionBar().setTitle(id);
+        getSupportActionBar().setTitle("Zona: "+id);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Entrada ent = dataSnapshot.child("entradas").child(id).getValue(Entrada.class);
+                Zona zone = dataSnapshot.child("zonas").child(id).getValue(Zona.class);
 
-                TextView data = (TextView) findViewById(R.id.data_entry);
+               /* TextView data = (TextView) findViewById(R.id.data_entry);
                 data.setText(ent.getData());
 
                 TextView Produto = (TextView) findViewById(R.id.nome_produto);
@@ -62,7 +60,7 @@ public class MostrarEntradaActivity extends AppCompatActivity {
 
                 TextView Observacoes = (TextView) findViewById(R.id.obs);
                 Observacoes.setText(ent.getObservações());
-
+*/
 
             }
 
@@ -91,5 +89,4 @@ public class MostrarEntradaActivity extends AppCompatActivity {
         });
 
     }
-
 }

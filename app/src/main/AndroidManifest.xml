@@ -146,6 +146,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.diogo.fieldnote.MyFieldsActivity" />
         </activity>
+        <activity android:name=".RegistarNovaZona" />
+        <activity
+            android:name=".MostrarZonaActivity"
+            android:parentActivityName=".ZonasActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.ZonasActivity" />
+
+        </activity>
     </application>
 
 </manifest>

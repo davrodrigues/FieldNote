@@ -49,7 +49,7 @@ public class RegistoEntradasActivity extends AppCompatActivity {
 
         //firebase
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        // mDatabase.child(id).removeValue();
+        // mDatabase.child(id).removeValue(); TODO remover-me
         mDatabase.addChildEventListener(new ChildEventListener(){
 
 

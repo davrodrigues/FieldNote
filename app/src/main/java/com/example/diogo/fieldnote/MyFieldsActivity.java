@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.google.firebase.database.DatabaseReference;
+
 public class MyFieldsActivity extends AppCompatActivity {
 
     @Override
@@ -17,10 +19,13 @@ public class MyFieldsActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_my_fields);
 
+        //toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // botão voltar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
 
         ImageButton Zonas = (ImageButton) findViewById(R.id.zones_botao);
