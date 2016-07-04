@@ -56,18 +56,21 @@ public class RegistoEntradasActivity extends AppCompatActivity {
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
                 int i =0;
                 int x = ((int) dataSnapshot.child("entradas").getChildrenCount());
                 String[] datas = new String[x];
                 String[] produto = new String[x];
                 String[] cancelamentos = new String[x];
+                String[] vazia = new String[x];
 
                 for (DataSnapshot postSnapshot: dataSnapshot.child("entradas").getChildren()) {
                     Entrada ent = postSnapshot.getValue(Entrada.class);
                     datas[i] = ent.getData();
                     produto[i] = ent.getProduto();
-
-                i++;
+                    cancelamentos[i]=produto[i]+ " - "+datas[i];
+                    vazia[i]= "X";
+                     i++;
                 }
                 ListAdapter datasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, datas);
                 ListView datasView = (ListView) findViewById(R.id.datasView);
@@ -77,6 +80,9 @@ public class RegistoEntradasActivity extends AppCompatActivity {
                 ListView produtosView = (ListView) findViewById(R.id.produtosView);
                 produtosView.setAdapter(produtosAdapter);
 
+                ListAdapter removerAdapater = new ArrayAdapter<String>(getApplication(), R.layout.red_center_list, vazia);
+                ListView remover = (ListView) findViewById(R.id.remover);
+                remover.setAdapter(removerAdapater);
 
             }
 
@@ -107,6 +113,7 @@ public class RegistoEntradasActivity extends AppCompatActivity {
 
         final ListView datasView = (ListView) findViewById(R.id.datasView);
         final ListView produtosView = (ListView) findViewById(R.id.produtosView);
+        final ListView remover = (ListView) findViewById(R.id.remover);
 
         //Mostrar produto ao clicar numa linha da lista de Datas
        datasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -137,24 +144,26 @@ public class RegistoEntradasActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-        //botao remover
-        FloatingActionButton del = (FloatingActionButton) findViewById(R.id.del);
-        del.setOnClickListener(new View.OnClickListener() {
+        //botões de remoção
+        remover.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
 
-                String id = "aa - 745";
+                String obj1 = produtosView.getAdapter().getItem(position).toString();
+                String obj2 = datasView.getAdapter().getItem(position).toString();
+
+                mDatabase.child("FieldNote/entradas/"+obj1+" - "+obj2).removeValue();
+
+                Toast.makeText(getApplicationContext(),
+                        "Produto: "+obj1+" removido com sucesso.", Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent(getApplicationContext(), RegistoEntradasActivity.class);
 
 
                 startActivity(intent);
             }
         });
-
-
     }
 }
 

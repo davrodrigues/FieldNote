@@ -51,7 +51,6 @@
         </activity>
         <activity
             android:name=".MostrarEntradaActivity"
-
             android:parentActivityName=".RegistoEntradasActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -137,6 +136,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RegistoEntradasActivity" />
+        </activity>
+        <activity
+            android:name=".ZonasActivity"
+            android:label="@string/title_activity_zonas"
+            android:parentActivityName=".MyFieldsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.MyFieldsActivity" />
         </activity>
     </application>
 

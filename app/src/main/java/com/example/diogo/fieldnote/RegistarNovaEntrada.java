@@ -84,6 +84,9 @@ public class RegistarNovaEntrada extends AppCompatActivity {
 
                         childUpdates.put("FieldNote/entradas/" + nprod + " - " + data + "/", dados);
                         mDatabase.updateChildren(childUpdates);
+
+
+
                         startActivity(new Intent(getApplicationContext(), RegistoEntradasActivity.class));
 
                     }

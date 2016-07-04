@@ -57,6 +57,7 @@
     <string name="cronologia_estados">Cronologia de estados registados</string>
     <string name="registar_nova_observacao">Registar nova observação</string>
     <string name="title_activity_registar_nova_entrada">Adicionar Entrada</string>
+    <string name="title_activity_zonas">ZonasActivity</string>
 
 
 </resources>

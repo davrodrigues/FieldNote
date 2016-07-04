@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
 
     tools:context="com.example.diogo.fieldnote.RegistoEntradasActivity"
     tools:showIn="@layout/activity_registo_entradas"
@@ -48,7 +48,7 @@
             android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Produto"
+            android:text="Produto:"
             android:id="@+id/textView2"
             android:gravity="center"
             android:layout_alignParentEnd="true"
@@ -66,30 +66,25 @@
 
     <RelativeLayout
         android:orientation="horizontal"
+        android:layout_marginRight="10dp"
         android:layout_weight="40"
         android:layout_width="0dp"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:textSize="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="del"
-            android:id="@+id/textView3"
-            android:gravity="center"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true" />
+
 
         <ListView
-            android:gravity="center_horizontal"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/remover"
-            android:layout_below="@+id/textView3"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="37dp" />
 
     </RelativeLayout>
+
+
 
 
 </LinearLayout>
