@@ -3,9 +3,6 @@ package com.example.diogo.fieldnote;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -14,14 +11,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class MostrarEstadoActivity extends AppCompatActivity {
+public class MostrarCampanhaActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mostrar_estado);
+        setContentView(R.layout.activity_mostrar_campanha);
 
         Intent myIntent = getIntent();
         final String id = myIntent.getStringExtra("id");
@@ -31,14 +29,18 @@ public class MostrarEstadoActivity extends AppCompatActivity {
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                EstadoFenologico est = dataSnapshot.child("estados").child(id).getValue(EstadoFenologico.class);
-                TextView data = (TextView) findViewById(R.id.dataEstado);
-                data.setText(est.getData());
-                TextView estadoAtual = (TextView) findViewById(R.id.estadoAtual);
-                estadoAtual.setText(est.getEstado());
-                TextView parcelaEstado = (TextView) findViewById(R.id.parcelaEstado);
-                parcelaEstado.setText("Estado atual da parcela "
-                        + est.getParcela()+ " - " +est.getCampanha());
+                Campanha est = dataSnapshot.child("campanhas").child(id).getValue(Campanha.class);
+                TextView cult = (TextView) findViewById(R.id.CulturaText);
+                cult.setText(est.getCultura());
+                TextView parc = (TextView) findViewById(R.id.parcelaCult);
+                parc.setText(est.getParcela());
+                TextView dataPlant = (TextView) findViewById(R.id.dataPlant);
+                dataPlant.setText(est.getData_de_Plantacao());
+                TextView estadoPlant = (TextView) findViewById(R.id.estadoPlant);
+                EstadoFenologico estado = dataSnapshot.child("estados").
+                        child(id+ " - "+est.getCultura()).getValue(EstadoFenologico.class);
+                if(estado != null)
+                    estadoPlant.setText(estado.getEstado());
 
             }
 
@@ -63,17 +65,7 @@ public class MostrarEstadoActivity extends AppCompatActivity {
             }
 
 
+
         });
-
-
-        String[] estados = {"2 - exemplo", "1 - exemplo"};
-        ListAdapter estadosAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, estados);
-        ListView estadosView = (ListView) findViewById(R.id.estadosView);
-        estadosView.setAdapter(estadosAdapter);
-
-        String[] datas = {"11/09/2016", "21/08/2016"};
-        ListAdapter datasAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datas);
-        ListView datasView = (ListView) findViewById(R.id.datesView2);
-        datasView.setAdapter(datasAdapter);
     }
 }

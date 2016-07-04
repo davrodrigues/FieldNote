@@ -1,11 +1,13 @@
 package com.example.diogo.fieldnote;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageButton;
 
 public class MyFieldsActivity extends AppCompatActivity {
 
@@ -17,6 +19,14 @@ public class MyFieldsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        ImageButton campanhas = (ImageButton) findViewById(R.id.campaigns_botao);
+        campanhas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), CampanhasActivity.class));
+            }
+        });
     }
 
 }
