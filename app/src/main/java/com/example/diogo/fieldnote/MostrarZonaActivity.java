@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.SparseArray;
 import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -34,33 +33,33 @@ public class MostrarZonaActivity extends AppCompatActivity {
         final String id = myIntent.getStringExtra("id").toUpperCase();
 
 
-        getSupportActionBar().setTitle("Zona: "+id);
+        getSupportActionBar().setTitle("  Zona  "+id);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Zona zone = dataSnapshot.child("zonas").child(id).getValue(Zona.class);
+                Zona zone = dataSnapshot.child("exemplo_zona").child(id).getValue(Zona.class);
 
-               /* TextView data = (TextView) findViewById(R.id.data_entry);
-                data.setText(ent.getData());
+                TextView nzona = (TextView) findViewById(R.id.nome_zona);
+                nzona.setText(zone.getNomezona());
 
-                TextView Produto = (TextView) findViewById(R.id.nome_produto);
-                Produto.setText(ent.getProduto());
+                TextView area = (TextView) findViewById(R.id.mostrar_area);
+                area.setText(zone.getArea());
 
-                TextView Fornecedor = (TextView) findViewById(R.id.forn);
-                Fornecedor.setText(ent.getFornecedor());
+                TextView fitossanidade = (TextView) findViewById(R.id.mostrar_fito);
+                fitossanidade.setText(zone.getFitossanidade());
 
-                TextView Fabricante = (TextView) findViewById(R.id.fabr);
-                Fabricante.setText(ent.getFabricante());
+                TextView localizacao = (TextView) findViewById(R.id.mostrar_local);
+                localizacao.setText(zone.getLocalização());
 
-                TextView Quantidade = (TextView) findViewById(R.id.qx);
-                Quantidade.setText(""+ent.getQuantidade());
+                TextView modo_producao = (TextView) findViewById(R.id.mostrar_producao);
+                modo_producao.setText(zone.getModoprodução());
 
-                TextView Observacoes = (TextView) findViewById(R.id.obs);
-                Observacoes.setText(ent.getObservações());
-*/
+                TextView solo = (TextView) findViewById(R.id.mostrar_solo);
+                solo.setText(zone.getSolo());
+
 
             }
 

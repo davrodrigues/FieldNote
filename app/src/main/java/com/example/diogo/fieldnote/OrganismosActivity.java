@@ -47,10 +47,10 @@ public class OrganismosActivity extends AppCompatActivity {
                     datas[i] = est.getData();
                     parcelas[i++] = est.getParcela();
                 }
-                ListAdapter datasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, datas);
+                ListAdapter datasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, datas);
                 ListView datasView = (ListView) findViewById(R.id.datesView);
                 datasView.setAdapter(datasAdapter);
-                ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, parcelas);
+                ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, parcelas);
                 ListView parcelasView = (ListView) findViewById(R.id.parcelasView);
                 parcelasView.setAdapter(parcelasAdapter);
             }
@@ -101,6 +101,20 @@ public class OrganismosActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        parcelasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+
+                Intent intent = new Intent(getApplicationContext(), MostrarOrganismoActivity.class);
+                Object obj = datesView.getAdapter().getItem(position);
+                Object obj2 = parcelasView.getAdapter().getItem(position);
+                intent.putExtra("id", obj2.toString() + " - " + obj.toString() );
+                startActivity(intent);
+            }
+        });
+
     }
 
 }

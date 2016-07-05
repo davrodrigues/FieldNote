@@ -51,31 +51,38 @@ public class ZonasActivity extends AppCompatActivity {
 
         mDatabase.addChildEventListener(new ChildEventListener(){
 
-
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
                 int i =0;
-                int x = ((int) dataSnapshot.child("zonas").getChildrenCount());
+                int x = ((int) dataSnapshot.child("exemplo_zona").getChildrenCount());
                 String[] nzona = new String[x];
-                String[] campanha = new String[x];
+                String[] area = new String[x];
+                String[] nparcelas = new String[x];
 
-                for (DataSnapshot postSnapshot: dataSnapshot.child("zonas").getChildren()) {
+                for (DataSnapshot postSnapshot: dataSnapshot.child("exemplo_zona").getChildren()) {
                     Zona zone = postSnapshot.getValue(Zona.class);
 
                     nzona[i]=zone.getNomezona();
-                    campanha[i] = zone.getCampanha();
-
+                    area[i] = zone.getArea();
+                    nparcelas[i] = String.valueOf(postSnapshot.getChildrenCount());
                     i++;
                 }
+
+                //lista de zonas
                 ListAdapter zonasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, nzona);
                 ListView zonasView = (ListView) findViewById(R.id.zonasView);
                 zonasView.setAdapter(zonasAdapter);
 
-                ListAdapter campanhaAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, campanha);
-                ListView campanhaView = (ListView) findViewById(R.id.campanhaView);
-                campanhaView.setAdapter(campanhaAdapter);
+                //area
+                ListAdapter areaAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, area);
+                ListView areaView = (ListView) findViewById(R.id.areaView);
+                areaView.setAdapter(areaAdapter);
 
+                //numero parcelas
+                ListAdapter nparcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, nparcelas);
+                ListView nparcelasView = (ListView) findViewById(R.id.nparcelasView);
+                nparcelasView.setAdapter(nparcelasAdapter);
 
             }
 
@@ -99,15 +106,11 @@ public class ZonasActivity extends AppCompatActivity {
                 System.out.println("The read failed");
             }
 
-
-
         });
 
-
-
         final ListView zonasView = (ListView) findViewById(R.id.zonasView);
-        final ListView campanhaView = (ListView) findViewById(R.id.campanhaView);
-
+        final ListView areaView = (ListView) findViewById(R.id.areaView);
+        final ListView nparcelasView = (ListView) findViewById(R.id.nparcelasView);
 
         //Mostrar produto ao clicar numa linha da lista de Datas
         zonasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -123,9 +126,8 @@ public class ZonasActivity extends AppCompatActivity {
             }
         });
 
-
         //Mostrar produto ao clicar numa linha da lista de Produtos
-        campanhaView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        areaView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
@@ -138,6 +140,18 @@ public class ZonasActivity extends AppCompatActivity {
             }
         });
 
-    }
+        //Mostrar produto ao clicar numa linha da lista de Produtos
+        nparcelasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
 
+                Intent intent = new Intent(getApplicationContext(), MostrarZonaActivity.class);
+                Object obj = zonasView.getAdapter().getItem(position);
+
+                intent.putExtra("id", obj.toString() );
+                startActivity(intent);
+            }
+        });
+    }
 }

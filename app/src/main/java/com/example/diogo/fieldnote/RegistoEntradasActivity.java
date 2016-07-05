@@ -157,11 +157,8 @@ public class RegistoEntradasActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(),
                         "Produto: "+obj1+" removido com sucesso.", Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(getApplicationContext(), RegistoEntradasActivity.class);
-
-
-                startActivity(intent);
+                //refresh
+                recreate();
             }
         });
     }
