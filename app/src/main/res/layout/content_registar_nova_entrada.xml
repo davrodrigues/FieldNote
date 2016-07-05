@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,115 +11,147 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.diogo.fieldnote.RegistarNovaEntrada"
-    tools:showIn="@layout/activity_registar_nova_entrada">
+    tools:showIn="@layout/activity_registar_nova_entrada"
+    >
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Adicione uma nova entrada"
-        android:id="@+id/textView3"
-        android:layout_alignParentTop="true"
-        android:textSize="25dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicione uma nova entrada"
+            android:id="@+id/textView3"
+            android:layout_alignParentTop="true"
+            android:textSize="25dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" />
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data:"
+                android:id="@+id/textView8"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="10dp"
+                />
+            <EditText
+                android:ems="7"
+                android:inputType="date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/data_entrada"
+                android:hint="dd-mm-aaaa"
+                android:gravity="center"
+                android:layout_below="@+id/fabricante"
+                android:layout_centerHorizontal="true" />
+        </LinearLayout>
 
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/nome_prod"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
-        android:hint="nome do produto" />
+        <EditText
+                        android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/nome_prod"
+            android:hint="nome do produto"
+            android:gravity="center"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submeter"
-        android:id="@+id/submeter"
-        android:layout_alignParentBottom="false"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/observações"
-        android:backgroundTint="@android:color/holo_green_dark"
-        android:textColor="@android:color/white" />
+        <EditText
+            android:ems="10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fornecedor"
+            android:layout_alignParentStart="true"
+            android:hint="nome do fornecedor"
+            android:gravity="center"
+            android:layout_below="@+id/nome_prod"
+            android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/fornecedor"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/nome_prod"
-        android:layout_below="@+id/nome_prod"
-        android:layout_marginTop="15dp"
-        android:hint="nome do fornecedor" />
+        <EditText
+            android:ems="10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fabricante"
+            android:layout_alignParentStart="true"
+            android:hint="nome do fabricante"
+            android:gravity="center"
+            android:layout_below="@+id/fornecedor"
+            android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/fabricante"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/fornecedor"
-        android:layout_below="@+id/fornecedor"
-        android:layout_marginTop="15dp"
-        android:hint="nome do fabricante" />
 
-    <EditText
-        android:inputType="date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/data_entrada"
-        android:hint="dd-mm-aaaa"
-        android:layout_alignBaseline="@+id/textView8"
-        android:layout_alignBottom="@+id/textView8"
-        android:layout_alignEnd="@+id/fabricante"
-        android:layout_toEndOf="@+id/textView8"
-        android:layout_marginLeft="10dp" />
 
-    <EditText
-        android:inputType="number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/quantidade"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/fabricante"
-        android:layout_below="@+id/textView8"
-        android:layout_marginTop="20dp"
-        android:hint="Quantidade" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Observações"
-        android:id="@+id/textView6"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/quantidade"
-        android:textSize="16dp"
-        android:textColor="#000000"
-        android:layout_marginLeft="4dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quantidade:"
+                android:id="@+id/textView18"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="10dp"
+                />
+            <EditText
+                android:ems="5"
+                android:inputType="number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/quantidade"
+                android:layout_alignParentStart="true"
+                android:hint="valor"
+                android:gravity="center"
+                android:layout_below="@+id/textView8"
+                android:layout_centerHorizontal="true" />
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:textSize="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Observações:"
+            android:id="@+id/textView6"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/observações"
-        android:layout_below="@+id/textView6"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/fabricante" />
+        <EditText
+            android:lines="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/observações"
+            android:layout_alignParentStart="true"
+            android:hint="adicione alguma informação"
+            android:gravity="center"
+            android:layout_below="@+id/textView6"
+            android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Data:"
-        android:id="@+id/textView8"
-        android:textColor="#000000"
-        android:textSize="16dp"
-        android:layout_below="@+id/fabricante"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="4dp" />
+        <Button
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submeter"
+            android:id="@+id/submeter"
+            android:background="@color/colorAccent"
+            android:textColor="@android:color/white"
+            android:layout_below="@+id/observações"
+            android:layout_centerHorizontal="true" />
 
-</RelativeLayout>
+    </LinearLayout>
+</ScrollView>

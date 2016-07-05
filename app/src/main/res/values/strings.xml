@@ -56,8 +56,9 @@
     <string name="estado_fenologico_atual">Estado fenológico atual</string>
     <string name="cronologia_estados">Cronologia de estados registados</string>
     <string name="registar_nova_observacao">Registar nova observação</string>
-    <string name="title_activity_registar_nova_entrada">Adicionar Entrada</string>
+    <string name="title_activity_registar_nova_entrada">Nova Entrada</string>
     <string name="title_activity_zonas">As Minhas Zonas</string>
     <string name="registar_nova_zonas">Adicionar Nova Zona</string>
+    <string name="title_activity_parcelas">As Minhas Parcelas</string>
 
 </resources>

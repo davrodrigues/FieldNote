@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.diogo.fieldnote.RegistarNovaZona"
+    tools:showIn="@layout/activity_registar_nova_zona"
+    >
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adicione uma nova zona"
+            android:id="@+id/textView3"
+            android:textSize="25dp"
+             />
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:inputType="date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/z_nome"
+                android:hint="nome da zona"
+                android:gravity="center"
+                 />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/z_local"
+            android:hint="localização"
+            android:gravity="center"
+             />
+
+        <EditText
+            android:ems="10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/z_modo"
+            android:hint="modo de produção"
+            android:gravity="center"
+             />
+
+        <EditText
+            android:ems="10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/z_solo"
+            android:hint="textura do solo"
+            android:gravity="center"
+            />
+        <EditText
+            android:ems="10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/z_fito"
+            android:hint="fitossanidade"
+            android:gravity="center"
+            />
+
+
+        <Button
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submeter"
+            android:id="@+id/zsubmeter"
+            android:background="@color/colorAccent"
+            android:textColor="@android:color/white"
+            android:layout_below="@+id/observações"
+           />
+
+    </LinearLayout>
+</ScrollView>

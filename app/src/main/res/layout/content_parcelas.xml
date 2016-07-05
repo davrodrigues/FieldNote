@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="?attr/actionBarSize"
+
+    tools:context="com.example.diogo.fieldnote.ParcelasActivity"
+    tools:showIn="@layout/activity_parcelas"
+    android:weightSum="100"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_weight="50"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <TextView
+
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data:"
+            android:id="@+id/textView"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+
+        <ListView
+
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/datasView"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_weight="50"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parcela:"
+            android:id="@+id/textView2"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+
+        <ListView
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/parcsView"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

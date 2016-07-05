@@ -23,12 +23,13 @@
         android:id="@+id/scrollView3" >
 
         <RelativeLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:id="@+id/meus_campos_botao"
                 android:contentDescription="@string/my_fields"
                 android:layout_centerHorizontal="true"
@@ -46,8 +47,8 @@
                 />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:id="@+id/registo_entradas_botao"
                 android:background="@drawable/sacos"
                 android:layout_centerHorizontal="true"
@@ -66,8 +67,8 @@
                 android:layout_centerHorizontal="true" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:background="@drawable/joaninha"
                 android:id="@+id/observacoes_organismos_botao"
                 android:layout_below="@+id/registo_entradas"
@@ -95,13 +96,14 @@
         android:id="@+id/scrollView2" >
 
         <RelativeLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:id="@+id/intervencoes_tecnicas_botao"
                 android:background="@drawable/intervencao2"
                 android:layout_alignParentTop="true"
@@ -119,8 +121,8 @@
                 android:layout_centerHorizontal="true" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:id="@+id/registo_estados_fenologicos_botao"
                 android:background="@drawable/plantinha"
                 android:layout_below="@+id/intervencoes_tecnicas"
@@ -138,8 +140,8 @@
                 android:layout_centerHorizontal="true" />
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:id="@+id/estatisticas_botao"
                 android:background="@drawable/stats2"
                 android:layout_below="@+id/registar_estado_fenologico"

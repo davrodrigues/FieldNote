@@ -86,7 +86,7 @@ public class RegistarNovaEntrada extends AppCompatActivity {
                         mDatabase.updateChildren(childUpdates);
 
 
-
+                        finish();
                         startActivity(new Intent(getApplicationContext(), RegistoEntradasActivity.class));
 
                     }

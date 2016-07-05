@@ -146,7 +146,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.diogo.fieldnote.MyFieldsActivity" />
         </activity>
-        <activity android:name=".RegistarNovaZona" />
+        <activity android:name=".RegistarNovaZona"
+            android:label="@string/registar_nova_zonas"
+            android:parentActivityName=".ZonasActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ZonasActivity" />
+
+        </activity>
+
+
+
         <activity
             android:name=".MostrarZonaActivity"
             android:parentActivityName=".ZonasActivity"
@@ -154,7 +165,23 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.diogo.fieldnote.ZonasActivity" />
-
+        </activity>
+        <activity
+            android:name=".ParcelasActivity"
+            android:label="@string/title_activity_parcelas"
+            android:parentActivityName=".MyFieldsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.MyFieldsActivity" />
+        </activity>
+        <activity
+            android:name=".MostrarParcelaActivity"
+            android:parentActivityName=".ParcelasActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.ParcelasActivity" />
         </activity>
     </application>
 

@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -40,8 +43,8 @@ public class MostrarZonaActivity extends AppCompatActivity {
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Zona zone = dataSnapshot.child("exemplo_zona").child(id).getValue(Zona.class);
-
+             //   Zona zonb = dataSnapshot.child("zonas").child(id).getValue(Zona.class);
+                Zona zone = dataSnapshot.child("zonas/"+id).getValue(Zona.class);
                 TextView nzona = (TextView) findViewById(R.id.nome_zona);
                 nzona.setText(zone.getNomezona());
 
@@ -60,6 +63,26 @@ public class MostrarZonaActivity extends AppCompatActivity {
                 TextView solo = (TextView) findViewById(R.id.mostrar_solo);
                 solo.setText(zone.getSolo());
 
+                int x = ((int) dataSnapshot.child("zonas/"+id+"/parcelas").getChildrenCount());
+                String[] nparcelas = new String[x];
+                String[] culturas = new String[x];
+                int i =0;
+
+                for (DataSnapshot postSnapshot: dataSnapshot.child("zonas/"+id+"/parcelas").getChildren()) {
+                    nparcelas[i]=postSnapshot.getKey().toString();
+                    culturas[i] =postSnapshot.getValue().toString();
+                    i++;
+                }
+
+                // parcelas
+                ListAdapter parcelsAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, nparcelas);
+                ListView parcelsViews = (ListView) findViewById(R.id.parcelsView);
+                parcelsViews.setAdapter(parcelsAdapter);
+
+                // culturas
+                ListAdapter culturasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, culturas);
+                ListView campViews = (ListView) findViewById(R.id.campView);
+                campViews.setAdapter(culturasAdapter);
 
             }
 

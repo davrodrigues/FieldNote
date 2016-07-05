@@ -55,17 +55,17 @@ public class ZonasActivity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
                 int i =0;
-                int x = ((int) dataSnapshot.child("exemplo_zona").getChildrenCount());
+                int x = ((int) dataSnapshot.child("zonas").getChildrenCount());
                 String[] nzona = new String[x];
                 String[] area = new String[x];
                 String[] nparcelas = new String[x];
 
-                for (DataSnapshot postSnapshot: dataSnapshot.child("exemplo_zona").getChildren()) {
+                for (DataSnapshot postSnapshot: dataSnapshot.child("zonas").getChildren()) {
                     Zona zone = postSnapshot.getValue(Zona.class);
 
                     nzona[i]=zone.getNomezona();
                     area[i] = zone.getArea();
-                    nparcelas[i] = String.valueOf(postSnapshot.getChildrenCount());
+                    nparcelas[i] = String.valueOf(postSnapshot.child("parcelas").getChildrenCount());
                     i++;
                 }
 

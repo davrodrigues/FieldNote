@@ -27,12 +27,21 @@ public class MyFieldsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-
+        //botão zonas
         ImageButton Zonas = (ImageButton) findViewById(R.id.zones_botao);
         Zonas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), ZonasActivity.class));
+            }
+        });
+
+        //botão parcelas
+        ImageButton Parcelas = (ImageButton) findViewById(R.id.parcelas_botao);
+        Parcelas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ParcelasActivity.class));
             }
         });
 

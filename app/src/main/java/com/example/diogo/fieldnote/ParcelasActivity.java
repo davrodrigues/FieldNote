@@ -1,6 +1,5 @@
 package com.example.diogo.fieldnote;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -20,70 +19,52 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+public class ParcelasActivity extends AppCompatActivity {
 
-public class RegistoEntradasActivity extends AppCompatActivity {
     //db
     private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registo_entradas);
+        setContentView(R.layout.activity_parcelas);
+
         //toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // botão voltar
+        //home
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        //botao adicionar
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-                startActivity(new Intent(getApplicationContext(), RegistarNovaEntrada.class));
-            }
-        });
 
         //firebase
         mDatabase = FirebaseDatabase.getInstance().getReference();
         // mDatabase.child(id).removeValue(); TODO remover-me
         mDatabase.addChildEventListener(new ChildEventListener(){
 
-
-
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
                 int i =0;
-                int x = ((int) dataSnapshot.child("entradas").getChildrenCount());
+                int x = ((int) dataSnapshot.child("parcelas").getChildrenCount());
                 String[] datas = new String[x];
-                String[] produto = new String[x];
-                String[] cancelamentos = new String[x];
-                String[] vazia = new String[x];
+                String[] nome_parcelas = new String[x];
 
-                for (DataSnapshot postSnapshot: dataSnapshot.child("entradas").getChildren()) {
-                    Entrada ent = postSnapshot.getValue(Entrada.class);
-                    datas[i] = ent.getData();
-                    produto[i] = ent.getProduto();
-                    cancelamentos[i]=produto[i]+ " - "+datas[i];
-                    vazia[i]= "X";
-                     i++;
+
+                for (DataSnapshot postSnapshot: dataSnapshot.child("parcelas").getChildren()) {
+                    Parcela parc = postSnapshot.getValue(Parcela.class);
+                    datas[i] = parc.getData_plantação();
+                    nome_parcelas[i] = postSnapshot.getKey();
+                    i++;
                 }
                 ListAdapter datasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, datas);
                 ListView datasView = (ListView) findViewById(R.id.datasView);
                 datasView.setAdapter(datasAdapter);
 
-                ListAdapter produtosAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, produto);
-                ListView produtosView = (ListView) findViewById(R.id.produtosView);
-                produtosView.setAdapter(produtosAdapter);
+                ListAdapter parcsAdapater = new ArrayAdapter<String>(getApplication(), R.layout.center_list, nome_parcelas);
+                ListView parcsView = (ListView) findViewById(R.id.parcsView);
+                parcsView.setAdapter(parcsAdapater);
 
-                ListAdapter removerAdapater = new ArrayAdapter<String>(getApplication(), R.layout.red_center_list, vazia);
-                ListView remover = (ListView) findViewById(R.id.remover);
-                remover.setAdapter(removerAdapater);
+
 
             }
 
@@ -112,25 +93,28 @@ public class RegistoEntradasActivity extends AppCompatActivity {
         });
 
 
+
+
+
         final ListView datasView = (ListView) findViewById(R.id.datasView);
-        final ListView produtosView = (ListView) findViewById(R.id.produtosView);
-        final ListView remover = (ListView) findViewById(R.id.remover);
+        final ListView parcsView = (ListView) findViewById(R.id.parcsView);
+
 
         //Mostrar produto ao clicar numa linha da lista de Datas
-       datasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        datasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
 
-                Intent intent = new Intent(getApplicationContext(), MostrarEntradaActivity.class);
-                Object obj = datasView.getAdapter().getItem(position);
-                Object obj2 = produtosView.getAdapter().getItem(position);
-                intent.putExtra("id", obj2.toString() + " - " + obj.toString() );
+                Intent intent = new Intent(getApplicationContext(), MostrarParcelaActivity.class);
+
+                Object obj = parcsView.getAdapter().getItem(position);
+                intent.putExtra("id", obj.toString());
                 startActivity(intent);
             }
         });
 
-
+        /*
         //Mostrar produto ao clicar numa linha da lista de Produtos
         produtosView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -166,7 +150,8 @@ public class RegistoEntradasActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    */
+
     }
+
 }
-
-
