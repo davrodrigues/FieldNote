@@ -12,7 +12,36 @@
 
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_registar_intervencao_tecnica">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView2">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+    <!--Zona-->
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zona:"
+        android:id="@+id/textView2"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_zone"
+        android:spinnerMode="dropdown"
+        android:keepScreenOn="false"
+        android:layout_marginRight="200dp"
+        android:layout_toEndOf="@+id/textView2" />
+
+    <!--Data-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,6 +63,9 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="10dp" />
 
+
+    <!--Justificação-->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,41 +76,424 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp" />
 
-    <ListView
+    <TextView
+        android:id="@+id/Motivo0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/pragasView"
+        android:text="Motivo:"
+        android:ems="10"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
         android:layout_below="@+id/textView11"
-        android:layout_alignParentStart="true" />
+        />
+    <EditText
+        android:id="@+id/edit1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_below="@id/textView11"
+        android:layout_marginStart="170dp"
+        />
 
-    <android.support.design.widget.FloatingActionButton
+    <TextView
+        android:id="@+id/Quantificacao1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/view"
-        android:layout_below="@+id/pragasView"
-        android:layout_centerHorizontal="true"
-        app:backgroundTint="@android:color/holo_green_dark"
-        android:src="@android:drawable/ic_input_add" />
+        android:text="Quantificação:"
+        android:ems="10"
+        android:layout_marginTop="40dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/edit1"
+        />
+    <EditText
+        android:id="@+id/edit2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/edit1"
+        android:layout_marginStart="170dp"
+        />
+
+
+    <!--Estimativa-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zona:"
-        android:id="@+id/textView2"
+        android:text="@string/Estimativa"
+        android:id="@+id/Estimativa"
         android:textSize="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
-
-    <Spinner
-
+        android:layout_below="@+id/edit2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        />
+    <TextView
+        android:id="@+id/praga"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner_zone"
-        android:spinnerMode="dropdown"
-        android:keepScreenOn="false"
-        android:layout_above="@+id/textView"
-        android:layout_alignEnd="@+id/dataObs"
-        android:layout_toEndOf="@+id/textView2" />
+        android:text="Praga, Doença
+Fauna Auxiliar:"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/Estimativa"
+        />
+    <EditText
+        android:id="@+id/edit3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/Estimativa"
+        android:layout_marginStart="170dp"
+        />
+
+    <TextView
+        android:id="@+id/Quantificacao2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantificação Arma-
+dilhas Contagens, Obs Aux.:"
+        android:ems="10"
+        android:layout_marginTop="40dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/edit3"
+        />
+    <EditText
+        android:id="@+id/edit4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/edit3"
+        android:layout_marginStart="170dp"
+        />
+
+    <!--Oper. Cultural Cont.Infaestantes-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Cultural"
+        android:id="@+id/Cultural"
+        android:textSize="20dp"
+        android:layout_below="@+id/edit4"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        />
+    <TextView
+        android:id="@+id/tipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo Intervenção,Controlo
+Infestantes, Sementeira
+Plantação:"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/Cultural"
+        />
+
+    <EditText
+        android:id="@+id/edit5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/Cultural"
+        android:layout_marginStart="170dp"
+        />
+
+    <TextView
+        android:id="@+id/Equipamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Equipamento Herbicida
+Quantificação:"
+        android:ems="10"
+        android:layout_marginTop="40dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/edit5"
+        />
+    <EditText
+        android:id="@+id/edit6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/edit5"
+        android:layout_marginStart="170dp"
+        />
+
+    <!--Irrigação Fertirrigação-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Irrigacao"
+        android:id="@+id/Irrigacao"
+        android:textSize="20dp"
+        android:layout_below="@+id/edit6"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        />
+    <TextView
+        android:id="@+id/Debito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Débito/dia, Dotação Rega:"
+        android:ems="10"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/Irrigacao"
+        />
+    <EditText
+        android:id="@+id/edit7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_below="@id/Irrigacao"
+        android:layout_marginStart="170dp"
+        />
+
+    <TextView
+        android:id="@+id/Fertilizante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Equipamento Herbicida Quantificação:"
+        android:ems="10"
+        android:layout_marginTop="40dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/edit7"
+        />
+    <EditText
+        android:id="@+id/edit8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/edit7"
+        android:layout_marginStart="170dp"
+        />
+
+    <!--Fertilização-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Fertilização"
+        android:id="@+id/fertilizacao"
+        android:textSize="20dp"
+        android:layout_below="@+id/edit8"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        />
+    <TextView
+        android:id="@+id/Adubo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adubo verde, Matéria orgânica, Produto comercial:"
+        android:ems="10"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/fertilizacao"
+        />
+    <EditText
+        android:id="@+id/edit9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_below="@id/fertilizacao"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="30dp"
+        />
+
+    <TextView
+        android:id="@+id/Especies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantificação:"
+        android:ems="10"
+        android:layout_marginTop="40dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/edit9"
+        />
+    <EditText
+        android:id="@+id/edit10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/edit9"
+        android:layout_marginStart="170dp"
+        />
+
+    <!--Tratamento Fitossanitario-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Tratamento"
+        android:id="@+id/Tratamento"
+        android:textSize="20dp"
+        android:layout_below="@+id/edit10"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        />
+    <TextView
+        android:id="@+id/Meio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Meio de luta, Produto comercial:"
+        android:ems="10"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/Tratamento"
+        />
+
+    <EditText
+        android:id="@+id/edit11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/Tratamento"
+        android:layout_marginStart="170dp"
+        />
+
+    <TextView
+        android:id="@+id/Quantificacao3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantificação:"
+        android:ems="10"
+        android:layout_marginTop="40dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/edit11"
+        />
+
+    <EditText
+        android:id="@+id/edit12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/edit11"
+        android:layout_marginStart="170dp"
+        />
+
+
+    <!--Producao Vendas-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Vendas"
+        android:id="@+id/Vendas"
+        android:textSize="20dp"
+        android:layout_below="@+id/edit12"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        />
+    <TextView
+        android:id="@+id/Colheita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Colheita, Designação do produto, Tipo de embalagem:"
+        android:ems="10"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/Vendas"
+        />
+    <EditText
+        android:id="@+id/edit13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/Vendas"
+        android:layout_marginStart="170dp"
+        />
+
+    <TextView
+        android:id="@+id/Quantificacao4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantificação, Lote nº/ Destino:"
+        android:ems="10"
+        android:layout_marginTop="40dp"
+        android:textSize="15dp"
+        android:layout_below="@+id/edit13"
+        />
+
+    <EditText
+        android:id="@+id/edit14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/edit13"
+        android:layout_marginStart="170dp"
+        />
+
+    <!--Visitas e intervenientes-->
+    <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="@string/Visitas"
+         android:id="@+id/Visitas"
+         android:textSize="20dp"
+         android:layout_below="@+id/edit14"
+         android:layout_alignParentStart="true"
+         android:layout_marginTop="15dp"
+    />
+
+    <TextView
+         android:id="@+id/Operador"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Operador/Apl.técnico/AT/OC:"
+         android:ems="10"
+         android:layout_marginTop="20dp"
+         android:textSize="15dp"
+         android:layout_below="@+id/Visitas"
+     />
+    <EditText
+          android:id="@+id/edit15"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:layout_marginTop="10dp"
+          android:layout_below="@id/Visitas"
+          android:layout_marginStart="170dp"
+     />
+
+            <TextView
+                android:id="@+id/Area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Área de Trabalho(ha)/Nº de Horas:"
+                android:ems="10"
+                android:layout_marginTop="20dp"
+                android:textSize="15dp"
+                android:layout_below="@+id/edit15"
+                />
+
+    <EditText
+          android:id="@+id/edit16"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:ems="10"
+          android:layout_marginTop="20dp"
+          android:layout_below="@id/edit15"
+          android:layout_marginStart="170dp"
+                />
+    <!--Botão-->
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/view"
+        android:layout_below="@id/edit16"
+        android:layout_centerHorizontal="true"
+        app:backgroundTint="@android:color/holo_green_dark"
+        android:src="@android:drawable/ic_input_add" />
+    </RelativeLayout>
+   </ScrollView>
+
 
 </RelativeLayout>
-
