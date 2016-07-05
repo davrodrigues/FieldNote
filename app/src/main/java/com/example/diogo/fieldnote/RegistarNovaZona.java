@@ -37,8 +37,6 @@ public class RegistarNovaZona extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         Button submeter = (Button) findViewById(R.id.zsubmeter);
-
-
         submeter.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -48,43 +46,44 @@ public class RegistarNovaZona extends AppCompatActivity {
                         Map<String, Object> dados = new HashMap<String, Object>();
 
                         //nome da zona
-                        TextView znome = (TextView)findViewById(R.id.z_nome);
-                        String nome_z = znome.getText().toString();
+                        EditText nome = (EditText)findViewById(R.id.z_nome);
+                        String znome = nome.getText().toString();
 
                         //localidade
                         EditText localidade = (EditText)findViewById(R.id.z_local) ;
                         String loca = localidade.getText().toString();
+                        loca = loca.isEmpty()==true?"empty":loca;
 
                         //modo de producao
-                        EditText nome_fornecedor = (EditText)findViewById(R.id.z_modo) ;
-                        String nforn =nome_fornecedor.getText().toString();
-                        nforn= nforn.isEmpty()==true?"empty":nforn;
+                        EditText modo = (EditText)findViewById(R.id.z_modo) ;
+                        String zmodo =modo.getText().toString();
+                        zmodo= zmodo.isEmpty()==true?"empty":zmodo;
 
                         //textura do solo
-                        EditText nome_fabricante = (EditText)findViewById(R.id.z_solo) ;
-                        String nfabr = nome_fabricante.getText().toString();
-                        nfabr = nfabr.isEmpty()==true?"empty":nfabr;
+                        EditText solo = (EditText)findViewById(R.id.z_solo) ;
+                        String zsolo = solo.getText().toString();
+                        zsolo = zsolo.isEmpty()==true?"empty":zsolo;
 
                         //fitossanidade
-                        EditText quantidade = (EditText)findViewById(R.id.z_fito) ;
-                        String quant =  quantidade.getText().toString();
-                        quant = quant.isEmpty()==true?"0":quant;
+                        EditText fito = (EditText)findViewById(R.id.z_fito) ;
+                        String zfito =  fito.getText().toString();
+                        zfito = zfito.isEmpty()==true?"empty":zfito;
 
-/*
 
-                        dados.put("nomezona", nome_z);
-                        dados.put("fabricante", nfabr);
-                        dados.put("fornecedor", nforn);
-                        dados.put("observações", obs);
+
+                        dados.put("nomezona", znome);
                         dados.put("localização", loca);
-                        dados.put("quantidade", quant);
-*/
-                        childUpdates.put("FieldNote/entradas/" + loca + " - " + nome_z + "/", dados);
+                        dados.put("modoprodução", zmodo);
+                        dados.put("solo", zsolo);
+                        dados.put("fitossanidade", zfito);
+
+
+                        childUpdates.put("FieldNote/zonas/" + znome + "/", dados);
                         mDatabase.updateChildren(childUpdates);
 
 
                         finish();
-                        startActivity(new Intent(getApplicationContext(), RegistoEntradasActivity.class));
+                        startActivity(new Intent(getApplicationContext(), ZonasActivity.class));
 
                     }
 

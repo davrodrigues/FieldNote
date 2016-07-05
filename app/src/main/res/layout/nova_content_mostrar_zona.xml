@@ -8,12 +8,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:layout_marginBottom="50dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.diogo.fieldnote.MostrarZonaActivity"
     tools:showIn="@layout/activity_mostrar_zona">
 
     <ScrollView
-
 
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,10 +21,13 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+
+        android:id="@+id/ll">
 
 
         <RelativeLayout
+
             android:padding="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -61,7 +64,7 @@
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Área"
+                android:text="Vazio"
                 android:id="@+id/textView2"
 
                 android:textColor="#000000"
@@ -179,11 +182,9 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:padding="10dp"
+            android:padding="15dp"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_marginTop="15dp"
-           >
+            android:layout_height="400dp">
 
             <TextView
                 android:ems="6"
@@ -228,6 +229,8 @@
 
                 android:layout_toEndOf="@+id/parcelsView"
                 android:layout_below="@+id/textView22" />
+
+
         </RelativeLayout>
 
 

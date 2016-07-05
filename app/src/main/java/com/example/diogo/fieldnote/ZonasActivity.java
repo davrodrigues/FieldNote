@@ -41,6 +41,7 @@ public class ZonasActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
                 startActivity(new Intent(getApplicationContext(), RegistarNovaZona.class));
             }
         });
@@ -57,15 +58,16 @@ public class ZonasActivity extends AppCompatActivity {
                 int i =0;
                 int x = ((int) dataSnapshot.child("zonas").getChildrenCount());
                 String[] nzona = new String[x];
-                String[] area = new String[x];
+                String[] local = new String[x];
                 String[] nparcelas = new String[x];
 
                 for (DataSnapshot postSnapshot: dataSnapshot.child("zonas").getChildren()) {
                     Zona zone = postSnapshot.getValue(Zona.class);
 
                     nzona[i]=zone.getNomezona();
-                    area[i] = zone.getArea();
+                    local[i] = zone.getLocalização();
                     nparcelas[i] = String.valueOf(postSnapshot.child("parcelas").getChildrenCount());
+                   // System.out.println("conteudo de nparcelas["+i+"]="+nparcelas[i]);
                     i++;
                 }
 
@@ -74,10 +76,12 @@ public class ZonasActivity extends AppCompatActivity {
                 ListView zonasView = (ListView) findViewById(R.id.zonasView);
                 zonasView.setAdapter(zonasAdapter);
 
-                //area
-                ListAdapter areaAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, area);
-                ListView areaView = (ListView) findViewById(R.id.areaView);
-                areaView.setAdapter(areaAdapter);
+                //localização
+                ListAdapter localAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, local);
+                ListView localView = (ListView) findViewById(R.id.localView);
+                localView.setAdapter(localAdapter);
+
+
 
                 //numero parcelas
                 ListAdapter nparcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, nparcelas);
@@ -109,10 +113,10 @@ public class ZonasActivity extends AppCompatActivity {
         });
 
         final ListView zonasView = (ListView) findViewById(R.id.zonasView);
-        final ListView areaView = (ListView) findViewById(R.id.areaView);
+        final ListView localView = (ListView) findViewById(R.id.localView);
         final ListView nparcelasView = (ListView) findViewById(R.id.nparcelasView);
 
-        //Mostrar produto ao clicar numa linha da lista de Datas
+        //Mostrar zona ao clicar na letra da zona
         zonasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
@@ -126,8 +130,8 @@ public class ZonasActivity extends AppCompatActivity {
             }
         });
 
-        //Mostrar produto ao clicar numa linha da lista de Produtos
-        areaView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        //Mostrar zona ao clicar na localização
+        localView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
@@ -140,7 +144,7 @@ public class ZonasActivity extends AppCompatActivity {
             }
         });
 
-        //Mostrar produto ao clicar numa linha da lista de Produtos
+        //Mostrar zona ao clicar no #parcelas
         nparcelasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,

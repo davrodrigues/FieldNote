@@ -33,7 +33,7 @@ public class MostrarZonaActivity extends AppCompatActivity {
 
 
         Intent myIntent = getIntent();
-        final String id = myIntent.getStringExtra("id").toUpperCase();
+        final String id = myIntent.getStringExtra("id");
 
 
         getSupportActionBar().setTitle("  Zona  "+id);
@@ -45,8 +45,13 @@ public class MostrarZonaActivity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
              //   Zona zonb = dataSnapshot.child("zonas").child(id).getValue(Zona.class);
                 Zona zone = dataSnapshot.child("zonas/"+id).getValue(Zona.class);
+
+
                 TextView nzona = (TextView) findViewById(R.id.nome_zona);
                 nzona.setText(zone.getNomezona());
+
+                 System.out.println("conteudo de nzona: "+nzona.toString());
+
 
                 TextView area = (TextView) findViewById(R.id.mostrar_area);
                 area.setText(zone.getArea());
@@ -68,6 +73,8 @@ public class MostrarZonaActivity extends AppCompatActivity {
                 String[] culturas = new String[x];
                 int i =0;
 
+
+                if (x!=0){
                 for (DataSnapshot postSnapshot: dataSnapshot.child("zonas/"+id+"/parcelas").getChildren()) {
                     nparcelas[i]=postSnapshot.getKey().toString();
                     culturas[i] =postSnapshot.getValue().toString();
@@ -83,6 +90,8 @@ public class MostrarZonaActivity extends AppCompatActivity {
                 ListAdapter culturasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, culturas);
                 ListView campViews = (ListView) findViewById(R.id.campView);
                 campViews.setAdapter(culturasAdapter);
+
+                }
 
             }
 
