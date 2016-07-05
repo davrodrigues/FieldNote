@@ -84,10 +84,8 @@ public class RegistarObservacaoActivity extends AppCompatActivity {
                     auxiliares.put(auxiliares1.getText().toString(),auxiliares1.getText().toString());
                 if(!auxiliares2.getText().toString().isEmpty())
                     auxiliares.put(auxiliares2.getText().toString(),auxiliares2.getText().toString());
-                if(!auxiliares3.getText().toString().isEmpty()) {
-                    System.out.println("AAAAAAAAAAAAAAAAAa");
+                if(!auxiliares3.getText().toString().isEmpty())
                     auxiliares.put(auxiliares3.getText().toString(), auxiliares3.getText().toString());
-                }
                 TextView obser = (TextView)findViewById(R.id.observações);
                 if(!obser.getText().toString().isEmpty())
                     dados.put("Observacoes", obser.getText().toString());
@@ -101,6 +99,7 @@ public class RegistarObservacaoActivity extends AppCompatActivity {
                 dados.put("Parcela", parc);
                 childUpdates.put("FieldNote/observações/" + str.nextToken() + " - " + data + "/", dados);
                 mDatabase.updateChildren(childUpdates);
+                finish();
                 startActivity(new Intent(getApplicationContext(), OrganismosActivity.class));
             }
         });

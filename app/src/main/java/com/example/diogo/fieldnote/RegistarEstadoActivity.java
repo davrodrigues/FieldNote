@@ -162,6 +162,7 @@ public class RegistarEstadoActivity extends AppCompatActivity {
                 dados.put("Campanha", str.nextToken());
                 childUpdates.put("FieldNote/estados/"+camp+"/"+estado1, dados);
                 mDatabase.updateChildren(childUpdates);
+                finish();
                 startActivity(new Intent(getApplicationContext(), EstadosFenologicosActivity.class));
             }
         });
