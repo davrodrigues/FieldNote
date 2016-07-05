@@ -3,6 +3,7 @@ package com.example.diogo.fieldnote;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -23,23 +24,51 @@ public class MostrarEstadoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar_estado);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //up button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Intent myIntent = getIntent();
         final String id = myIntent.getStringExtra("id");
+
+        getSupportActionBar().setTitle("Parcela " + id);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                EstadoFenologico est = dataSnapshot.child("estados").child(id).getValue(EstadoFenologico.class);
-                TextView data = (TextView) findViewById(R.id.dataEstado);
-                data.setText(est.getData());
-                TextView estadoAtual = (TextView) findViewById(R.id.estadoAtual);
-                estadoAtual.setText(est.getEstado());
-                TextView parcelaEstado = (TextView) findViewById(R.id.parcelaEstado);
-                parcelaEstado.setText("Estado atual da parcela "
-                        + est.getParcela()+ " - " +est.getCampanha());
-
+                int i = 0;
+                int x = (int) dataSnapshot.child("estados").child(id).getChildrenCount();
+                if (x > 0) {
+                    String[] estados = new String[x - 1];
+                    String[] datas = new String[x - 1];
+                    for (DataSnapshot postSnapshot : dataSnapshot.child("estados").child(id).getChildren()) {
+                        if (i == dataSnapshot.child("estados").child(id).getChildrenCount() - 1) {
+                            EstadoFenologico est = postSnapshot.getValue(EstadoFenologico.class);
+                            TextView data = (TextView) findViewById(R.id.dataEstado);
+                            data.setText(est.getData());
+                            TextView estadoAtual = (TextView) findViewById(R.id.estadoAtual);
+                            estadoAtual.setText(est.getEstado());
+                            TextView parcelaEstado = (TextView) findViewById(R.id.parcelaEstado);
+                            parcelaEstado.setText("Estado atual da parcela "
+                                    + est.getParcela() + " - " + est.getCampanha());
+                            i++;
+                        } else {
+                            EstadoFenologico est = postSnapshot.getValue(EstadoFenologico.class);
+                            estados[i] = est.getEstado();
+                            datas[i++] = est.getData();
+                        }
+                    }
+                    ListAdapter campanhasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, estados);
+                    ListView campanhasView = (ListView) findViewById(R.id.estadosView);
+                    campanhasView.setAdapter(campanhasAdapter);
+                    ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, datas);
+                    ListView parcelasView = (ListView) findViewById(R.id.datesView2);
+                    parcelasView.setAdapter(parcelasAdapter);
+                }
             }
 
             @Override

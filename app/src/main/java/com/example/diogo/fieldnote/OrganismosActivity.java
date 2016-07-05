@@ -18,6 +18,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.StringTokenizer;
+
 public class OrganismosActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
@@ -45,13 +47,14 @@ public class OrganismosActivity extends AppCompatActivity {
                 for (DataSnapshot postSnapshot: dataSnapshot.child("observações").getChildren()) {
                     Observacao est = postSnapshot.getValue(Observacao.class);
                     datas[i] = est.getData();
-                    parcelas[i++] = est.getParcela();
+                    StringTokenizer str = new StringTokenizer(est.getParcela());
+                    parcelas[i++] = str.nextToken();
                 }
                 ListAdapter datasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, datas);
-                ListView datasView = (ListView) findViewById(R.id.datesView);
-                datasView.setAdapter(datasAdapter);
                 ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, parcelas);
+                ListView datasView = (ListView) findViewById(R.id.datesView);
                 ListView parcelasView = (ListView) findViewById(R.id.parcelasView);
+                datasView.setAdapter(datasAdapter);
                 parcelasView.setAdapter(parcelasAdapter);
             }
 
@@ -93,7 +96,6 @@ public class OrganismosActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-
                 Intent intent = new Intent(getApplicationContext(), MostrarOrganismoActivity.class);
                 Object obj = datesView.getAdapter().getItem(position);
                 Object obj2 = parcelasView.getAdapter().getItem(position);

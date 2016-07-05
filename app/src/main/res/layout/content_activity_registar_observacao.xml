@@ -70,12 +70,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registar Observação"
-        android:id="@+id/testeView"
+        android:id="@+id/registarObsButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/observações"
         android:backgroundTint="@android:color/holo_green_dark"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:layout_marginTop="15dp" />
 
     <EditText
         android:layout_width="wrap_content"

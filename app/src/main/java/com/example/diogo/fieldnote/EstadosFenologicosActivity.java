@@ -47,13 +47,14 @@ public class EstadosFenologicosActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 int i =0;
-                int x = ((int) dataSnapshot.child("estados").getChildrenCount());
+                int x = ((int) dataSnapshot.child("campanhas").getChildrenCount());
                 String[] campanhas = new String[x];
                 String[] parcelas = new String[x];
-                for (DataSnapshot postSnapshot: dataSnapshot.child("estados").getChildren()) {
-                    EstadoFenologico est = postSnapshot.getValue(EstadoFenologico.class);
-                    campanhas[i] = est.getCampanha();
-                    parcelas[i++] = est.getParcela();
+                for (DataSnapshot post: dataSnapshot.child("campanhas").getChildren()) {
+                    Campanha cam = post.getValue(Campanha.class);
+                    campanhas[i] = cam.getCultura();
+                    parcelas[i++] = cam.getParcela();
+
                 }
                 ListAdapter campanhasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, campanhas);
                 ListView campanhasView = (ListView) findViewById(R.id.campanhasView);

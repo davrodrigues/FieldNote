@@ -27,8 +27,11 @@ public class CampanhasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_campanhas);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
@@ -45,10 +48,10 @@ public class CampanhasActivity extends AppCompatActivity {
                     parcelas[i++] = est.getParcela();
                 }
                 ListAdapter campanhasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, culturas);
-                ListView campanhasView = (ListView) findViewById(R.id.listaCampanhas);
-                campanhasView.setAdapter(campanhasAdapter);
                 ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, parcelas);
+                ListView campanhasView = (ListView) findViewById(R.id.listaCampanhas);
                 ListView parcelasView = (ListView) findViewById(R.id.listaParcelas);
+                campanhasView.setAdapter(campanhasAdapter);
                 parcelasView.setAdapter(parcelasAdapter);
             }
 
@@ -91,7 +94,6 @@ public class CampanhasActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-
                 Intent intent = new Intent(getApplicationContext(), MostrarCampanhaActivity.class);
                 Object obj2 = parcelasView.getAdapter().getItem(position);
                 intent.putExtra("id", obj2.toString());
