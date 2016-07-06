@@ -33,8 +33,6 @@ public class MostrarCampanhaActivity extends AppCompatActivity {
         Intent myIntent = getIntent();
         final String id = myIntent.getStringExtra("id");
 
-        getSupportActionBar().setTitle(id);
-
 
         Button button = (Button) findViewById(R.id.registarButton);
         button.setOnClickListener(new View.OnClickListener() {
@@ -44,19 +42,21 @@ public class MostrarCampanhaActivity extends AppCompatActivity {
             }
         });
 
+        final TextView cult = (TextView) findViewById(R.id.CulturaText);
+        final TextView parc = (TextView) findViewById(R.id.parcelaCult);
+        final TextView dataPlant = (TextView) findViewById(R.id.dataPlant);
+        final TextView estadoPlant = (TextView) findViewById(R.id.estadoPlant);
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                TextView cult = (TextView) findViewById(R.id.CulturaText);
-                TextView parc = (TextView) findViewById(R.id.parcelaCult);
-                TextView dataPlant = (TextView) findViewById(R.id.dataPlant);
-                TextView estadoPlant = (TextView) findViewById(R.id.estadoPlant);
                 Campanha est = dataSnapshot.child("campanhas").child(id).getValue(Campanha.class);
                 cult.setText(est.getCultura());
                 parc.setText(est.getParcela());
                 dataPlant.setText(est.getData_de_Plantacao());
+                getSupportActionBar().setTitle(id+" - " + est.getCultura());
                 int i = 0;
                 for(DataSnapshot post: dataSnapshot.child("estados").
                         child(id+ " - "+est.getCultura()).getChildren()) {

@@ -30,7 +30,8 @@
         android:text="Parcela"
         android:id="@+id/textView3"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -46,7 +47,8 @@
         android:text="Data de Observação"
         android:id="@+id/textView"
         android:layout_below="@+id/parcelasdrop"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -55,7 +57,8 @@
         android:ems="10"
         android:id="@+id/dataObs"
         android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:hint="dd-mm-aaaa" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -63,7 +66,8 @@
         android:text="Pragas"
         android:id="@+id/textView11"
         android:layout_below="@+id/dataObs"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -84,7 +88,8 @@
         android:id="@+id/praga1"
         android:layout_below="@+id/textView11"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/dataObs" />
+        android:layout_alignEnd="@+id/dataObs"
+        android:hint="Nome da praga" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -92,7 +97,8 @@
         android:id="@+id/praga2"
         android:layout_below="@+id/praga1"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/praga1" />
+        android:layout_alignEnd="@+id/praga1"
+        android:hint="Nome da praga" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -100,7 +106,8 @@
         android:id="@+id/praga3"
         android:layout_below="@+id/praga2"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/praga2" />
+        android:layout_alignEnd="@+id/praga2"
+        android:hint="Nome da praga" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -108,7 +115,8 @@
         android:text="Doenças"
         android:id="@+id/textView4"
         android:layout_below="@+id/praga3"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -116,7 +124,8 @@
         android:id="@+id/doencas1"
         android:layout_below="@+id/textView4"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/praga3" />
+        android:layout_alignEnd="@+id/praga3"
+        android:hint="Nome da doença" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -124,7 +133,8 @@
         android:id="@+id/doencas2"
         android:layout_below="@+id/doencas1"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/doencas1" />
+        android:layout_alignEnd="@+id/doencas1"
+        android:hint="Nome da doença" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -132,7 +142,8 @@
         android:id="@+id/doencas3"
         android:layout_below="@+id/doencas2"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/doencas2" />
+        android:layout_alignEnd="@+id/doencas2"
+        android:hint="Nome da doença" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -140,7 +151,8 @@
         android:text="Auxiliares"
         android:id="@+id/textView5"
         android:layout_below="@+id/doencas3"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -148,7 +160,8 @@
         android:id="@+id/auxiliares1"
         android:layout_below="@+id/textView5"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/auxiliares2" />
+        android:layout_alignEnd="@+id/auxiliares2"
+        android:hint="Nome do auxiliar" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -156,7 +169,8 @@
         android:id="@+id/auxiliares2"
         android:layout_below="@+id/auxiliares1"
         android:layout_alignEnd="@+id/doencas3"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:hint="Nome do auxiliar" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -164,7 +178,8 @@
         android:id="@+id/auxiliares3"
         android:layout_below="@+id/auxiliares2"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/auxiliares2" />
+        android:layout_alignEnd="@+id/auxiliares2"
+        android:hint="Nome do auxiliar" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -172,7 +187,8 @@
         android:text="Observações"
         android:id="@+id/textView6"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/auxiliares3" />
+        android:layout_below="@+id/auxiliares3"
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -180,7 +196,8 @@
         android:id="@+id/observações"
         android:layout_below="@+id/textView6"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/auxiliares3" />
+        android:layout_alignEnd="@+id/auxiliares3"
+        android:hint="Observações anotadas" />
 
 </RelativeLayout>
 </ScrollView>

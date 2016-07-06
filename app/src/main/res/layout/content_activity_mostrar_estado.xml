@@ -33,7 +33,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3 - Tuberização"
+        android:text="Sem registos"
         android:id="@+id/estadoAtual"
         android:layout_alignBottom="@+id/imageView"
         android:layout_centerHorizontal="true" />
@@ -41,7 +41,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="11/10/2016"
         android:id="@+id/dataEstado"
         android:layout_below="@+id/estadoAtual"
         android:layout_centerHorizontal="true" />

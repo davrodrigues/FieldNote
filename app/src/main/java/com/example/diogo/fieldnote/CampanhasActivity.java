@@ -33,6 +33,9 @@ public class CampanhasActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        final ListView campanhasView = (ListView) findViewById(R.id.listaCampanhas);
+        final ListView parcelasView = (ListView) findViewById(R.id.listaParcelas);
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
 
@@ -49,8 +52,6 @@ public class CampanhasActivity extends AppCompatActivity {
                 }
                 ListAdapter campanhasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, culturas);
                 ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, parcelas);
-                ListView campanhasView = (ListView) findViewById(R.id.listaCampanhas);
-                ListView parcelasView = (ListView) findViewById(R.id.listaParcelas);
                 campanhasView.setAdapter(campanhasAdapter);
                 parcelasView.setAdapter(parcelasAdapter);
             }
@@ -88,8 +89,6 @@ public class CampanhasActivity extends AppCompatActivity {
             }
         });
 
-        final ListView campanhasView = (ListView) findViewById(R.id.listaCampanhas);
-        final ListView parcelasView = (ListView) findViewById(R.id.listaParcelas);
         campanhasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
