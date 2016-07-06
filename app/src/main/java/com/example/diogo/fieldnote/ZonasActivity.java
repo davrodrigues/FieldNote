@@ -61,13 +61,14 @@ public class ZonasActivity extends AppCompatActivity {
                 String[] local = new String[x];
                 String[] nparcelas = new String[x];
 
+
                 for (DataSnapshot postSnapshot: dataSnapshot.child("zonas").getChildren()) {
                     Zona zone = postSnapshot.getValue(Zona.class);
 
                     nzona[i]=zone.getNomezona();
                     local[i] = zone.getLocalização();
                     nparcelas[i] = String.valueOf(postSnapshot.child("parcelas").getChildrenCount());
-                   // System.out.println("conteudo de nparcelas["+i+"]="+nparcelas[i]);
+
                     i++;
                 }
 
@@ -124,7 +125,7 @@ public class ZonasActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), MostrarZonaActivity.class);
                 Object obj = zonasView.getAdapter().getItem(position);
-
+                finish();
                 intent.putExtra("id", obj.toString() );
                 startActivity(intent);
             }
@@ -138,7 +139,7 @@ public class ZonasActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), MostrarZonaActivity.class);
                 Object obj = zonasView.getAdapter().getItem(position);
-
+                finish();
                 intent.putExtra("id", obj.toString() );
                 startActivity(intent);
             }
@@ -152,7 +153,7 @@ public class ZonasActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), MostrarZonaActivity.class);
                 Object obj = zonasView.getAdapter().getItem(position);
-
+                finish();
                 intent.putExtra("id", obj.toString() );
                 startActivity(intent);
             }

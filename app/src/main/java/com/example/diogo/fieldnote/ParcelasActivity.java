@@ -46,23 +46,30 @@ public class ParcelasActivity extends AppCompatActivity {
 
                 int i =0;
                 int x = ((int) dataSnapshot.child("parcelas").getChildrenCount());
-                String[] datas = new String[x];
+                String[] area = new String[x];
                 String[] nome_parcelas = new String[x];
+                String[] zona = new String[x];
 
 
                 for (DataSnapshot postSnapshot: dataSnapshot.child("parcelas").getChildren()) {
                     Parcela parc = postSnapshot.getValue(Parcela.class);
-                    datas[i] = parc.getData_plantação();
+                    area[i] = parc.getÁrea();
                     nome_parcelas[i] = postSnapshot.getKey();
+                    zona[i] = parc.getZona();
                     i++;
                 }
-                ListAdapter datasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, datas);
-                ListView datasView = (ListView) findViewById(R.id.datasView);
-                datasView.setAdapter(datasAdapter);
+                ListAdapter areaAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, area);
+                ListView areaView = (ListView) findViewById(R.id.areaView);
+                areaView.setAdapter(areaAdapter);
 
                 ListAdapter parcsAdapater = new ArrayAdapter<String>(getApplication(), R.layout.center_list, nome_parcelas);
                 ListView parcsView = (ListView) findViewById(R.id.parcsView);
                 parcsView.setAdapter(parcsAdapater);
+
+                ListAdapter zonaAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, zona);
+                ListView zonaView = (ListView) findViewById(R.id.zonaView);
+                zonaView.setAdapter(zonaAdapter);
+
 
 
 
@@ -96,12 +103,12 @@ public class ParcelasActivity extends AppCompatActivity {
 
 
 
-        final ListView datasView = (ListView) findViewById(R.id.datasView);
+        final ListView areaView = (ListView) findViewById(R.id.areaView);
         final ListView parcsView = (ListView) findViewById(R.id.parcsView);
 
 
-        //Mostrar produto ao clicar numa linha da lista de Datas
-        datasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        //Mostrar produto ao clicar numa linha da lista de area
+        areaView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {

@@ -42,8 +42,6 @@ public class MostrarParcelaActivity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Parcela par = dataSnapshot.child("parcelas").child(id).getValue(Parcela.class);
 
-                TextView data = (TextView) findViewById(R.id.par_data);
-                data.setText(par.getData_plantação());
 
                 TextView Produto = (TextView) findViewById(R.id.par_zona);
                 Produto.setText(par.getZona());

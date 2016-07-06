@@ -17,14 +17,12 @@ import java.util.Map;
 
 public class RegistarNovaZona extends AppCompatActivity {
 
-
     private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registar_nova_zona);
-
 
         //toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

@@ -1,10 +1,13 @@
 package com.example.diogo.fieldnote;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -32,9 +35,18 @@ public class MostrarZonaActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+        Button add_parcela = (Button) findViewById(R.id.addparcela);
+        add_parcela.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        finish();
+                        startActivity(new Intent(getApplicationContext(), RegistarNovaParcela.class));
+                    }
+                });
+
         Intent myIntent = getIntent();
         final String id = myIntent.getStringExtra("id");
-
 
         getSupportActionBar().setTitle("  Zona  "+id);
 
@@ -46,15 +58,8 @@ public class MostrarZonaActivity extends AppCompatActivity {
              //   Zona zonb = dataSnapshot.child("zonas").child(id).getValue(Zona.class);
                 Zona zone = dataSnapshot.child("zonas/"+id).getValue(Zona.class);
 
-
-                TextView nzona = (TextView) findViewById(R.id.nome_zona);
-                nzona.setText(zone.getNomezona());
-
-                 System.out.println("conteudo de nzona: "+nzona.toString());
-
-
                 TextView area = (TextView) findViewById(R.id.mostrar_area);
-                area.setText(zone.getArea());
+               // area.setText(zone.getArea());
 
                 TextView fitossanidade = (TextView) findViewById(R.id.mostrar_fito);
                 fitossanidade.setText(zone.getFitossanidade());
@@ -72,15 +77,29 @@ public class MostrarZonaActivity extends AppCompatActivity {
                 String[] nparcelas = new String[x];
                 String[] culturas = new String[x];
                 int i =0;
-
+                float area_total = 0;
 
                 if (x!=0){
+
+
                 for (DataSnapshot postSnapshot: dataSnapshot.child("zonas/"+id+"/parcelas").getChildren()) {
                     nparcelas[i]=postSnapshot.getKey().toString();
                     culturas[i] =postSnapshot.getValue().toString();
+
+
+
+                    //buscar áreas das parcelas pertencentes à zona
+                    for (DataSnapshot postSnapshot2: dataSnapshot.child("parcelas").getChildren()) {
+
+                        if( postSnapshot2.getKey().equals(nparcelas[i])){
+                            String valor = postSnapshot2.child("área").getValue().toString();
+                            area_total += Float.parseFloat(valor);
+                        }
+                    }
                     i++;
                 }
 
+                     area.setText(""+area_total);
                 // parcelas
                 ListAdapter parcelsAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, nparcelas);
                 ListView parcelsViews = (ListView) findViewById(R.id.parcelsView);

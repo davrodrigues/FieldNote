@@ -61,4 +61,7 @@
     <string name="registar_nova_zonas">Adicionar Nova Zona</string>
     <string name="title_activity_parcelas">As Minhas Parcelas</string>
 
+
+    <string name="registar_nova_parcela">Adicionar Nova Parcela</string>
+
 </resources>

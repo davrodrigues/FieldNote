@@ -21,7 +21,7 @@ tools:context="com.example.diogo.fieldnote.MostrarZonaActivity">
 
 </android.support.design.widget.AppBarLayout>
 
-<include layout="@layout/nova_content_mostrar_zona" />
+<include layout="@layout/content_mostrar_zona" />
 
 
 

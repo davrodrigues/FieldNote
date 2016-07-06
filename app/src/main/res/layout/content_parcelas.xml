@@ -12,35 +12,7 @@
     android:orientation="horizontal">
 
     <RelativeLayout
-        android:layout_weight="50"
-        android:orientation="horizontal"
-        android:layout_width="0dp"
-        android:layout_height="match_parent">
-
-        <TextView
-
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Data:"
-            android:id="@+id/textView"
-            android:gravity="center"
-            android:textSize="20dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true" />
-
-        <ListView
-
-            android:gravity="center_horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/datasView"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_weight="50"
+        android:layout_weight="30"
         android:orientation="horizontal"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -66,6 +38,59 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_weight="30"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zona:"
+            android:id="@+id/textView24"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+
+        <ListView
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/zonaView"
+            android:layout_below="@+id/textView24"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_weight="40"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <TextView
+
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Área:"
+            android:id="@+id/textView"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+
+        <ListView
+
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/areaView"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView" />
+    </RelativeLayout>
 
 
 </LinearLayout>

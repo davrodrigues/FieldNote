@@ -13,8 +13,6 @@ public class Zona {
     public String solo;
 
 
-    public final List<String> parcelas = new ArrayList<String>();
-
 
     public Zona(){}
 
@@ -75,7 +73,4 @@ public class Zona {
         this.solo = solo;
     }
 
-    public List<String> getParcelas() {
-        return parcelas;
-    }
 }

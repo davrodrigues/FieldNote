@@ -1,7 +1,6 @@
 package com.example.diogo.fieldnote;
 
 public class Parcela {
-    private String data_plantação;
     private String fertilização;
     private String tipo_rega;
     private String zona;
@@ -14,8 +13,7 @@ public class Parcela {
     public Parcela(){}
 
 
-    public Parcela(String data_plantação, String fertilização, String tipo_rega, String zona, String área, String nome_parcela) {
-        this.data_plantação = data_plantação;
+    public Parcela( String fertilização, String tipo_rega, String zona, String área, String nome_parcela) {
         this.fertilização = fertilização;
         this.tipo_rega = tipo_rega;
         this.zona = zona;
@@ -23,13 +21,6 @@ public class Parcela {
         this.nome_parcela = nome_parcela;
     }
 
-    public String getData_plantação() {
-        return data_plantação;
-    }
-
-    public void setData_plantação(String data_plantação) {
-        this.data_plantação = data_plantação;
-    }
 
     public String getFertilização() {
         return fertilização;
