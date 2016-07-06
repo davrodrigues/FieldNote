@@ -2,8 +2,9 @@ package com.example.diogo.fieldnote;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.SparseArray;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
@@ -14,9 +15,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.List;
+import java.util.StringTokenizer;
 
-public class MostrarOrganismoActivity extends Activity {
+public class MostrarOrganismoActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     SparseArray<Group> groups = new SparseArray<Group>();
@@ -26,8 +27,16 @@ public class MostrarOrganismoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar_organismo);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //up button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Intent myIntent = getIntent();
         final String id = myIntent.getStringExtra("id");
+
+        getSupportActionBar().setTitle("Parcela " + id);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
@@ -37,8 +46,12 @@ public class MostrarOrganismoActivity extends Activity {
                 Observacao obs = dataSnapshot.child("observações").child(id).getValue(Observacao.class);
                 TextView data = (TextView) findViewById(R.id.dateObs);
                 data.setText(obs.getData());
+                StringTokenizer str = new StringTokenizer(obs.getParcela());
                 TextView parcelaEstado = (TextView) findViewById(R.id.parcelaObs);
-                parcelaEstado.setText(obs.getParcela());
+                parcelaEstado.setText(str.nextToken());
+                str.nextToken();
+                TextView campanhaEstado = (TextView) findViewById(R.id.campanhaObs);
+                campanhaEstado.setText(str.nextToken());
                 int j = 0;
                 Group group = new Group("Pragas");
                 for (DataSnapshot postSnapshot: dataSnapshot.child("observações").child(id).
@@ -65,7 +78,8 @@ public class MostrarOrganismoActivity extends Activity {
                 DataSnapshot postSnapshot = dataSnapshot.child("observações").child(id).
                         child("Observacoes");
                 String est = postSnapshot.getValue(String.class);
-                group.children.add(est);
+                if(est!=null)
+                    group.children.add(est);
                 groups.append(j++, group);
             }
 

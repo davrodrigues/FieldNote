@@ -42,55 +42,55 @@ public class RegistarEstadoActivity extends AppCompatActivity {
                 Spinner dropdown = (Spinner)findViewById(R.id.dropdownparcelas);
                 String[] values =null;
                 if(dropdown.getSelectedItem().toString().contains("Batata")) {
-                    values = new String[] {"Tubérculo", "Rebentos","Inicio da formação de raízes","Emergência","Desenvolvimento das folhas","Desenvolvimento das partes vegetativas","Botões florais visiveis", "Pétalas visiveis","Floração","Formação do fruto"};
+                    values = new String[] {"1 - Tubérculo", "2 - Rebentos","3 - Inicio da formação de raízes","4 - Emergência","5 - Desenvolvimento das folhas","6 - Desenvolvimento das partes vegetativas","7 - Botões florais visiveis", "8 - Pétalas visiveis","9 - Floração","10 - Formação do fruto"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Milho")) {
-                    values =  new String[] {"Pré-emergência","Emergência","1 Folha","2 Folhas","3 Folhas","5 Folhas","4º Nó","Fase joalheiro","Floração feminina","Maturação"};
+                    values =  new String[] {"1 - Pré-emergência","2 - Emergência","3 - 1 Folha","4 - 2 Folhas","5 - 3 Folhas","6 - 5 Folhas","7 - 4º Nó","8 - Fase joalheiro","9 - Floração feminina","10 - Maturação"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Pimento")) {
-                    values = new String[] {"Emergência","cotilédones completamente desenvolvidos","2ª Folha","Desenvolvimento das restantes folhas","Aparecimento do orgão floral","Floração","Formação do fruto"};
+                    values = new String[] {"1 - Emergência","2 - Cotilédones completamente desenvolvidos","3 - 2ª Folha","4 - Desenvolvimento das restantes folhas","5 - Aparecimento do orgão floral","6 - Floração","7 - Formação do fruto"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Tomate")) {
-                    values =new String[] {"Emergência","cotilédones completamente desenvolvidos","2ª Folha","Desenvolvimento das restantes folhas","Aparecimento do orgão floral","Floração","Formação do fruto"};
+                    values =new String[] {"1 - Emergência","2 - Cotilédones completamente desenvolvidos","3 - 2ª Folha","4 - Desenvolvimento das restantes folhas","5 - Aparecimento do orgão floral","6 - Floração","7 - Formação do fruto"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Beringela")) {
-                    values = new String[] {"Emergência","cotilédones completamente desenvolvidos","2ª Folha","Desenvolvimento das restantes folhas","Aparecimento do orgão floral","Floração","Formação do fruto"};
+                    values = new String[] {"1 - Emergência","2 - Cotilédones completamente desenvolvidos","3 - 2ª Folha","4 - Desenvolvimento das restantes folhas","5 - Aparecimento do orgão floral","6 - Floração","7 - Formação do fruto"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Morango")) {
                     values =new String[] {"Desenvolvimento das folhas","Inicio da formação do estolho","1º Filho","1ºs Primórdios florais","Floração","Maturação do fruto","Senescência e inicio do repouso vegetativo"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Feijão")) {
-                    values =new String[] {"Germinação","Desenvolvimento das folhas","Aparecimento do orgão floral","Floração","Formação do fruto"};
+                    values =new String[] {"1 - Germinação","2 - Desenvolvimento das folhas","3 - Aparecimento do orgão floral","4 - Floração","5 - Formação do fruto"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Pepino")) {
-                    values =new String[] {"Germinação","Desenvolvimento das folhas","Formação dos rebentos laterais","Floração","Formação do fruto","Maturação do fruto"};
+                    values =new String[] {"1 - Germinação","2 - Desenvolvimento das folhas","3 - Formação dos rebentos laterais","4 - Floração","5 - Formação do fruto","6 - Maturação do fruto"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Abóbora")) {
-                    values =new String[] {"Germinação","Desenvolvimento das folhas","Formação dos rebentos laterais","Floração","Formação do fruto","Maturação do fruto"};
+                    values =new String[] {"1 - Germinação","2 - Desenvolvimento das folhas","3 - Formação dos rebentos laterais","4 - Floração","5 - Formação do fruto","6 - Maturação do fruto"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Melão")) {
-                    values =new String[] {"Germinação","Desenvolvimento das folhas","Formação dos rebentos laterais","Floração","Formação do fruto","Maturação do fruto"};
+                    values =new String[] {"1 - Germinação","2 - Desenvolvimento das folhas","3 - Formação dos rebentos laterais","4 - Floração","5 - Formação do fruto","6 - Maturação do fruto"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Melancia")) {
-                    values =new String[] {"Germinação","Desenvolvimento das folhas","Formação dos rebentos laterais","Floração","Formação do fruto","Maturação do fruto"};
+                    values =new String[] {"1 - Germinação","2 - Desenvolvimento das folhas","3 - Formação dos rebentos laterais","4 - Floração","5 - Formação do fruto","6 - Maturação do fruto"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Alface")) {
-                    values =new String[] {"Germinação","Desenvolvimento das folhas","Desenvolvimento das partes vegetativas","Aparecimento do orgão floral"};
+                    values =new String[] {"1 - Germinação","2 - Desenvolvimento das folhas","3 - Desenvolvimento das partes vegetativas","4 - Aparecimento do orgão floral"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Cebola")) {
-                    values =new String[] {"Germinação", "Rebentação", "Desenvolvimento das Folhas","Desenvolvimento das partes vegetativas","Aparecimento do orgão floral","Floração","Formação do Fruto"};
+                    values =new String[] {"1 - Germinação", "2 - Rebentação", "3 - Desenvolvimento das Folhas","4 - Desenvolvimento das partes vegetativas","5 - Aparecimento do orgão floral","6 - Floração","7 - Formação do Fruto"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Alho")) {
-                    values =new String[] {"Germinação", "Rebentação", "Desenvolvimento das Folhas","Desenvolvimento das partes vegetativas","Aparecimento do orgão floral","Floração","Formação do Fruto"};
+                    values =new String[] {"1 - Germinação", "2 - Rebentação", "3 - Desenvolvimento das Folhas","4 - Desenvolvimento das partes vegetativas","5 - Aparecimento do orgão floral","6 - Floração","7 - Formação do Fruto"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Cereais")) {
-                    values =new String[]{"Emergência","1 Folha","2 Folhas","3 Folhas","Afilhamento do primeiro filho","Afilhamento de segundo filho","Encanamento","Emborrachamento","Espigamento","Maturação"};
+                    values =new String[]{"1 - Emergência","2 - 1 Folha","3 - 2 Folhas","4 - 3 Folhas","5 - Afilhamento do primeiro filho","6 - Afilhamento de segundo filho","7 - Encanamento","8 - Emborrachamento","9 - Espigamento","10 - Maturação"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Arroz")) {
-                    values =new String[] {"Emergência","Pós-emergência","1 Folha","2 Folhas","3 Folhas","4 Folhas","1º Filho","Inicio do Afilhamento","Aparecimento das panículas","Maturação"};
+                    values =new String[] {"1 - Emergência","2 - Pós-emergência","3 - 1 Folha","4 - 2 Folhas","5 - 3 Folhas","6 - 4 Folhas","7 - 1º Filho","8 - Inicio do Afilhamento","9 - Aparecimento das panículas","10 - Maturação"};
                 }
                 if(dropdown.getSelectedItem().toString().contains("Pêssego")) {
-                    values =new String[] {"Repouso", "Abrolhamento", "Botão Rosa", "Floração", "Queda das Pétalas", "Vingamento", "Frutos  em desenvolvimento", "Pré-Colheita"};
+                    values =new String[] {"1 - Repouso", "2 - Abrolhamento", "3 - Botão Rosa", "4 - Floração", "5 - Queda das Pétalas", "6 - Vingamento", "7 - Frutos em desenvolvimento", "8 - Pré-Colheita"};
                 }
                 Spinner estados = (Spinner)findViewById(R.id.estadoSpinner);
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(RegistarEstadoActivity.this, R.layout.black_spinner, values);
@@ -160,8 +160,9 @@ public class RegistarEstadoActivity extends AppCompatActivity {
                 dados.put("Parcela", str.nextToken());
                 str.nextToken();
                 dados.put("Campanha", str.nextToken());
-                childUpdates.put("FieldNote/estados/"+camp+"/", dados);
+                childUpdates.put("FieldNote/estados/"+camp+"/"+estado1, dados);
                 mDatabase.updateChildren(childUpdates);
+                finish();
                 startActivity(new Intent(getApplicationContext(), EstadosFenologicosActivity.class));
             }
         });

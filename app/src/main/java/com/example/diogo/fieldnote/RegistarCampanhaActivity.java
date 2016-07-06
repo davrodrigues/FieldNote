@@ -67,6 +67,7 @@ public class RegistarCampanhaActivity extends AppCompatActivity {
                 dados.put("Cultura", cultura);
                 childUpdates.put("FieldNote/campanhas/"+parcela+"/", dados);
                 mDatabase.updateChildren(childUpdates);
+                finish();
                 startActivity(new Intent(getApplicationContext(), CampanhasActivity.class));
             }
         });

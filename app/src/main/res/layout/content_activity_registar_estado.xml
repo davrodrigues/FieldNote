@@ -15,63 +15,63 @@
     tools:showIn="@layout/activity_registar_estado">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Parcela - Campanha"
-        android:id="@+id/parcela"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Parcela - Campanha"
+    android:id="@+id/parcela"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentStart="true" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/dropdownparcelas"
-        android:layout_below="@+id/parcela"
-        android:layout_alignParentStart="true"
-        android:spinnerMode="dropdown" />
+<Spinner
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/dropdownparcelas"
+    android:layout_below="@+id/parcela"
+    android:layout_alignParentStart="true"
+    android:spinnerMode="dropdown" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Estado registado"
-        android:id="@+id/Cultura"
-        android:layout_below="@+id/dropdownparcelas"
-        android:layout_alignParentStart="true" />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Estado registado"
+    android:id="@+id/Cultura"
+    android:layout_below="@+id/dropdownparcelas"
+    android:layout_alignParentStart="true" />
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/estadoSpinner"
-        android:layout_below="@+id/Cultura"
-        android:layout_alignParentStart="true"
-        android:spinnerMode="dropdown" />
+<Spinner
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/estadoSpinner"
+    android:layout_below="@+id/Cultura"
+    android:layout_alignParentStart="true"
+    android:spinnerMode="dropdown" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Data registada"
-        android:id="@+id/DataPlant"
-        android:layout_below="@+id/estadoSpinner"
-        android:layout_alignParentStart="true" />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Data registada"
+    android:id="@+id/DataPlant"
+    android:layout_below="@+id/estadoSpinner"
+    android:layout_alignParentStart="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/dataRegistarEstado"
-        android:layout_below="@+id/DataPlant"
-        android:layout_alignParentStart="true" />
+<EditText
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:inputType="date"
+    android:ems="10"
+    android:id="@+id/dataRegistarEstado"
+    android:layout_below="@+id/DataPlant"
+    android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registar estado"
-        android:id="@+id/estadoButton"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="@android:color/white" />
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Registar estado"
+    android:id="@+id/estadoButton"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:textColor="@android:color/white" />
 
 
 
