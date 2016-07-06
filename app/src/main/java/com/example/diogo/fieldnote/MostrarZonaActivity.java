@@ -99,7 +99,7 @@ public class MostrarZonaActivity extends AppCompatActivity {
                     i++;
                 }
 
-                     area.setText(""+area_total);
+                }
                 // parcelas
                 ListAdapter parcelsAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, nparcelas);
                 ListView parcelsViews = (ListView) findViewById(R.id.parcelsView);
@@ -110,7 +110,8 @@ public class MostrarZonaActivity extends AppCompatActivity {
                 ListView campViews = (ListView) findViewById(R.id.campView);
                 campViews.setAdapter(culturasAdapter);
 
-                }
+
+                area.setText(""+area_total);
 
             }
 

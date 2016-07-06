@@ -81,9 +81,9 @@ public class RegistoEntradasActivity extends AppCompatActivity {
                 ListView produtosView = (ListView) findViewById(R.id.produtosView);
                 produtosView.setAdapter(produtosAdapter);
 
-                ListAdapter removerAdapater = new ArrayAdapter<String>(getApplication(), R.layout.red_center_list, vazia);
+                ListAdapter removerAdapter = new ArrayAdapter<String>(getApplication(), R.layout.red_center_list, vazia);
                 ListView remover = (ListView) findViewById(R.id.remover);
-                remover.setAdapter(removerAdapater);
+                remover.setAdapter(removerAdapter);
 
             }
 
