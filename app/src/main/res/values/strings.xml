@@ -18,7 +18,7 @@
     <!-- Menu principal -->
     <string name="my_fields">Meus Campos\n</string>
     <string name="entries">Registo \n de Entradas</string>
-    <string name="register_feno">Registar Estado\n Fenológico</string>
+    <string name="register_feno">Estados \n Fenológicos</string>
     <string name="obs_organism">Observações \n de Organismos</string>
     <string name="tec_intervention">Intervenções \n Técnicas</string>
     <string name="statistics">Estatisticas \n</string>
@@ -50,18 +50,22 @@
     <string name="label_data">Data:</string>
 
     <!-- Organismos e estados -->
-    <string name="title_activity_mostrar_organismos">OrganismosActivity</string>
+    <string name="title_activity_mostrar_organismos">Observações de Organismos</string>
     <string name="title_activity_mostrar_estado">EstadoActivity</string>
     <string name="title_activity_estados_fenologicos">Estados Fenológicos</string>
     <string name="estado_fenologico_atual">Estado fenológico atual</string>
     <string name="cronologia_estados">Cronologia de estados registados</string>
-    <string name="registar_nova_observacao">Registar nova observação</string>
+    <string name="registar_nova_observacao">Registar nova Observação</string>
+    <string name="title_activity_campanhas">Campanhas</string>
+    <string name="title_activity_registar_campanha">Registar nova Campanha</string>
+
     <string name="title_activity_registar_nova_entrada">Nova Entrada</string>
     <string name="title_activity_zonas">As Minhas Zonas</string>
     <string name="registar_nova_zonas">Adicionar Nova Zona</string>
     <string name="title_activity_parcelas">As Minhas Parcelas</string>
 
-
     <string name="registar_nova_parcela">Adicionar Nova Parcela</string>
+
+
 
 </resources>

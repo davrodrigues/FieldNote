@@ -11,37 +11,30 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.StringTokenizer;
-
-public class EstadosFenologicosActivity extends AppCompatActivity {
+public class CampanhasActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_estados_fenologicos);
-        //toolbar
+        setContentView(R.layout.activity_campanhas);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //up button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final ListView campanhasView = (ListView) findViewById(R.id.campanhasView);
-        final ListView parcelasView = (ListView) findViewById(R.id.parcelas2View);
+        final ListView campanhasView = (ListView) findViewById(R.id.listaCampanhas);
+        final ListView parcelasView = (ListView) findViewById(R.id.listaParcelas);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
@@ -50,17 +43,16 @@ public class EstadosFenologicosActivity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 int i =0;
                 int x = ((int) dataSnapshot.child("campanhas").getChildrenCount());
-                String[] campanhas = new String[x];
+                String[] culturas = new String[x];
                 String[] parcelas = new String[x];
-                for (DataSnapshot post: dataSnapshot.child("campanhas").getChildren()) {
-                    Campanha cam = post.getValue(Campanha.class);
-                    campanhas[i] = cam.getCultura();
-                    parcelas[i++] = cam.getParcela();
-
+                for (DataSnapshot postSnapshot: dataSnapshot.child("campanhas").getChildren()) {
+                    Campanha est = postSnapshot.getValue(Campanha.class);
+                    culturas[i] = est.getCultura();
+                    parcelas[i++] = est.getParcela();
                 }
-                ListAdapter campanhasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, campanhas);
-                campanhasView.setAdapter(campanhasAdapter);
+                ListAdapter campanhasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, culturas);
                 ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, parcelas);
+                campanhasView.setAdapter(campanhasAdapter);
                 parcelasView.setAdapter(parcelasAdapter);
             }
 
@@ -88,11 +80,12 @@ public class EstadosFenologicosActivity extends AppCompatActivity {
 
         });
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.adicionarCampanha);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), RegistarEstadoActivity.class));
+                startActivity(new Intent(getApplicationContext(), RegistarCampanhaActivity.class));
+
             }
         });
 
@@ -100,15 +93,12 @@ public class EstadosFenologicosActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-
-                Intent intent = new Intent(getApplicationContext(), MostrarEstadoActivity.class);
-                Object obj = campanhasView.getAdapter().getItem(position);
+                Intent intent = new Intent(getApplicationContext(), MostrarCampanhaActivity.class);
                 Object obj2 = parcelasView.getAdapter().getItem(position);
-                intent.putExtra("id", obj2.toString() + " - " + obj.toString() );
+                intent.putExtra("id", obj2.toString());
                 startActivity(intent);
             }
         });
-
     }
 
 }

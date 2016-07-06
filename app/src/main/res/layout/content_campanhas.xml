@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.diogo.fieldnote.EstadosFenologicosActivity"
-    tools:showIn="@layout/activity_estados_fenologicos">
+    tools:showIn="@layout/activity_campanhas">
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,14 +34,14 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/campanhasView"
+        android:id="@+id/listaCampanhas"
         android:layout_below="@+id/Campanha"
         android:layout_alignParentStart="true" />
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/parcelas2View"
+        android:id="@+id/listaParcelas"
         android:layout_below="@+id/Campanha"
         android:layout_alignParentEnd="true"
         android:layout_toRightOf="@+id/Campanha" />

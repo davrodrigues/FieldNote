@@ -11,12 +11,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.firebase.firebase_core.*;
 import com.google.firebase.database.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
@@ -39,26 +36,65 @@ public class RegistarEstadoActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        Spinner dropdown = (Spinner)findViewById(R.id.campanhaSpinner);
-        String[] items = new String[]{"1 - Pessegueiro", "2 - Batata"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
-        dropdown.setAdapter(adapter);
-
-        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        final Spinner campParcela = (Spinner)findViewById(R.id.dropdownparcelas);
+        final Spinner estado = (Spinner)findViewById(R.id.estadoSpinner);
+        final TextView textView = (TextView)findViewById(R.id.dataRegistarEstado);
+        campParcela.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Spinner dropdown = (Spinner)findViewById(R.id.campanhaSpinner);
-                if(dropdown.getSelectedItem().toString().contains("Batata")) {
-                    Spinner estados = (Spinner)findViewById(R.id.estadoSpinner);
-                    String[] values = new String[] {"A - batata", "B - batata", "C - batata"};
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(RegistarEstadoActivity.this, android.R.layout.simple_spinner_dropdown_item, values);
-                    estados.setAdapter(adapter);
+                String[] values =null;
+                if(campParcela.getSelectedItem().toString().contains("Batata")) {
+                    values = new String[] {"1 - Tubérculo", "2 - Rebentos","3 - Inicio da formação de raízes","4 - Emergência","5 - Desenvolvimento das folhas","6 - Desenvolvimento das partes vegetativas","7 - Botões florais visiveis", "8 - Pétalas visiveis","9 - Floração","10 - Formação do fruto"};
                 }
-                if(dropdown.getSelectedItem().toString().contains("Pessegueiro")) {
-                    Spinner estados = (Spinner) findViewById(R.id.estadoSpinner);
-                    String[] values = new String[] {"A - pessego", "B - pessego", "C - pessego"};
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(RegistarEstadoActivity.this, android.R.layout.simple_spinner_dropdown_item, values);
-                    estados.setAdapter(adapter);
+                if(campParcela.getSelectedItem().toString().contains("Milho")) {
+                    values =  new String[] {"1 - Pré-emergência","2 - Emergência","3 - 1 Folha","4 - 2 Folhas","5 - 3 Folhas","6 - 5 Folhas","7 - 4º Nó","8 - Fase joalheiro","9 - Floração feminina","10 - Maturação"};
                 }
+                if(campParcela.getSelectedItem().toString().contains("Pimento")) {
+                    values = new String[] {"1 - Emergência","2 - Cotilédones completamente desenvolvidos","3 - 2ª Folha","4 - Desenvolvimento das restantes folhas","5 - Aparecimento do orgão floral","6 - Floração","7 - Formação do fruto"};
+                }
+                if(campParcela.getSelectedItem().toString().contains("Tomate")) {
+                    values =new String[] {"1 - Emergência","2 - Cotilédones completamente desenvolvidos","3 - 2ª Folha","4 - Desenvolvimento das restantes folhas","5 - Aparecimento do orgão floral","6 - Floração","7 - Formação do fruto"};
+                }
+                if(campParcela.getSelectedItem().toString().contains("Beringela")) {
+                    values = new String[] {"1 - Emergência","2 - Cotilédones completamente desenvolvidos","3 - 2ª Folha","4 - Desenvolvimento das restantes folhas","5 - Aparecimento do orgão floral","6 - Floração","7 - Formação do fruto"};
+                }
+                if(campParcela.getSelectedItem().toString().contains("Morango")) {
+                    values =new String[] {"Desenvolvimento das folhas","Inicio da formação do estolho","1º Filho","1ºs Primórdios florais","Floração","Maturação do fruto","Senescência e inicio do repouso vegetativo"};
+                }
+                if(campParcela.getSelectedItem().toString().contains("Feijão")) {
+                    values =new String[] {"1 - Germinação","2 - Desenvolvimento das folhas","3 - Aparecimento do orgão floral","4 - Floração","5 - Formação do fruto"};
+                }
+                if(campParcela.getSelectedItem().toString().contains("Pepino")) {
+                    values =new String[] {"1 - Germinação","2 - Desenvolvimento das folhas","3 - Formação dos rebentos laterais","4 - Floração","5 - Formação do fruto","6 - Maturação do fruto"};
+                }
+                if(campParcela.getSelectedItem().toString().contains("Abóbora")) {
+                    values =new String[] {"1 - Germinação","2 - Desenvolvimento das folhas","3 - Formação dos rebentos laterais","4 - Floração","5 - Formação do fruto","6 - Maturação do fruto"};
+                }
+                if(campParcela.getSelectedItem().toString().contains("Melão")) {
+                    values =new String[] {"1 - Germinação","2 - Desenvolvimento das folhas","3 - Formação dos rebentos laterais","4 - Floração","5 - Formação do fruto","6 - Maturação do fruto"};
+                }
+                if(campParcela.getSelectedItem().toString().contains("Melancia")) {
+                    values =new String[] {"1 - Germinação","2 - Desenvolvimento das folhas","3 - Formação dos rebentos laterais","4 - Floração","5 - Formação do fruto","6 - Maturação do fruto"};
+                }
+                if(campParcela.getSelectedItem().toString().contains("Alface")) {
+                    values =new String[] {"1 - Germinação","2 - Desenvolvimento das folhas","3 - Desenvolvimento das partes vegetativas","4 - Aparecimento do orgão floral"};
+                }
+                if(campParcela.getSelectedItem().toString().contains("Cebola")) {
+                    values =new String[] {"1 - Germinação", "2 - Rebentação", "3 - Desenvolvimento das Folhas","4 - Desenvolvimento das partes vegetativas","5 - Aparecimento do orgão floral","6 - Floração","7 - Formação do Fruto"};
+                }
+                if(campParcela.getSelectedItem().toString().contains("Alho")) {
+                    values =new String[] {"1 - Germinação", "2 - Rebentação", "3 - Desenvolvimento das Folhas","4 - Desenvolvimento das partes vegetativas","5 - Aparecimento do orgão floral","6 - Floração","7 - Formação do Fruto"};
+                }
+                if(campParcela.getSelectedItem().toString().contains("Cereais")) {
+                    values =new String[]{"1 - Emergência","2 - 1 Folha","3 - 2 Folhas","4 - 3 Folhas","5 - Afilhamento do primeiro filho","6 - Afilhamento de segundo filho","7 - Encanamento","8 - Emborrachamento","9 - Espigamento","10 - Maturação"};
+                }
+                if(campParcela.getSelectedItem().toString().contains("Arroz")) {
+                    values =new String[] {"1 - Emergência","2 - Pós-emergência","3 - 1 Folha","4 - 2 Folhas","5 - 3 Folhas","6 - 4 Folhas","7 - 1º Filho","8 - Inicio do Afilhamento","9 - Aparecimento das panículas","10 - Maturação"};
+                }
+                if(campParcela.getSelectedItem().toString().contains("Pêssego")) {
+                    values =new String[] {"1 - Repouso", "2 - Abrolhamento", "3 - Botão Rosa", "4 - Floração", "5 - Queda das Pétalas", "6 - Vingamento", "7 - Frutos em desenvolvimento", "8 - Pré-Colheita"};
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(RegistarEstadoActivity.this, R.layout.black_spinner, values);
+                estado.setAdapter(adapter);
             }
 
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -68,14 +104,48 @@ public class RegistarEstadoActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        mDatabase.addChildEventListener(new ChildEventListener(){
+
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                int i = 0;
+                String[] items = new String[(int)dataSnapshot.child("campanhas").getChildrenCount()];
+                for (DataSnapshot postSnapshot: dataSnapshot.child("campanhas").getChildren()) {
+                    Campanha est = postSnapshot.getValue(Campanha.class);
+                    items[i++] = (est.getParcela() + " - " + est.getCultura());
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplication(), R.layout.black_spinner, items);
+                campParcela.setAdapter(adapter);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed");
+            }
+
+
+        });
+
         Button button = (Button) findViewById(R.id.estadoButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Spinner campanha = (Spinner)findViewById(R.id.campanhaSpinner);
-                Spinner estado = (Spinner)findViewById(R.id.estadoSpinner);
-                TextView textView = (TextView)findViewById(R.id.dataRegistarEstado);
-                String camp = campanha.getSelectedItem().toString();
+                String camp = campParcela.getSelectedItem().toString();
                 String estado1 = estado.getSelectedItem().toString();
                 String data = textView.getText().toString();
                 Map<String, Object> childUpdates = new HashMap<>();
@@ -86,8 +156,9 @@ public class RegistarEstadoActivity extends AppCompatActivity {
                 dados.put("Parcela", str.nextToken());
                 str.nextToken();
                 dados.put("Campanha", str.nextToken());
-                childUpdates.put("FieldNote/estados/"+camp+"/", dados);
+                childUpdates.put("FieldNote/estados/"+camp+"/"+estado1, dados);
                 mDatabase.updateChildren(childUpdates);
+                finish();
                 startActivity(new Intent(getApplicationContext(), EstadosFenologicosActivity.class));
             }
         });

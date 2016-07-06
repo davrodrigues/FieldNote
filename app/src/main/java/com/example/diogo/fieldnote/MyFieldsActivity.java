@@ -45,6 +45,14 @@ public class MyFieldsActivity extends AppCompatActivity {
             }
         });
 
+        ImageButton campanhas = (ImageButton) findViewById(R.id.campaigns_botao);
+        campanhas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), CampanhasActivity.class));
+            }
+        });
+
     }
 
 }
