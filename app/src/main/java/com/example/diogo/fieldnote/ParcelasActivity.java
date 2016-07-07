@@ -1,5 +1,7 @@
 package com.example.diogo.fieldnote;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -38,7 +40,6 @@ public class ParcelasActivity extends AppCompatActivity {
 
         //firebase
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        // mDatabase.child(id).removeValue(); TODO remover-me
         mDatabase.addChildEventListener(new ChildEventListener(){
 
             @Override
@@ -93,6 +94,16 @@ public class ParcelasActivity extends AppCompatActivity {
 
         });
 
+        //botao adicionar parcela
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.adicionarParcela);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), RegistarNovaParcela.class));
+            }
+        });
+
         final ListView areaView = (ListView) findViewById(R.id.areaView);
         final ListView parcsView = (ListView) findViewById(R.id.parcsView);
         final ListView zonaView = (ListView) findViewById(R.id.zonaView);
@@ -141,29 +152,45 @@ public class ParcelasActivity extends AppCompatActivity {
             }
         });
 
-
         //botões de remoção
         remover.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
+               final String obj1 = parcsView.getAdapter().getItem(position).toString();
+               final String zpos = zonaView.getAdapter().getItem(position).toString();
 
-                String obj1 = parcsView.getAdapter().getItem(position).toString();
-                String zpos = zonaView.getAdapter().getItem(position).toString();
+                new AlertDialog.Builder(ParcelasActivity.this)
+                        .setTitle("Apagar a Parcela?")
+                        .setMessage("Tem a certeza que pretende apagar esta parcela do sistema?")
+                        .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
 
-               //apaga a parcela na zona
-                mDatabase.child("FieldNote/zonas/"+zpos+"/parcelas/"+obj1).removeValue();
+                                //apaga a parcela na zona
+                                mDatabase.child("FieldNote/zonas/"+zpos+"/parcelas/"+obj1).removeValue();
 
-                //apagar a parcela nó
-                mDatabase.child("FieldNote/parcelas/"+obj1).removeValue();
+                                //apagar a parcela nó
+                                mDatabase.child("FieldNote/parcelas/"+obj1).removeValue();
 
-                Toast.makeText(getApplicationContext(),
-                        "Parcela: "+obj1+" removida com sucesso.", Toast.LENGTH_SHORT).show();
+                                //remover a parcela da campanha
+                                mDatabase.child("FieldNote/campanhas/"+obj1).removeValue();
+                                Toast.makeText(getApplicationContext(),
+                                        "Parcela: "+obj1+" removida com sucesso.", Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(getApplicationContext(), ParcelasActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), ParcelasActivity.class);
 
-                finish();
-                startActivity(intent);
+                                finish();
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                //nao faz nada
+                            }
+                        })
+                        .setIcon(R.drawable.alert_smallest)
+                        .show();
+
             }
         });
 

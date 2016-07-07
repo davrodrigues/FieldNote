@@ -1,6 +1,8 @@
 package com.example.diogo.fieldnote;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -152,18 +154,36 @@ public class RegistoEntradasActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
 
-                String obj1 = produtosView.getAdapter().getItem(position).toString();
-                String obj2 = datasView.getAdapter().getItem(position).toString();
+              final String obj1 = produtosView.getAdapter().getItem(position).toString();
+               final String obj2 = datasView.getAdapter().getItem(position).toString();
 
-                mDatabase.child("FieldNote/entradas/"+obj1+" - "+obj2).removeValue();
+                new AlertDialog.Builder(RegistoEntradasActivity.this)
+                        .setTitle("Apagar esta entrada: " +obj1+" - "+obj2+"?")
+                        .setMessage("Clique em sim, se tiver a certeza que pretende apagar esta entrada do sistema")
+                        .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
 
-                Toast.makeText(getApplicationContext(),
-                        "Produto: "+obj1+" removido com sucesso.", Toast.LENGTH_SHORT).show();
+                                //remove do nó entradas
+                                mDatabase.child("FieldNote/entradas/"+obj1+" - "+obj2).removeValue();
 
-                Intent intent = new Intent(getApplicationContext(), RegistoEntradasActivity.class);
+                                //mensagem Toast de confirmação
+                                Toast.makeText(getApplicationContext(),
+                                        "Produto: "+obj1+" removido com sucesso.", Toast.LENGTH_SHORT).show();
 
-                finish();
-                startActivity(intent);
+                                Intent intent = new Intent(getApplicationContext(), RegistoEntradasActivity.class);
+
+                                finish();
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                //nao faz nada
+                            }
+                        })
+                        .setIcon(R.drawable.alert_smallest)
+                        .show();
+
             }
         });
     }

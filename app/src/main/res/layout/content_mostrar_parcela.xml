@@ -16,7 +16,8 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="40dp">
 
 
 
@@ -88,6 +89,60 @@
             android:text="666"
             android:id="@+id/par_area"
             android:layout_gravity="center_horizontal" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+
+            <TextView
+                android:ems="7"
+                android:gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data plantação"
+                android:id="@+id/textView21"
+                android:textColor="#FF464646"
+                android:textSize="18dp"
+                android:layout_alignParentTop="true" />
+            <TextView
+
+                android:gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cultura"
+                android:id="@+id/textView22"
+                android:textColor="#464646"
+                android:textSize="18dp"
+
+                android:layout_alignParentTop="true"
+                android:layout_alignEnd="@+id/culturaView"
+                android:layout_toEndOf="@+id/textView21" />
+
+            <ListView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/datapView"
+                android:layout_gravity="center_horizontal"
+                android:layout_below="@+id/textView21"
+
+                android:layout_alignEnd="@+id/textView21" />
+
+            <ListView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/culturaView"
+                android:layout_gravity="center_horizontal"
+
+                android:layout_toEndOf="@+id/datapView"
+                android:layout_below="@+id/textView22" />
+
+
+        </RelativeLayout>
 
     </LinearLayout>
 

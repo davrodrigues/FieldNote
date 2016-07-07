@@ -11,32 +11,30 @@
     android:layout_height="match_parent"
     android:paddingBottom="10dp"
 
+    android:weightSum="100"
     android:orientation="horizontal"
     android:baselineAligned="false">
 
     <ScrollView
-
-        android:layout_gravity="center_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/scrollView3"
-        >
+        android:layout_weight="50"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView3" >
 
         <RelativeLayout
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+            android:layout_height="wrap_content">
 
             <ImageButton
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:id="@+id/meus_campos_botao"
                 android:contentDescription="@string/my_fields"
+                android:layout_centerHorizontal="true"
                 android:background="@drawable/celeiro"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                 />
+                android:layout_alignParentTop="true" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -46,8 +44,7 @@
                 android:textSize="15sp"
                 android:textAlignment="center"
                 android:layout_below="@+id/meus_campos_botao"
-                android:layout_alignEnd="@+id/meus_campos_botao"
-                android:layout_alignStart="@+id/meus_campos_botao" />
+                />
 
             <ImageButton
                 android:layout_width="120dp"
@@ -67,8 +64,7 @@
                 android:textAlignment="center"
 
                 android:layout_below="@+id/registo_entradas_botao"
-                android:layout_alignEnd="@+id/registo_entradas_botao"
-                android:layout_alignStart="@+id/registo_entradas_botao" />
+                android:layout_centerHorizontal="true" />
 
             <ImageButton
                 android:layout_width="120dp"
@@ -87,8 +83,23 @@
                 android:textAlignment="center"
 
                 android:layout_below="@+id/observacoes_organismos_botao"
-                android:layout_alignStart="@+id/observacoes_organismos_botao"
-                android:layout_alignEnd="@+id/observacoes_organismos_botao" />
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+    <ScrollView
+        android:layout_weight="50"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView2" >
+
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
 
             <ImageButton
                 android:layout_width="120dp"
@@ -96,8 +107,7 @@
                 android:id="@+id/intervencoes_tecnicas_botao"
                 android:background="@drawable/intervencao2"
                 android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/meus_campos_botao"
-                android:layout_marginStart="30dp" />
+                android:layout_centerHorizontal="true" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -108,8 +118,7 @@
                 android:textAlignment="center"
                 android:gravity="center_horizontal"
                 android:layout_below="@+id/intervencoes_tecnicas_botao"
-                android:layout_alignStart="@+id/intervencoes_tecnicas_botao"
-                android:layout_alignEnd="@+id/intervencoes_tecnicas_botao" />
+                android:layout_centerHorizontal="true" />
 
             <ImageButton
                 android:layout_width="120dp"
@@ -128,8 +137,7 @@
                 android:textAlignment="center"
                 android:gravity="center_horizontal"
                 android:layout_below="@+id/registo_estados_fenologicos_botao"
-                android:layout_alignStart="@+id/registo_estados_fenologicos_botao"
-                android:layout_alignEnd="@+id/registo_estados_fenologicos_botao" />
+                android:layout_centerHorizontal="true" />
 
             <ImageButton
                 android:layout_width="120dp"
@@ -148,11 +156,10 @@
                 android:textAlignment="center"
                 android:gravity="center_horizontal"
                 android:layout_below="@+id/estatisticas_botao"
-                android:layout_alignStart="@+id/estatisticas_botao"
-                android:layout_alignEnd="@+id/estatisticas_botao" />
-
+                android:layout_alignParentStart="true" />
         </RelativeLayout>
     </ScrollView>
+
 
 
 </LinearLayout>

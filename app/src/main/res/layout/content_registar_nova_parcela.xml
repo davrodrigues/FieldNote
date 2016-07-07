@@ -14,10 +14,12 @@
     tools:showIn="@layout/activity_registar_nova_parcela"
     >
     <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:gravity="center"
@@ -26,9 +28,7 @@
             android:text="Preencha os dados da parcela"
             android:id="@+id/textView3"
             android:layout_alignParentTop="true"
-            android:textSize="22dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true" />
+            android:textSize="22dp" />
 
         <LinearLayout
             android:layout_marginTop="20dp"
@@ -45,7 +45,6 @@
                 android:textColor="#000000"
                 android:textSize="18dp"
                 android:gravity="center"
-                android:layout_centerHorizontal="true"
                 android:layout_marginRight="10dp"
                 />
 
@@ -58,22 +57,20 @@
 
 
         <EditText
+
             android:inputType="number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:id="@+id/pnome"
             android:hint="Nome da parcela"
-            android:gravity="center"
-            android:layout_below="@+id/textView3"
-            android:layout_centerHorizontal="true" />
+            android:gravity="center" />
 
         <EditText
             android:ems="10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/pfertilizacao"
-            android:layout_alignParentStart="true"
             android:hint="Fertilização"
             android:gravity="center"
              />
@@ -83,7 +80,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/prega"
-            android:layout_alignParentStart="true"
             android:hint="Tipo de rega"
             android:gravity="center"
              />
@@ -112,43 +108,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/parea"
-                android:layout_alignParentStart="true"
                 android:hint="valor"
                 android:gravity="center"
                  />
         </LinearLayout>
-        <TextView
-            android:layout_marginTop="20dp"
-            android:textSize="18dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Campanhas"
-            android:id="@+id/textView6"
-            android:textColor="#000000"
-            android:gravity="center"
-            android:layout_centerHorizontal="true" />
 
-        <EditText
-            android:lines="2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/observações"
-            android:layout_alignParentStart="true"
-            android:hint="trocar por uma listview"
-            android:gravity="center"
-            android:layout_below="@+id/textView6"
-            android:layout_centerHorizontal="true" />
 
         <Button
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Submeter"
             android:id="@+id/guardar"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimary"
             android:textColor="@android:color/white"
-            android:layout_below="@+id/observações"
-            android:layout_centerHorizontal="true" />
+            android:layout_below="@+id/observações" />
 
     </LinearLayout>
 </ScrollView>

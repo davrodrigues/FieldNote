@@ -39,6 +39,10 @@ public class RegistarNovaParcela extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.smaller);
 
+        //zona passada anteriormente
+        Intent myIntent = getIntent();
+        final String id = myIntent.getStringExtra("id");
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
 
@@ -57,6 +61,22 @@ public class RegistarNovaParcela extends AppCompatActivity {
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplication(), R.layout.black_spinner, items);
                 dropdown.setAdapter(adapter);
 
+                //pre seleciona a zona
+                dropdown.setSelection(getIndex(dropdown, id));
+
+            }
+
+            //get spinner index of myString
+            private int getIndex(Spinner spinner, String myString)     {
+                int index = 0;
+
+                for (int i=0;i<spinner.getCount();i++){
+                    if (spinner.getItemAtPosition(i).toString().equalsIgnoreCase(myString)){
+                        index = i;
+                        break;
+                    }
+                }
+                return index;
             }
 
             @Override
@@ -96,21 +116,21 @@ public class RegistarNovaParcela extends AppCompatActivity {
                         Map<String, Object> childUpdates = new HashMap<>();
                         Map<String, Object> dados = new HashMap<String, Object>();
 
-                        //data
+                        //nome parcela
                         TextView p_nome = (TextView)findViewById(R.id.pnome);
                         String pnome = p_nome.getText().toString();
 
-                        //nome do produto
+                        //fertilizacao
                         EditText p_fertilizacao = (EditText)findViewById(R.id.pfertilizacao) ;
                         String pfert =  p_fertilizacao.getText().toString();
                         pfert = pfert.isEmpty()==true?"empty":pfert;
 
-                        //fornecedor
+                        //tipo rega
                         EditText p_rega = (EditText)findViewById(R.id.prega) ;
                         String prega =p_rega.getText().toString();
                         prega= prega.isEmpty()==true?"empty":prega;
 
-                        //fabricante
+                        //area
                         EditText p_area = (EditText)findViewById(R.id.parea) ;
                         String parea = p_area.getText().toString();
                         parea = parea.isEmpty()==true?"0":parea;
@@ -119,9 +139,10 @@ public class RegistarNovaParcela extends AppCompatActivity {
                         //zona selecionada do spinner
                       String spin_zona =dropdown.getSelectedItem().toString();
 
+                        dados.put("zona",spin_zona );
                         dados.put("fertilização", pfert);
                         dados.put("tipo_rega", prega);
-                        dados.put("zona",spin_zona );
+
                         dados.put("área", parea);
 
                         //preencher o nó parcela

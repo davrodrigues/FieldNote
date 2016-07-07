@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
@@ -35,20 +36,25 @@ public class MostrarZonaActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+        Intent myIntent = getIntent();
+        final String id = myIntent.getStringExtra("id");
+
+        getSupportActionBar().setTitle("  Zona  "+id);
+
         Button add_parcela = (Button) findViewById(R.id.addparcela);
         add_parcela.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+                        Intent intent = new Intent(getApplicationContext(), RegistarNovaParcela.class);
+                        intent.putExtra("id", id );
+
                         finish();
-                        startActivity(new Intent(getApplicationContext(), RegistarNovaParcela.class));
+                        startActivity(intent);
                     }
                 });
 
-        Intent myIntent = getIntent();
-        final String id = myIntent.getStringExtra("id");
-
-        getSupportActionBar().setTitle("  Zona  "+id);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
@@ -99,19 +105,40 @@ public class MostrarZonaActivity extends AppCompatActivity {
                     i++;
                 }
 
-                }
-                // parcelas
-                ListAdapter parcelsAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, nparcelas);
-                ListView parcelsViews = (ListView) findViewById(R.id.parcelsView);
-                parcelsViews.setAdapter(parcelsAdapter);
 
-                // culturas
-                ListAdapter culturasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, culturas);
-                ListView campViews = (ListView) findViewById(R.id.campView);
-                campViews.setAdapter(culturasAdapter);
+                    // parcelas
+                    ListAdapter parcelsAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, nparcelas);
+                    ListView parcelsViews = (ListView) findViewById(R.id.parcelsView);
+                    parcelsViews.setAdapter(parcelsAdapter);
+
+                    // culturas
+                    ListAdapter culturasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, culturas);
+                    ListView campViews = (ListView) findViewById(R.id.campView);
+                    campViews.setAdapter(culturasAdapter);
+
+                }
+                else {
+                    String[] vazio = new String[] {"vazio"};
+
+                    // parcelas
+                    ListAdapter parcelsAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, vazio);
+                    ListView parcelsViews = (ListView) findViewById(R.id.parcelsView);
+                    parcelsViews.setAdapter(parcelsAdapter);
+
+                    // culturas
+                    ListAdapter culturasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, vazio);
+                    ListView campViews = (ListView) findViewById(R.id.campView);
+                    campViews.setAdapter(culturasAdapter);
+
+                }
+
+
 
 
                 area.setText(""+area_total);
+
+
+
 
             }
 
@@ -138,6 +165,29 @@ public class MostrarZonaActivity extends AppCompatActivity {
 
 
         });
+
+
+
+        //final ListView culturaView = (ListView) findViewById(R.id.culturaView);
+        final ListView parcelaViews = (ListView) findViewById(R.id.parcelsView);
+
+
+        //Mostrar zona ao clicar na letra da zona
+        parcelaViews.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+
+                Object obj = parcelaViews.getAdapter().getItem(position);
+
+                Intent intent = new Intent(getApplicationContext(), MostrarParcelaActivity.class);
+
+
+                intent.putExtra("id", obj.toString() );
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

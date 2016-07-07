@@ -8,221 +8,230 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:layout_marginBottom="50dp"
+
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.diogo.fieldnote.MostrarZonaActivity"
     tools:showIn="@layout/activity_mostrar_zona">
 
 
-    <LinearLayout
-        android:weightSum="100"
-        android:orientation="vertical"
+    <ScrollView
+        android:fillViewport="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/scrollView4" >
 
-        android:id="@+id/ll"
-        android:gravity="center_horizontal">
-
-
-        <RelativeLayout
-            android:layout_weight="0"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="15dp"
+        <LinearLayout
+            android:weightSum="300"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
 
-            <TextView
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Área Total"
-                android:id="@+id/textView2"
+            android:id="@+id/ll"
+            android:gravity="center_horizontal">
 
-                android:textColor="#000000"
-                android:textSize="20dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignEnd="@+id/textView3" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:id="@+id/mostrar_area"
-
-                android:textSize="20dp"
-                android:layout_alignTop="@+id/textView2"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@+id/textView2" />
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Localização"
-                android:id="@+id/textView3"
-                android:textColor="#000000"
-                android:textSize="20dp"
-                android:layout_below="@+id/textView2"
-                android:layout_alignParentStart="true"
-                android:layout_alignEnd="@+id/textView5" />
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="lisboa"
-                android:id="@+id/mostrar_local"
-                android:textSize="20dp"
-                android:layout_above="@+id/mostrar_producao"
-                android:layout_alignStart="@+id/mostrar_producao"
-                android:layout_alignParentEnd="true" />
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:gravity="center_horizontal"
-                android:ems="8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Modo de Produção"
-                android:id="@+id/textView5"
-                android:textColor="#000000"
-                android:textSize="20dp"
-                android:layout_below="@+id/textView3"
-                android:layout_alignParentStart="true" />
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="PDI"
-                android:id="@+id/mostrar_producao"
-                android:textSize="20dp"
-                android:layout_below="@+id/textView3"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@+id/textView5" />
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Textura do Solo"
-                android:id="@+id/textView7"
-                android:textColor="#000000"
-                android:textSize="20dp"
-                android:layout_below="@+id/textView5"
-                android:layout_alignParentStart="true"
-                android:layout_alignEnd="@+id/textView5" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="argiloso"
-                android:id="@+id/mostrar_solo"
-                android:layout_gravity="center_horizontal"
-                android:textSize="20dp"
-                android:layout_alignTop="@+id/textView7"
-                android:layout_alignEnd="@+id/mostrar_producao"
-                android:layout_toEndOf="@+id/textView7" />
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fitossanidade"
-                android:id="@+id/textView10"
-                android:textColor="#000000"
-                android:textSize="20dp"
-                android:layout_below="@+id/textView7"
-                android:layout_alignParentStart="true"
-                android:layout_alignEnd="@+id/textView7" />
-
-            <TextView
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="bord-e"
-                android:id="@+id/mostrar_fito"
-                android:textSize="20dp"
-                android:layout_below="@+id/textView7"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@+id/textView7" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_weight="100"
-            android:padding="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:ems="6"
-                android:gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Parcelas"
-                android:id="@+id/textView21"
-                android:textColor="#FF464646"
-                android:textSize="18dp"
-                android:layout_alignParentTop="true" />
-            <TextView
-
-                android:gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cultura"
-                android:id="@+id/textView22"
-                android:textColor="#464646"
-                android:textSize="18dp"
-
-                android:layout_alignParentTop="true"
-                android:layout_alignEnd="@+id/campView"
-                android:layout_toEndOf="@+id/textView21" />
-
-            <ListView
-
+            <RelativeLayout
+                android:layout_weight="120"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="15dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/parcelsView"
-                android:layout_gravity="center_horizontal"
-                android:layout_below="@+id/textView21"
+                android:layout_height="0dp">
 
-                android:layout_alignEnd="@+id/textView21" />
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Área Total"
+                    android:id="@+id/textView2"
 
-            <ListView
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignEnd="@+id/textView3" />
 
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/campView"
-                android:layout_gravity="center_horizontal"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:id="@+id/mostrar_area"
 
-                android:layout_toEndOf="@+id/parcelsView"
-                android:layout_below="@+id/textView22" />
+                    android:textSize="20dp"
+                    android:layout_alignTop="@+id/textView2"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@+id/textView2" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Localização"
+                    android:id="@+id/textView3"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    android:layout_below="@+id/textView2"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignEnd="@+id/textView5" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="lisboa"
+                    android:id="@+id/mostrar_local"
+                    android:textSize="20dp"
+                    android:layout_above="@+id/mostrar_producao"
+                    android:layout_alignStart="@+id/mostrar_producao"
+                    android:layout_alignParentEnd="true" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal"
+                    android:ems="8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Modo de Produção"
+                    android:id="@+id/textView5"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    android:layout_below="@+id/textView3"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PDI"
+                    android:id="@+id/mostrar_producao"
+                    android:textSize="20dp"
+                    android:layout_below="@+id/textView3"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@+id/textView5" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Textura do Solo"
+                    android:id="@+id/textView7"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    android:layout_below="@+id/textView5"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignEnd="@+id/textView5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="argiloso"
+                    android:id="@+id/mostrar_solo"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="20dp"
+                    android:layout_alignTop="@+id/textView7"
+                    android:layout_alignEnd="@+id/mostrar_producao"
+                    android:layout_toEndOf="@+id/textView7" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fitossanidade"
+                    android:id="@+id/textView10"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    android:layout_below="@+id/textView7"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignEnd="@+id/textView7" />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="bord-e"
+                    android:id="@+id/mostrar_fito"
+                    android:textSize="20dp"
+                    android:layout_below="@+id/textView7"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toEndOf="@+id/textView7" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="140"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <TextView
+                    android:layout_marginBottom="5dp"
+                    android:ems="6"
+                    android:gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Parcelas"
+                    android:id="@+id/textView21"
+                    android:textColor="#FF464646"
+                    android:textSize="18dp"
+                    android:layout_alignParentTop="true" />
+                <TextView
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cultura"
+                    android:id="@+id/textView22"
+                    android:textColor="#464646"
+                    android:textSize="18dp"
+
+                    android:layout_alignParentTop="true"
+                    android:layout_alignEnd="@+id/campView"
+                    android:layout_toEndOf="@+id/textView21" />
+
+                <ListView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/parcelsView"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_below="@+id/textView21"
+
+                    android:layout_alignEnd="@+id/textView21" />
+
+                <ListView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/campView"
+                    android:layout_gravity="center_horizontal"
+
+                    android:layout_toEndOf="@+id/parcelsView"
+                    android:layout_below="@+id/textView22" />
 
 
-        </RelativeLayout>
+            </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_weight="0"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:paddingTop="10dp"
+                android:layout_weight="40"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
 
-            <Button
-                android:textSize="16dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:text="Adicionar Parcela"
-                android:id="@+id/addparcela"
-                android:layout_centerHorizontal="true" />
+                <Button
+                    android:textSize="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:text="Adicionar Parcela"
+                    android:id="@+id/addparcela"
+                    android:layout_centerHorizontal="true" />
 
-        </RelativeLayout>
+            </RelativeLayout>
 
 
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

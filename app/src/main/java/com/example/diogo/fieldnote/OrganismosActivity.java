@@ -95,6 +95,7 @@ public class OrganismosActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
                 startActivity(new Intent(getApplicationContext(), RegistarObservacaoActivity.class));
             }
         });
@@ -140,7 +141,7 @@ public class OrganismosActivity extends AppCompatActivity {
                                 //nao faz nada
                             }
                         })
-                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setIcon(R.drawable.alert_smallest)
                         .show();
 
             }
