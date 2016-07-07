@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         intervTecnicas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), IntervencaoTecnica.class));
+                startActivity(new Intent(getApplicationContext(), IntervencaoTecnicaActivity.class));
             }
         });
 

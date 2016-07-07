@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-
+//enviar para a firebase
 public class RegistarCampanhaActivity extends AppCompatActivity {
 
 

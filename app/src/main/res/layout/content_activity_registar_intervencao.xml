@@ -38,7 +38,7 @@
         android:id="@+id/spinner_zone"
         android:spinnerMode="dropdown"
         android:keepScreenOn="false"
-        android:layout_marginRight="200dp"
+        android:layout_marginRight="190dp"
         android:layout_toEndOf="@+id/textView2" />
 
     <!--Data-->
@@ -484,14 +484,15 @@ Quantificação:"
           android:layout_marginStart="170dp"
                 />
     <!--Botão-->
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/view"
-        android:layout_below="@id/edit16"
-        android:layout_centerHorizontal="true"
-        app:backgroundTint="@android:color/holo_green_dark"
-        android:src="@android:drawable/ic_input_add" />
+    <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Registar Intervenção"
+           android:id="@+id/estadoButton"
+           android:layout_centerVertical="true"
+           android:layout_centerHorizontal="true"
+           android:layout_below="@id/edit16"
+           android:textColor="@android:color/white" />
     </RelativeLayout>
    </ScrollView>
 

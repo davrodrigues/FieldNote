@@ -59,15 +59,6 @@
                 android:value="com.example.diogo.fieldnote.MainActivity" />
         </activity>
         <activity
-            android:name=".IntervencaoTecnica"
-            android:label="@string/title_activity_intervencao_tecnica"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.diogo.fieldnote.MainActivity" />
-        </activity>
-        <activity
             android:name=".OrganismosActivity"
             android:label="@string/title_activity_organismos"
             android:parentActivityName=".MainActivity"
@@ -122,13 +113,22 @@
                 android:value="com.example.diogo.fieldnote.MainActivity" />
         </activity>
         <activity
-            android:name=".RegistarIntervencaoTecnicaActivity"
-            android:label="@string/registar_intervencao_tecnica"
-            android:parentActivityName=".IntervencaoTecnica"
+            android:name=".IntervencaoTecnicaActivity"
+            android:label="@string/title_activity_intervencao_tecnica"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.diogo.fieldnote.IntervencaoTecnica" />
+                android:value="com.example.diogo.fieldnote.MainActivity" />
+        </activity>
+        <activity
+            android:name=".RegistarIntervencaoTecnicaActivity"
+            android:label="@string/registar_intervencao_tecnica"
+            android:parentActivityName=".IntervencaoTecnicaActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.IntervencaoTecnicaActivity" />
         </activity>
         <activity
             android:name=".CampanhasActivity"
