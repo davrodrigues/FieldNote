@@ -47,7 +47,15 @@
     <!-- Intervenções Técnicas -->
     <string name="registar_intervencao_tecnica">Nova Intervenção Técnica</string>
     <string name="justificacao">Justificação da Intervenção</string>
-    <string name="label_data">Data:</string>
+    <string name="label_data">Data</string>
+    <string name="Estimativa">Estimativa de Risco:</string>
+    <string name="Cultural">Oper. Cultural Cont. Infestantes:</string>
+    <string name="Irrigacao">Irrigação Fertirrigação:</string>
+    <string name="Fertilização">Fertilização:</string>
+    <string name="Tratamento">Tratamento Fitossanitário:</string>
+    <string name="Vendas">Produção Vendas:</string>
+    <string name="Visitas">Visitas e Intervinientes:</string>
+
 
     <!-- Organismos e estados -->
     <string name="title_activity_mostrar_organismos">Observações de Organismos</string>
@@ -71,8 +79,6 @@
     <string name="ajuda">Ajuda</string>
     <string name="tutorial">Tutorial</string>
     <string name="sair">Terminar Sessão</string>
-
-
 
 
 

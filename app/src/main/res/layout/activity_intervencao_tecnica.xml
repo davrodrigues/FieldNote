@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.diogo.fieldnote.IntervencaoTecnica">
+    tools:context="com.example.diogo.fieldnote.IntervencaoTecnicaActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,8 +21,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_intervencao_tecnica" />
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -32,5 +30,7 @@
         android:src="@android:drawable/ic_input_add"
         app:backgroundTint="@android:color/holo_green_dark"
         android:tint="@android:color/white" />
+
+    <include layout="@layout/content_intervencao_tecnica" />
 
 </android.support.design.widget.CoordinatorLayout>

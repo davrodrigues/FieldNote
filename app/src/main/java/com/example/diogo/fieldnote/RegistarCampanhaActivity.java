@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
 
 import java.util.HashMap;
@@ -89,26 +90,30 @@ public class RegistarCampanhaActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String parcela = parcelas.getSelectedItem().toString();
-                StringTokenizer str = new StringTokenizer(parcela);
-                String cultura = culturas.getSelectedItem().toString();
-                String data = textView.getText().toString();
-                Map<String, Object> childUpdates = new HashMap<>();
-                Map<String, String> dados = new HashMap<String, String>();
-                Map<String, String> parcChild = new HashMap<String, String>();
-                String nomeParcela = str.nextToken();
-                dados.put("Data_de_Plantacao", data);
-                dados.put("Parcela", nomeParcela);
-                str.nextToken();
-                dados.put("Cultura", cultura);
-                parcChild.put("Data_de_Plantacao", data);
-                parcChild.put("Cultura", cultura);
-                childUpdates.put("FieldNote/campanhas/"+nomeParcela+"/", dados);
-                childUpdates.put("FieldNote/parcelas/"+nomeParcela+"/campanhas/"+data, parcChild );
-                childUpdates.put("FieldNote/zonas/"+str.nextToken()+"/parcelas/"+nomeParcela, cultura );
-                mDatabase.updateChildren(childUpdates);
-                finish();
-                startActivity(new Intent(getApplicationContext(), CampanhasActivity.class));
+                if(textView.getText().toString().isEmpty())
+                    textView.setError("Introduza uma data de plantação");
+                else {
+                    String parcela = parcelas.getSelectedItem().toString();
+                    StringTokenizer str = new StringTokenizer(parcela);
+                    String cultura = culturas.getSelectedItem().toString();
+                    String data = textView.getText().toString();
+                    Map<String, Object> childUpdates = new HashMap<>();
+                    Map<String, String> dados = new HashMap<String, String>();
+                    Map<String, String> parcChild = new HashMap<String, String>();
+                    String nomeParcela = str.nextToken();
+                    dados.put("Data_de_Plantacao", data);
+                    dados.put("Parcela", nomeParcela);
+                    str.nextToken();
+                    dados.put("Cultura", cultura);
+                    parcChild.put("Data_de_Plantacao", data);
+                    parcChild.put("Cultura", cultura);
+                    childUpdates.put("FieldNote/campanhas/" + nomeParcela + "/", dados);
+                    childUpdates.put("FieldNote/parcelas/" + nomeParcela + "/campanhas/" + data, parcChild);
+                    childUpdates.put("FieldNote/zonas/" + str.nextToken() + "/parcelas/" + nomeParcela, cultura);
+                    mDatabase.updateChildren(childUpdates);
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), CampanhasActivity.class));
+                }
             }
         });
     }}

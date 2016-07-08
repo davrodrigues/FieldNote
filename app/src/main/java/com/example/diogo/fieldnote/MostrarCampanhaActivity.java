@@ -33,12 +33,13 @@ public class MostrarCampanhaActivity extends AppCompatActivity {
         Intent myIntent = getIntent();
         final String id = myIntent.getStringExtra("id");
 
-
         Button button = (Button) findViewById(R.id.registarButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), RegistarEstadoActivity.class));
+                Intent intent = new Intent(getApplicationContext(), RegistarEstadoActivity.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
             }
         });
 
@@ -56,7 +57,7 @@ public class MostrarCampanhaActivity extends AppCompatActivity {
                 cult.setText(est.getCultura());
                 parc.setText(est.getParcela());
                 dataPlant.setText(est.getData_de_Plantacao());
-                getSupportActionBar().setTitle(id+" - " + est.getCultura());
+                getSupportActionBar().setTitle("Parcela "+id+" - " + est.getCultura());
                 int i = 0;
                 for(DataSnapshot post: dataSnapshot.child("estados").
                         child(id+ " - "+est.getCultura()).getChildren()) {
@@ -89,6 +90,7 @@ public class MostrarCampanhaActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
                 System.out.println("The read failed");
             }
+
 
 
 

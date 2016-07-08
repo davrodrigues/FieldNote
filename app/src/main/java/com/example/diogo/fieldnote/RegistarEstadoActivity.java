@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.firebase.database.*;
+import com.google.firebase.auth.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,6 +32,9 @@ public class RegistarEstadoActivity extends AppCompatActivity {
         //toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent myIntent = getIntent();
+        final String id = myIntent.getStringExtra("id");
 
         //up button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -58,7 +62,7 @@ public class RegistarEstadoActivity extends AppCompatActivity {
                     values = new String[] {"1 - Emergência","2 - Cotilédones completamente desenvolvidos","3 - 2ª Folha","4 - Desenvolvimento das restantes folhas","5 - Aparecimento do orgão floral","6 - Floração","7 - Formação do fruto"};
                 }
                 if(campParcela.getSelectedItem().toString().contains("Morango")) {
-                    values =new String[] {"Desenvolvimento das folhas","Inicio da formação do estolho","1º Filho","1ºs Primórdios florais","Floração","Maturação do fruto","Senescência e inicio do repouso vegetativo"};
+                    values =new String[] {"1 - Desenvolvimento das folhas","2 - Inicio da formação do estolho","3 - 1º Filho","4 - 1ºs Primórdios florais","5 - Floração","6 - Maturação do fruto","7 - Senescência e inicio do repouso vegetativo"};
                 }
                 if(campParcela.getSelectedItem().toString().contains("Feijão")) {
                     values =new String[] {"1 - Germinação","2 - Desenvolvimento das folhas","3 - Aparecimento do orgão floral","4 - Floração","5 - Formação do fruto"};
@@ -85,7 +89,7 @@ public class RegistarEstadoActivity extends AppCompatActivity {
                     values =new String[] {"1 - Germinação", "2 - Rebentação", "3 - Desenvolvimento das Folhas","4 - Desenvolvimento das partes vegetativas","5 - Aparecimento do orgão floral","6 - Floração","7 - Formação do Fruto"};
                 }
                 if(campParcela.getSelectedItem().toString().contains("Cereais")) {
-                    values =new String[]{"1 - Emergência","2 - 1 Folha","3 - 2 Folhas","4 - 3 Folhas","5 - Afilhamento do primeiro filho","6 - Afilhamento de segundo filho","7 - Encanamento","8 - Emborrachamento","9 - Espigamento","10 - Maturação"};
+                    values =new String[] {"1 - Emergência","2 - 1 Folha","3 - 2 Folhas","4 - 3 Folhas","5 - Afilhamento do primeiro filho","6 - Afilhamento de segundo filho","7 - Encanamento","8 - Emborrachamento","9 - Espigamento","10 - Maturação"};
                 }
                 if(campParcela.getSelectedItem().toString().contains("Arroz")) {
                     values =new String[] {"1 - Emergência","2 - Pós-emergência","3 - 1 Folha","4 - 2 Folhas","5 - 3 Folhas","6 - 4 Folhas","7 - 1º Filho","8 - Inicio do Afilhamento","9 - Aparecimento das panículas","10 - Maturação"};
@@ -116,6 +120,22 @@ public class RegistarEstadoActivity extends AppCompatActivity {
                 }
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplication(), R.layout.black_spinner, items);
                 campParcela.setAdapter(adapter);
+                if(id!=null) {
+                    int pos = getIndex(campParcela, id);
+                    if (pos != 0)
+                        campParcela.setSelection(pos);
+                }
+
+            }
+            private int getIndex(Spinner spinner, String myString)     {
+                int index = 0;
+                for (int i=0;i<spinner.getCount();i++){
+                    if (spinner.getItemAtPosition(i).toString().contains(myString)){
+                        index = i;
+                        break;
+                    }
+                }
+                return index;
             }
 
             @Override
@@ -145,21 +165,26 @@ public class RegistarEstadoActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String camp = campParcela.getSelectedItem().toString();
-                String estado1 = estado.getSelectedItem().toString();
-                String data = textView.getText().toString();
-                Map<String, Object> childUpdates = new HashMap<>();
-                Map<String, String> dados = new HashMap<String, String>();
-                dados.put("Estado", estado1);
-                dados.put("Data", data);
-                StringTokenizer str = new StringTokenizer(camp);
-                dados.put("Parcela", str.nextToken());
-                str.nextToken();
-                dados.put("Campanha", str.nextToken());
-                childUpdates.put("FieldNote/estados/"+camp+"/"+estado1, dados);
-                mDatabase.updateChildren(childUpdates);
-                finish();
-                startActivity(new Intent(getApplicationContext(), EstadosFenologicosActivity.class));
+                if (textView.getText().toString().isEmpty())
+                    textView.setError("Introduza uma data de registo");
+                else {
+                    String camp = campParcela.getSelectedItem().toString();
+                    String estado1 = estado.getSelectedItem().toString();
+                    String data = textView.getText().toString();
+                    Map<String, Object> childUpdates = new HashMap<>();
+                    Map<String, String> dados = new HashMap<String, String>();
+                    dados.put("Estado", estado1);
+                    dados.put("Data", data);
+                    StringTokenizer str = new StringTokenizer(camp);
+                    dados.put("Parcela", str.nextToken());
+                    str.nextToken();
+                    dados.put("Campanha", str.nextToken());
+                    String user = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+                    childUpdates.put("FieldNote/estados/" + camp + "/" + estado1, dados);
+                    mDatabase.updateChildren(childUpdates);
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), EstadosFenologicosActivity.class));
+                }
             }
         });
 }}

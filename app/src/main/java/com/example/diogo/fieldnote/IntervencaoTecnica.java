@@ -1,32 +1,108 @@
 package com.example.diogo.fieldnote;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+/**
+ * Created by SarkTime on 06/07/2016.
+ */
+public class IntervencaoTecnica {
 
-public class IntervencaoTecnica extends AppCompatActivity {
+    private String data,zona, motivo1, quantificadorJustificacao,praga,quantificadorRisco,tipo,equipamento,debito,fertilizante,
+                    adubo,especies,meio,quantificadorTratamento,colheita,quantificadorProducao,operador,area;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_intervencao_tecnica);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    public IntervencaoTecnica(){}
 
+    public IntervencaoTecnica(String data,String zona,String motivo1,String quantificadorJustificacao,String praga, String quantificadorRisco, String tipo,String equipamento,
+                              String debito, String fertilizante, String adubo, String especies, String meio,String quantificadorTratamento,String colheita,
+                              String quantificadorProducao,String operador,String area)
+    {
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.motivo1=motivo1;
+        this.quantificadorJustificacao=quantificadorJustificacao;
+        this.praga=praga;
+        this.quantificadorRisco=quantificadorRisco;
+        this.tipo=tipo;
+        this.equipamento=equipamento;
+        this.debito=debito;
+        this.fertilizante=fertilizante;
+        this.adubo=adubo;
+        this.especies=especies;
+        this.meio=meio;
+        this.quantificadorTratamento=quantificadorTratamento;
+        this.colheita=colheita;
+        this.quantificadorProducao=quantificadorProducao;
+        this.operador=operador;
+        this.area=area;
+        this.data=data;
+        this.zona=zona;
 
-        //botao adicionar
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), RegistarIntervencaoTecnicaActivity.class));
-            }
-        });
+    }
+
+    public String getMotivo1()
+    {
+        return motivo1;
+    }
+    public String getQuantificadorJustificacao()
+    {
+        return quantificadorJustificacao;
+    }
+    public String getPraga()
+    {
+        return praga;
+    }
+    public String getQuantificadorRisco()
+    {
+        return quantificadorRisco;
+    }
+    public String getTipo()
+    {
+        return tipo;
+    }
+    public String getEquipamento()
+    {
+        return equipamento;
+    }
+    public String getDebito()
+    {
+        return debito;
+    }
+    public String getFertilizante()
+    {
+        return fertilizante;
+    }
+    public String getAdubo()
+    {
+        return adubo;
+    }
+    public String getEspecies()
+    {
+        return especies;
+    }
+    public String getMeio()
+    {
+        return meio;
+    }
+    public String getData()
+    {
+        return data;
+    }
+    public String getZona()
+    {
+        return zona;
+    }
+    public String getQuantificadorTratamento()
+    {
+        return quantificadorTratamento;
+    }
+    public String getColheita() { return colheita;    }
+    public String getQuantificadorProducao(){
+        return quantificadorProducao;
+    }
+    public String getOperador()
+    {
+        return operador;
+    }
+    public String getArea()
+    {
+        return area;
     }
 
 }

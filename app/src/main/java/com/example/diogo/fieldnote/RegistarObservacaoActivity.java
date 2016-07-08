@@ -58,6 +58,9 @@ public class RegistarObservacaoActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(textView.getText().toString().isEmpty() || textView.getText().toString().contains("/"))
+                    textView.setError("Introduza uma data de observação correta");
+                else {
                 Map<String, Object> childUpdates = new HashMap<>();
                 Map<String, Object> dados = new HashMap<String, Object>();
                 Map<String, String> pragas = new HashMap<String, String>();
@@ -100,6 +103,7 @@ public class RegistarObservacaoActivity extends AppCompatActivity {
                 mDatabase.updateChildren(childUpdates);
                 finish();
                 startActivity(new Intent(getApplicationContext(), OrganismosActivity.class));
+                }
             }
         });
 
@@ -136,8 +140,6 @@ public class RegistarObservacaoActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
                 System.out.println("The read failed");
             }
-
-
         });
     }
 }

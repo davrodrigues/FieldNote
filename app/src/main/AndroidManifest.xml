@@ -59,7 +59,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.diogo.fieldnote.RegistoEntradasActivity" />
         </activity>
-
         <activity
             android:name=".Estatisticas"
             android:label="@string/title_activity_estatisticas"
@@ -70,7 +69,7 @@
                 android:value="com.example.diogo.fieldnote.MainActivity" />
         </activity>
         <activity
-            android:name=".IntervencaoTecnica"
+            android:name=".IntervencaoTecnicaActivity"
             android:label="@string/title_activity_intervencao_tecnica"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -130,13 +129,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.diogo.fieldnote.MainActivity" />
         </activity>
-        <activity android:name=".RegistarIntervencaoTecnicaActivity"
+        <activity
+            android:name=".RegistarIntervencaoTecnicaActivity"
             android:label="@string/registar_intervencao_tecnica"
-            android:parentActivityName=".IntervencaoTecnica"
+            android:parentActivityName=".IntervencaoTecnicaActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.diogo.fieldnote.IntervencaoTecnica" />
+                android:value="com.example.diogo.fieldnote.IntervencaoTecnicaActivity" />
+        </activity>
+        <activity
+            android:name=".MostrarIntervencoesActivity"
+            android:parentActivityName=".IntervencaoTecnicaActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.IntervencaoTecnicaActivity" />
         </activity>
 
         <activity
@@ -227,6 +235,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ZonasActivity" />
         </activity>
+        <activity android:name=".RegistarActivity"></activity>
 
     </application>
 

@@ -60,7 +60,7 @@ public class EstadosFenologicosActivity extends AppCompatActivity {
                 }
                 ListAdapter campanhasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, campanhas);
                 campanhasView.setAdapter(campanhasAdapter);
-                ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, parcelas);
+                ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, parcelas);
                 parcelasView.setAdapter(parcelasAdapter);
             }
 
