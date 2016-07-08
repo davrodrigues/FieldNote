@@ -50,27 +50,63 @@
             android:ems="10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/z_modo"
-            android:hint="modo de produção"
-            android:gravity="center"
-             />
-
-        <EditText
-            android:ems="10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/z_solo"
-            android:hint="textura do solo"
-            android:gravity="center"
-            />
-        <EditText
-            android:ems="10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/z_fito"
             android:hint="fitossanidade"
             android:gravity="center"
             />
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textSize="18dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Modo de Produção"
+                android:id="@+id/textView17" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/z_modo"
+                android:hint="modo de produção"
+                android:gravity="center"
+                android:fitsSystemWindows="true"
+                android:layout_marginLeft="5dp"
+                 />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textSize="18dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Textura do Solo"
+                android:id="@+id/textView18" />
+            <Spinner
+                android:fitsSystemWindows="true"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/z_solo"
+                android:hint="textura do solo"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+
 
         <Button
             android:layout_marginTop="15dp"

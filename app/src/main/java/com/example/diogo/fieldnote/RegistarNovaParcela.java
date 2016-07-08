@@ -39,6 +39,16 @@ public class RegistarNovaParcela extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.smaller);
 
+
+        //spinner
+        String[] tipo_rega = new String[]{"aspersão","gota-a-gota"};
+        final Spinner p_rega = (Spinner)findViewById(R.id.prega);
+        ArrayAdapter<String> regaAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_spinner, tipo_rega);
+        p_rega.setAdapter(regaAdapter);
+
+
+
+
         //zona passada anteriormente
         Intent myIntent = getIntent();
         final String id = myIntent.getStringExtra("id");
@@ -49,6 +59,9 @@ public class RegistarNovaParcela extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 int i=0;
+
+
+
                 //spinner zonas
                 int capacity = (int)dataSnapshot.child("zonas").getChildrenCount();
                 String[] items = new String[capacity];
@@ -56,8 +69,9 @@ public class RegistarNovaParcela extends AppCompatActivity {
                     String chave = postSnapshot.getKey();
                     items[i++] = chave;
                 }
-                Spinner dropdown = (Spinner)findViewById(R.id.spinner);
 
+                //preenche o spinner
+                Spinner dropdown = (Spinner)findViewById(R.id.spinner);
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplication(), R.layout.black_spinner, items);
                 dropdown.setAdapter(adapter);
 
@@ -107,6 +121,7 @@ public class RegistarNovaParcela extends AppCompatActivity {
 
 
         final Spinner dropdown =(Spinner) findViewById(R.id.spinner);
+
         Button submeter = (Button) findViewById(R.id.guardar);
         submeter.setOnClickListener(
                 new View.OnClickListener() {
@@ -125,11 +140,6 @@ public class RegistarNovaParcela extends AppCompatActivity {
                         String pfert =  p_fertilizacao.getText().toString();
                         pfert = pfert.isEmpty()==true?"empty":pfert;
 
-                        //tipo rega
-                        EditText p_rega = (EditText)findViewById(R.id.prega) ;
-                        String prega =p_rega.getText().toString();
-                        prega= prega.isEmpty()==true?"empty":prega;
-
                         //area
                         EditText p_area = (EditText)findViewById(R.id.parea) ;
                         String parea = p_area.getText().toString();
@@ -137,7 +147,8 @@ public class RegistarNovaParcela extends AppCompatActivity {
 
 
                         //zona selecionada do spinner
-                      String spin_zona =dropdown.getSelectedItem().toString();
+                        String spin_zona =dropdown.getSelectedItem().toString();
+                        String prega =p_rega.getSelectedItem().toString();
 
                         dados.put("zona",spin_zona );
                         dados.put("fertilização", pfert);

@@ -75,16 +75,32 @@
             android:gravity="center"
              />
 
-        <EditText
-            android:ems="10"
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/prega"
-            android:hint="Tipo de rega"
-            android:gravity="center"
-             />
+            android:layout_height="wrap_content">
 
+            <TextView
 
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tipo de Rega"
+                android:id="@+id/textView13"
+                android:layout_gravity="center" />
+
+            <Spinner
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/prega"
+                android:hint="Tipo de rega"
+                android:gravity="center"
+                android:fitsSystemWindows="true"
+                android:layout_marginLeft="5dp" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"

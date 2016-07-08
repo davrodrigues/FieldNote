@@ -66,6 +66,14 @@
 
     <string name="registar_nova_parcela">Adicionar Nova Parcela</string>
 
+    <!-- Overflow menu -->
+    <string name="dados_pessoais">Dados Pessoais</string>
+    <string name="ajuda">Ajuda</string>
+    <string name="tutorial">Tutorial</string>
+    <string name="sair">Terminar Sessão</string>
+
+
+
 
 
 </resources>

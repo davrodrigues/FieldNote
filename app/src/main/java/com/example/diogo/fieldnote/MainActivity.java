@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -69,6 +73,39 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.items, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
-    //meus_campos_botao
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        super.onOptionsItemSelected(item);
+
+        //menu overflow
+        switch(item.getItemId()){
+
+            case R.id.dados:
+                Toast.makeText(getBaseContext(), "You selected dados pessoais", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.tutorial:
+                Toast.makeText(getBaseContext(), "You selected tutorial", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.ajuda:
+                Toast.makeText(getBaseContext(), "You selected ajuda", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.sair:
+                Toast.makeText(getBaseContext(), "You selected sair", Toast.LENGTH_SHORT).show();
+                break;
+
+
+        }
+        return true;
+
+    }
 }
