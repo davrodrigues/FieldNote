@@ -70,14 +70,14 @@
     android:hint="dd-mm-aaaa" />
 
 <Button
-    android:layout_width="wrap_content"
+    android:layout_width="135dp"
     android:layout_height="wrap_content"
     android:text="Registar estado"
     android:id="@+id/estadoButton"
     android:layout_centerVertical="true"
     android:layout_centerHorizontal="true"
     android:textColor="@android:color/white"
-    android:backgroundTint="@android:color/holo_green_dark" />
+    android:background="@android:color/holo_green_dark" />
 
 
 

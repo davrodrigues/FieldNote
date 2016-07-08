@@ -23,8 +23,8 @@
         android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
         android:id="@+id/imageView"
         android:layout_below="@+id/parcelaEstado"
         android:layout_centerHorizontal="true"
@@ -35,8 +35,8 @@
         android:layout_height="wrap_content"
         android:text="Sem registos"
         android:id="@+id/estadoAtual"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -60,7 +60,7 @@
         android:id="@+id/textView20"
         android:layout_below="@+id/dataEstado"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="20dp"
         android:textStyle="bold" />
 
     <TextView

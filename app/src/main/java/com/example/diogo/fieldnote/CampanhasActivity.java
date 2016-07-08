@@ -51,7 +51,7 @@ public class CampanhasActivity extends AppCompatActivity {
                     parcelas[i++] = est.getParcela();
                 }
                 ListAdapter campanhasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, culturas);
-                ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, parcelas);
+                ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, parcelas);
                 campanhasView.setAdapter(campanhasAdapter);
                 parcelasView.setAdapter(parcelasAdapter);
             }
