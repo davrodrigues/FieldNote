@@ -17,7 +17,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 //pagina para listar
+
 public class CampanhasActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
@@ -32,6 +34,10 @@ public class CampanhasActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        final ListView campanhasView = (ListView) findViewById(R.id.listaCampanhas);
+        final ListView parcelasView = (ListView) findViewById(R.id.listaParcelas);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
@@ -49,8 +55,7 @@ public class CampanhasActivity extends AppCompatActivity {
                 }
                 ListAdapter campanhasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, culturas);
                 ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, parcelas);
-                ListView campanhasView = (ListView) findViewById(R.id.listaCampanhas);
-                ListView parcelasView = (ListView) findViewById(R.id.listaParcelas);
+
                 campanhasView.setAdapter(campanhasAdapter);
                 parcelasView.setAdapter(parcelasAdapter);
             }
@@ -88,8 +93,7 @@ public class CampanhasActivity extends AppCompatActivity {
             }
         });
 
-        final ListView campanhasView = (ListView) findViewById(R.id.listaCampanhas);
-        final ListView parcelasView = (ListView) findViewById(R.id.listaParcelas);
+
         campanhasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,

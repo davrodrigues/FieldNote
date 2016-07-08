@@ -38,18 +38,23 @@ public class MostrarOrganismoActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Parcela " + id);
 
+
+        final TextView data = (TextView) findViewById(R.id.dateObs);
+
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Observacao obs = dataSnapshot.child("observações").child(id).getValue(Observacao.class);
-                TextView data = (TextView) findViewById(R.id.dateObs);
                 data.setText(obs.getData());
                 StringTokenizer str = new StringTokenizer(obs.getParcela());
+
                 TextView parcelaEstado = (TextView) findViewById(R.id.parcelaObs);
                 parcelaEstado.setText(str.nextToken());
                 str.nextToken();
+
                 TextView campanhaEstado = (TextView) findViewById(R.id.campanhaObs);
                 campanhaEstado.setText(str.nextToken());
                 int j = 0;

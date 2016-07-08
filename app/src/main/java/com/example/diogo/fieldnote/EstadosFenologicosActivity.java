@@ -40,6 +40,8 @@ public class EstadosFenologicosActivity extends AppCompatActivity {
         //up button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        final ListView campanhasView = (ListView) findViewById(R.id.campanhasView);
+        final ListView parcelasView = (ListView) findViewById(R.id.parcelas2View);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
@@ -57,10 +59,8 @@ public class EstadosFenologicosActivity extends AppCompatActivity {
 
                 }
                 ListAdapter campanhasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, campanhas);
-                ListView campanhasView = (ListView) findViewById(R.id.campanhasView);
                 campanhasView.setAdapter(campanhasAdapter);
                 ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, parcelas);
-                ListView parcelasView = (ListView) findViewById(R.id.parcelas2View);
                 parcelasView.setAdapter(parcelasAdapter);
             }
 
@@ -96,8 +96,6 @@ public class EstadosFenologicosActivity extends AppCompatActivity {
             }
         });
 
-        final ListView campanhasView = (ListView) findViewById(R.id.campanhasView);
-        final ListView parcelasView = (ListView) findViewById(R.id.parcelas2View);
         campanhasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,

@@ -13,7 +13,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-//Mostrar individual
+
 public class MostrarCampanhaActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
@@ -44,19 +44,26 @@ public class MostrarCampanhaActivity extends AppCompatActivity {
             }
         });
 
+
+        final TextView cult = (TextView) findViewById(R.id.CulturaText);
+        final TextView parc = (TextView) findViewById(R.id.parcelaCult);
+        final TextView dataPlant = (TextView) findViewById(R.id.dataPlant);
+        final TextView estadoPlant = (TextView) findViewById(R.id.estadoPlant);
+
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                TextView cult = (TextView) findViewById(R.id.CulturaText);
-                TextView parc = (TextView) findViewById(R.id.parcelaCult);
-                TextView dataPlant = (TextView) findViewById(R.id.dataPlant);
-                TextView estadoPlant = (TextView) findViewById(R.id.estadoPlant);
+
                 Campanha est = dataSnapshot.child("campanhas").child(id).getValue(Campanha.class);
                 cult.setText(est.getCultura());
                 parc.setText(est.getParcela());
                 dataPlant.setText(est.getData_de_Plantacao());
+
+                getSupportActionBar().setTitle(id+" - " + est.getCultura());
+
                 int i = 0;
                 for(DataSnapshot post: dataSnapshot.child("estados").
                         child(id+ " - "+est.getCultura()).getChildren()) {

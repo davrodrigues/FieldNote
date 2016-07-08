@@ -25,7 +25,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main"
+            android:label="@string/main_menu"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
@@ -41,7 +41,7 @@
                 android:value="com.example.diogo.fieldnote.MainActivity" />
         </activity>
         <activity
-            android:name=".RegistoEntradas"
+            android:name=".RegistoEntradasActivity"
             android:label="@string/title_activity_registo_entradas"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -50,14 +50,14 @@
                 android:value="com.example.diogo.fieldnote.MainActivity" />
         </activity>
         <activity
-            android:name=".Estatistitcas"
-            android:label="@string/title_activity_estatistitcas"
-            android:parentActivityName=".MainActivity"
+            android:name=".MostrarEntradaActivity"
+            android:parentActivityName=".RegistoEntradasActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.diogo.fieldnote.MainActivity" />
+                android:value="com.example.diogo.fieldnote.RegistoEntradasActivity" />
         </activity>
+
         <activity
             android:name=".OrganismosActivity"
             android:label="@string/title_activity_organismos"
@@ -76,6 +76,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.diogo.fieldnote.OrganismosActivity" />
         </activity>
+
         <activity
             android:name=".RegistarEstadoActivity"
             android:label="@string/title_activity_registar_estado"
@@ -87,12 +88,18 @@
         </activity>
         <activity
             android:name=".MostrarEstadoActivity"
+
             android:label=""
             android:parentActivityName=".EstadosFenologicosActivity"
             android:theme="@style/AppTheme.NoActionBar">
              <meta-data
                  android:name="android.support.PARENT_ACTIVITY"
                  android:value="com.example.diogo.fieldnote.EstadosFenologicosActivity" />
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.EstadosFenologicosActivity" />
+
         </activity>
         <activity
             android:name=".RegistarObservacaoActivity"
@@ -157,6 +164,105 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.diogo.fieldnote.CampanhasActivity" />
         </activity>
+
+        <activity
+            android:name=".CampanhasActivity"
+            android:label="@string/title_activity_campanhas"
+            android:parentActivityName=".MyFieldsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.MyFieldsActivity" />
+        </activity>
+        <activity
+            android:name=".RegistarCampanhaActivity"
+            android:label="@string/title_activity_registar_campanha"
+            android:parentActivityName=".CampanhasActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.CampanhasActivity" />
+        </activity>
+        <activity
+            android:name=".MostrarCampanhaActivity"
+            android:label=""
+            android:parentActivityName=".CampanhasActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.CampanhasActivity" />
+        </activity>
+        <activity
+            android:name=".MostrarIntervencoesActivity"
+            android:label=""
+            android:parentActivityName=".IntervencaoTecnicaActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.IntervencaoTecnicaActivity" />
+        </activity>
+        <activity
+            android:name=".RegistarNovaEntrada"
+            android:label="@string/title_activity_registar_nova_entrada"
+            android:parentActivityName=".RegistoEntradasActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RegistoEntradasActivity" />
+        </activity>
+        <activity
+            android:name=".ZonasActivity"
+            android:label="@string/title_activity_zonas"
+            android:parentActivityName=".MyFieldsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.MyFieldsActivity" />
+        </activity>
+        <activity
+            android:name=".RegistarNovaZona"
+            android:label="@string/registar_nova_zonas"
+            android:parentActivityName=".ZonasActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ZonasActivity" />
+        </activity>
+        <activity
+            android:name=".MostrarZonaActivity"
+            android:parentActivityName=".ZonasActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.ZonasActivity" />
+        </activity>
+        <activity
+            android:name=".ParcelasActivity"
+            android:label="@string/title_activity_parcelas"
+            android:parentActivityName=".MyFieldsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.MyFieldsActivity" />
+        </activity>
+        <activity
+            android:name=".MostrarParcelaActivity"
+            android:parentActivityName=".ParcelasActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.ParcelasActivity" />
+        </activity>
+        <activity
+            android:name=".RegistarNovaParcela"
+            android:label="@string/registar_nova_parcela"
+            android:parentActivityName=".ZonasActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ZonasActivity" />
+        </activity>
+
     </application>
 
 </manifest>

@@ -21,7 +21,9 @@
         android:text="Parcela"
         android:id="@+id/parcelaCampanha"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
+
 
     <Spinner
         android:layout_width="wrap_content"
@@ -37,7 +39,8 @@
         android:text="Cultura"
         android:id="@+id/CulturaCampanha"
         android:layout_below="@+id/dropdownparcelas"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -53,7 +56,9 @@
         android:text="Data de Plantação"
         android:id="@+id/DataPlanta"
         android:layout_below="@+id/estadoSpinner"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
+
 
     <EditText
         android:layout_width="wrap_content"
@@ -62,7 +67,9 @@
         android:ems="10"
         android:id="@+id/dataRegistarEstado"
         android:layout_below="@+id/DataPlanta"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:hint="dd-mm-aaaa" />
+
 
     <Button
         android:layout_width="wrap_content"
@@ -71,7 +78,9 @@
         android:id="@+id/registarCamp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:backgroundTint="@android:color/holo_green_dark" />
+
 
 
 

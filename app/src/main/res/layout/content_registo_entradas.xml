@@ -1,9 +1,91 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment"
-    android:name="com.example.diogo.fieldnote.RegistoEntradasFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:layout="@layout/fragment_registo_entradas" />
+    android:paddingTop="?attr/actionBarSize"
+
+
+    tools:context="com.example.diogo.fieldnote.RegistoEntradasActivity"
+    tools:showIn="@layout/activity_registo_entradas"
+    android:weightSum="100"
+    android:orientation="horizontal"
+    android:baselineAligned="false">
+
+    <RelativeLayout
+        android:layout_weight="30"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data:"
+            android:id="@+id/textView"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+
+        <ListView
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/datasView"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_weight="30"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Produto:"
+            android:id="@+id/textView2"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+
+        <ListView
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/produtosView"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_marginRight="10dp"
+        android:layout_weight="40"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+
+
+        <ListView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/remover"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="37dp" />
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

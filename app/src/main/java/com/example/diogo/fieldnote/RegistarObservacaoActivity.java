@@ -41,6 +41,20 @@ public class RegistarObservacaoActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        final Spinner parcela = (Spinner) findViewById(R.id.parcelasdrop);
+        final TextView textView = (TextView)findViewById(R.id.dataObs);
+        final TextView praga1 = (TextView)findViewById(R.id.praga1);
+        final TextView praga2 = (TextView)findViewById(R.id.praga2);
+        final TextView praga3 = (TextView)findViewById(R.id.praga3);
+        final TextView doencas1 = (TextView)findViewById(R.id.doencas1);
+        final TextView doencas2 = (TextView)findViewById(R.id.doencas2);
+        final TextView doencas3 = (TextView)findViewById(R.id.doencas3);
+        final TextView auxiliares1 = (TextView)findViewById(R.id.auxiliares1);
+        final TextView auxiliares2 = (TextView)findViewById(R.id.auxiliares2);
+        final TextView auxiliares3 = (TextView)findViewById(R.id.auxiliares3);
+        final TextView obser = (TextView)findViewById(R.id.observações);
+
+
         Button fab = (Button) findViewById(R.id.registarObsButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,16 +64,9 @@ public class RegistarObservacaoActivity extends AppCompatActivity {
                 Map<String, String> pragas = new HashMap<String, String>();
                 Map<String, String> doencas = new HashMap<String, String>();
                 Map<String, String> auxiliares = new HashMap<String, String>();
-
-                Spinner parcela = (Spinner) findViewById(R.id.parcelasdrop);
                 String parc = parcela.getSelectedItem().toString();
-
-                TextView textView = (TextView)findViewById(R.id.dataObs);
                 String data = textView.getText().toString();
 
-                TextView praga1 = (TextView)findViewById(R.id.praga1);
-                TextView praga2 = (TextView)findViewById(R.id.praga2);
-                TextView praga3 = (TextView)findViewById(R.id.praga3);
                 if(!praga1.getText().toString().isEmpty())
                     pragas.put(praga1.getText().toString(),praga1.getText().toString());
                 if(!praga2.getText().toString().isEmpty())
@@ -67,9 +74,7 @@ public class RegistarObservacaoActivity extends AppCompatActivity {
                 if(!praga3.getText().toString().isEmpty())
                     pragas.put(praga3.getText().toString(),praga3.getText().toString());
 
-                TextView doencas1 = (TextView)findViewById(R.id.doencas1);
-                TextView doencas2 = (TextView)findViewById(R.id.doencas2);
-                TextView doencas3 = (TextView)findViewById(R.id.doencas3);
+
                 if(!doencas1.getText().toString().isEmpty())
                     doencas.put(doencas1.getText().toString(),doencas1.getText().toString());
                 if(!doencas2.getText().toString().isEmpty())
@@ -77,16 +82,14 @@ public class RegistarObservacaoActivity extends AppCompatActivity {
                 if(!doencas3.getText().toString().isEmpty())
                     doencas.put(doencas3.getText().toString(),doencas3.getText().toString());
 
-                TextView auxiliares1 = (TextView)findViewById(R.id.auxiliares1);
-                TextView auxiliares2 = (TextView)findViewById(R.id.auxiliares2);
-                TextView auxiliares3 = (TextView)findViewById(R.id.auxiliares3);
+
                 if(!auxiliares1.getText().toString().isEmpty())
                     auxiliares.put(auxiliares1.getText().toString(),auxiliares1.getText().toString());
                 if(!auxiliares2.getText().toString().isEmpty())
                     auxiliares.put(auxiliares2.getText().toString(),auxiliares2.getText().toString());
                 if(!auxiliares3.getText().toString().isEmpty())
                     auxiliares.put(auxiliares3.getText().toString(), auxiliares3.getText().toString());
-                TextView obser = (TextView)findViewById(R.id.observações);
+
                 if(!obser.getText().toString().isEmpty())
                     dados.put("Observacoes", obser.getText().toString());
 
@@ -104,8 +107,6 @@ public class RegistarObservacaoActivity extends AppCompatActivity {
             }
         });
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-
         mDatabase.addChildEventListener(new ChildEventListener(){
 
             @Override
@@ -116,9 +117,8 @@ public class RegistarObservacaoActivity extends AppCompatActivity {
                     Campanha est = postSnapshot.getValue(Campanha.class);
                     items[i++] = (est.getParcela() + " - " + est.getCultura());
                 }
-                Spinner dropdown = (Spinner)findViewById(R.id.parcelasdrop);
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplication(), R.layout.black_spinner, items);
-                dropdown.setAdapter(adapter);
+                parcela.setAdapter(adapter);
             }
 
             @Override

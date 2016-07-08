@@ -1,5 +1,7 @@
 package com.example.diogo.fieldnote;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -36,6 +38,10 @@ public class OrganismosActivity extends AppCompatActivity {
         //up button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        final ListView datasView = (ListView) findViewById(R.id.datesView);
+        final ListView parcelasView = (ListView) findViewById(R.id.parcelasView);
+        final ListView cruzesView = (ListView) findViewById(R.id.cruzesView);
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
 
@@ -54,11 +60,13 @@ public class OrganismosActivity extends AppCompatActivity {
                     parcelas[i++] = str.nextToken();
                 }
                 ListAdapter datasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, datas);
+
                 ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, parcelas);
                 ListAdapter cruzesAdapter = new ArrayAdapter<String>(getApplication(), R.layout.red_center_list, cruzes);
                 ListView datasView = (ListView) findViewById(R.id.datesView);
                 ListView parcelasView = (ListView) findViewById(R.id.parcelasView);
                 ListView cruzesView = (ListView) findViewById(R.id.cruzesView);
+
                 datasView.setAdapter(datasAdapter);
                 parcelasView.setAdapter(parcelasAdapter);
                 cruzesView.setAdapter(cruzesAdapter);
@@ -96,38 +104,53 @@ public class OrganismosActivity extends AppCompatActivity {
             }
         });
 
-        final ListView datesView = (ListView) findViewById(R.id.datesView);
-        final ListView parcelasView = (ListView) findViewById(R.id.parcelasView);
         //mostrar organismo
-        datesView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        datasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
                 Intent intent = new Intent(getApplicationContext(), MostrarOrganismoActivity.class);
-                Object obj = datesView.getAdapter().getItem(position);
+                Object obj = datasView.getAdapter().getItem(position);
                 Object obj2 = parcelasView.getAdapter().getItem(position);
                 intent.putExtra("id", obj2.toString() + " - " + obj.toString() );
                 startActivity(intent);
             }
         });
+
         final ListView remover = (ListView) findViewById(R.id.cruzesView);
-        remover.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        cruzesView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
+                final String obj1 = parcelasView.getAdapter().getItem(position).toString();
+                final String obj2 = datasView.getAdapter().getItem(position).toString();
 
-                String obj1 = parcelasView.getAdapter().getItem(position).toString();
-                String obj2 = datesView.getAdapter().getItem(position).toString();
+                new AlertDialog.Builder(OrganismosActivity.this)
+                        .setTitle("Apagar observação")
+                        .setMessage("Tem a certeza que pretende apagar esta observação?")
+                        .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
 
-                mDatabase.child("FieldNote/observações/"+obj1+" - "+obj2).removeValue();
+                                mDatabase.child("FieldNote/observações/"+obj1+" - "+obj2).removeValue();
 
-                Toast.makeText(getApplicationContext(),
-                        "Observação removida com sucesso.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),
+                                        "Observação removida com sucesso.", Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(getApplicationContext(), OrganismosActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), OrganismosActivity.class);
 
-                finish();
-                startActivity(intent);
+                                finish();
+                                startActivity(intent);                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                //nao faz nada
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+
+
             }
         });
     }

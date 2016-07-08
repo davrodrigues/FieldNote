@@ -3,6 +3,7 @@ package com.example.diogo.fieldnote;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.StringDef;
+import android.support.annotation.StringRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
+import java.util.Objects;
 
 public class IntervencaoTecnicaActivity extends AppCompatActivity {
 
@@ -44,10 +46,12 @@ public class IntervencaoTecnicaActivity extends AppCompatActivity {
                 int x= ((int) dataSnapshot.child("Intervencoes").getChildrenCount());
                 String[]datas = new String[x];
                 String[]zonas= new String[x];
+                String[]operadores= new String[x];
 
                 for(DataSnapshot post: dataSnapshot.child("Intervencoes").getChildren()){
                     IntervencaoTecnica intervencaoTecnica = post.getValue(IntervencaoTecnica.class);
                     datas[i]=intervencaoTecnica.getData();
+                    operadores[i]= intervencaoTecnica.getOperador();
                     zonas[i++]=intervencaoTecnica.getZona();
                 }
                 ListAdapter dataAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list,datas);
@@ -56,6 +60,9 @@ public class IntervencaoTecnicaActivity extends AppCompatActivity {
                 ListAdapter zonasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list,zonas);
                 ListView zonasView = (ListView) findViewById(R.id.zonasView);
                 zonasView.setAdapter(zonasAdapter);
+                ListAdapter operadorAdapter = new ArrayAdapter<String>(getApplication(),R.layout.black_list,operadores);
+                ListView operadorView = (ListView) findViewById(R.id.operadorView);
+                operadorView.setAdapter(operadorAdapter);
             }
 
             @Override
@@ -89,15 +96,17 @@ public class IntervencaoTecnicaActivity extends AppCompatActivity {
 
         final ListView datasView = (ListView)findViewById(R.id.DataView);
         final ListView zonasView = (ListView) findViewById(R.id.zonasView);
+        final ListView operadorView = (ListView) findViewById(R.id.operadorView);
         datasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
 
-                Intent intent = new Intent(getApplicationContext(), MostrarEstadoActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MostrarIntervencoesActivity.class);
                 Object obj = datasView.getAdapter().getItem(position);
                 Object obj2 = zonasView.getAdapter().getItem(position);
-                intent.putExtra("id", obj2.toString() + " - " + obj.toString() );
+                Object obj3 = operadorView.getAdapter().getItem(position);
+                intent.putExtra("id", obj.toString()+ " - "+ obj3.toString()+" - " + obj2.toString());
                 startActivity(intent);
             }
         });

@@ -34,16 +34,15 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/parcelas2View"
-        android:layout_below="@+id/Campanha"
-        android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/Campanha" />
-
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/campanhasView"
         android:layout_below="@+id/Campanha"
         android:layout_alignParentStart="true" />
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/parcelas2View"
+        android:layout_below="@+id/Campanha"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/Campanha" />
 </RelativeLayout>

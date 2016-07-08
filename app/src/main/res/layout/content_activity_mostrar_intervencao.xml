@@ -23,9 +23,10 @@
         android:layout_alignBottom="@+id/zona"
         android:layout_toEndOf="@+id/zona"
         android:layout_marginLeft="120dp"
-        android:id="@+id/data"
+        android:id="@+id/datav"
         />
     <TextView
+        android:id="@+id/zonaT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/zona"
@@ -40,11 +41,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/data"
-        android:layout_toEndOf="@+id/data"
+        android:layout_alignBottom="@+id/datav"
+        android:layout_toEndOf="@+id/datav"
         android:text="12/12/12"
         android:layout_marginLeft="10dp"
         android:textSize="20dp"
+        android:id="@+id/data"
 
 
         />
@@ -57,6 +59,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/zona"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="80dp"
         />
 
 

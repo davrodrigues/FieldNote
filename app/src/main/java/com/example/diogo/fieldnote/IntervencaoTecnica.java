@@ -5,20 +5,20 @@ package com.example.diogo.fieldnote;
  */
 public class IntervencaoTecnica {
 
-    private String data,zona, motivo1, quantificacao1,praga,quantificacao2,tipo,equipamento,debito,fertilizante,
-                    adubo,especies,meio,quantificacao3,colheita,quantificacao4,operador,area;
+    private String data,zona, motivo1, quantificadorJustificacao,praga,quantificadorRisco,tipo,equipamento,debito,fertilizante,
+                    adubo,especies,meio,quantificadorTratamento,colheita,quantificadorProducao,operador,area;
 
     public IntervencaoTecnica(){}
 
-    public IntervencaoTecnica(String data,String zona,String motivo1,String quantificacao1,String praga, String quantificacao2, String tipo,String equipamento,
-                              String debito, String fertilizante, String adubo, String especies, String meio,String quantificacao3,String colheita,
-                              String quantificacao4,String operador,String area)
+    public IntervencaoTecnica(String data,String zona,String motivo1,String quantificadorJustificacao,String praga, String quantificadorRisco, String tipo,String equipamento,
+                              String debito, String fertilizante, String adubo, String especies, String meio,String quantificadorTratamento,String colheita,
+                              String quantificadorProducao,String operador,String area)
     {
 
         this.motivo1=motivo1;
-        this.quantificacao1=quantificacao1;
+        this.quantificadorJustificacao=quantificadorJustificacao;
         this.praga=praga;
-        this.quantificacao2=quantificacao2;
+        this.quantificadorRisco=quantificadorRisco;
         this.tipo=tipo;
         this.equipamento=equipamento;
         this.debito=debito;
@@ -26,9 +26,9 @@ public class IntervencaoTecnica {
         this.adubo=adubo;
         this.especies=especies;
         this.meio=meio;
-        this.quantificacao3=quantificacao3;
+        this.quantificadorTratamento=quantificadorTratamento;
         this.colheita=colheita;
-        this.quantificacao4=quantificacao4;
+        this.quantificadorProducao=quantificadorProducao;
         this.operador=operador;
         this.area=area;
         this.data=data;
@@ -40,17 +40,17 @@ public class IntervencaoTecnica {
     {
         return motivo1;
     }
-    public String getQuantificacao1()
+    public String getQuantificadorJustificacao()
     {
-        return quantificacao1;
+        return quantificadorJustificacao;
     }
     public String getPraga()
     {
         return praga;
     }
-    public String getQuantificacao2()
+    public String getQuantificadorRisco()
     {
-        return quantificacao2;
+        return quantificadorRisco;
     }
     public String getTipo()
     {
@@ -88,16 +88,13 @@ public class IntervencaoTecnica {
     {
         return zona;
     }
-    public String getQuantificacao3()
+    public String getQuantificadorTratamento()
     {
-        return quantificacao3;
+        return quantificadorTratamento;
     }
-    public String getColheita()
-    {
-        return colheita;
-    }
-    public String getQuantificacao4(){
-        return quantificacao4;
+    public String getColheita() { return colheita;    }
+    public String getQuantificadorProducao(){
+        return quantificadorProducao;
     }
     public String getOperador()
     {
