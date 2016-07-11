@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.SparseArray;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
@@ -24,22 +26,22 @@ public class MostrarIntervencoesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_activity_mostrar_intervencao);
+        setContentView(R.layout.activity_mostrar_intervencao_tecnica);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //up button
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent myIntent = getIntent();
         final String id = myIntent.getStringExtra("id");
 
-      //  getSupportActionBar().setTitle("Parcela " + id);
+       getSupportActionBar().setTitle("Intervenção Técnica");
 
 
         final TextView data = (TextView) findViewById(R.id.data);
-
+        final TextView inter = (TextView) findViewById(R.id.zonaT);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
@@ -47,11 +49,12 @@ public class MostrarIntervencoesActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 IntervencaoTecnica intervencaoTecnica = dataSnapshot.child("Intervencoes").child(id).getValue(IntervencaoTecnica.class);
-                data.setText(intervencaoTecnica.getData());
-                StringTokenizer str = new StringTokenizer(intervencaoTecnica.getZona());
 
-                TextView inter = (TextView) findViewById(R.id.zonaT);
-                inter.setText(str.nextToken());
+               //passar a data ao textview
+                data.setText(intervencaoTecnica.getData());
+
+                //passar a zona ao textview
+                inter.setText(intervencaoTecnica.getZona());
 
                 int j = 0;
                 Group group = new Group("Justificação da Intervenção");
@@ -93,6 +96,7 @@ public class MostrarIntervencoesActivity extends AppCompatActivity {
                     group.children.add(intervencaoTecnica.getOperador());
                     group.children.add(intervencaoTecnica.getArea());
                 groups.append(j++, group);
+
             }
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
@@ -121,6 +125,29 @@ public class MostrarIntervencoesActivity extends AppCompatActivity {
         MyExpandableListAdapter adapter = new MyExpandableListAdapter(this,
                 groups);
         listView.setAdapter(adapter);
+
+        //botao editar intervencao
+        Button edit_interv = (Button) findViewById(R.id.edit_intervencao);
+        edit_interv.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        //data
+                        String obj1, obj2;
+                        obj1 = data.getText().toString();
+                        obj2 = inter.getText().toString();
+
+                        //buscar operador TODO acabar
+
+
+                        Intent intent = new Intent(getApplicationContext(), RegistarIntervencaoTecnicaActivity.class);
+                        intent.putExtra("id", id );
+
+                        finish();
+                        startActivity(intent);
+                    }
+                });
     }
 
 }

@@ -40,7 +40,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.diogo.fieldnote.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".RegistoEntradasActivity"
@@ -49,7 +49,15 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.diogo.fieldnote.MainActivity" />
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".Meteorologia"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".MostrarEntradaActivity"
@@ -66,7 +74,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.diogo.fieldnote.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".IntervencaoTecnicaActivity"
@@ -75,7 +83,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.diogo.fieldnote.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".OrganismosActivity"
@@ -84,7 +92,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.diogo.fieldnote.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".MostrarOrganismoActivity"
@@ -127,7 +135,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.diogo.fieldnote.MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".RegistarIntervencaoTecnicaActivity"

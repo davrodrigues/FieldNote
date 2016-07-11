@@ -25,10 +25,9 @@
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Preencha os dados da parcela"
+            android:text="@string/sub_title"
             android:id="@+id/textView3"
-            android:layout_alignParentTop="true"
-            android:textSize="22dp" />
+            android:textSize="22sp" />
 
         <LinearLayout
             android:layout_marginTop="20dp"
@@ -40,10 +39,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Zona"
+                android:text="@string/zona"
                 android:id="@+id/textView8"
                 android:textColor="#000000"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:gravity="center"
                 android:layout_marginRight="10dp"
                 />
@@ -63,7 +62,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:id="@+id/pnome"
-            android:hint="Nome da parcela"
+            android:hint="@string/nome_parcela"
             android:gravity="center" />
 
         <EditText
@@ -71,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/pfertilizacao"
-            android:hint="Fertilização"
+            android:hint="@string/fertilizacao"
             android:gravity="center"
              />
 
@@ -84,10 +83,10 @@
 
             <TextView
 
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tipo de Rega"
+                android:text="@string/rega"
                 android:id="@+id/textView13"
                 android:layout_gravity="center" />
 
@@ -96,7 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/prega"
-                android:hint="Tipo de rega"
+                android:hint="@string/rega"
                 android:gravity="center"
                 android:fitsSystemWindows="true"
                 android:layout_marginLeft="5dp" />
@@ -110,10 +109,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Área"
+                android:text="@string/area"
                 android:id="@+id/textView18"
                 android:textColor="#000000"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:gravity="center"
 
                 android:layout_marginRight="10dp"
@@ -124,21 +123,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/parea"
-                android:hint="valor"
+                android:hint="@string/hint_valor"
                 android:gravity="center"
                  />
         </LinearLayout>
 
 
         <Button
+            android:padding="10dp"
             android:layout_marginTop="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Submeter"
+            android:text="@string/submeter"
             android:id="@+id/guardar"
             android:background="@color/colorPrimary"
             android:textColor="@android:color/white"
-            android:layout_below="@+id/observações" />
+           />
 
     </LinearLayout>
 </ScrollView>

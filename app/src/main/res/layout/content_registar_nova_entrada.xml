@@ -17,18 +17,16 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adicione uma nova entrada"
+            android:text="@string/sub_entrada"
             android:id="@+id/textView3"
-            android:layout_alignParentTop="true"
-            android:textSize="25dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true" />
+            android:textSize="25sp"
+             />
 
         <LinearLayout
             android:layout_marginTop="20dp"
@@ -38,12 +36,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data:"
+                android:text="@string/just_data"
                 android:id="@+id/textView8"
                 android:textColor="#000000"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:gravity="center"
-                android:layout_centerHorizontal="true"
                 android:layout_marginRight="10dp"
                 />
             <EditText
@@ -52,44 +49,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/data_entrada"
-                android:hint="dd-mm-aaaa"
+                android:hint="@string/data_exemplo"
                 android:gravity="center"
-                android:layout_below="@+id/fabricante"
-                android:layout_centerHorizontal="true" />
+                />
         </LinearLayout>
 
 
         <EditText
-                        android:layout_width="wrap_content"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:id="@+id/nome_prod"
-            android:hint="nome do produto"
+            android:hint="@string/nome_produto"
             android:gravity="center"
-            android:layout_below="@+id/textView3"
-            android:layout_centerHorizontal="true" />
+            />
 
         <EditText
             android:ems="10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/fornecedor"
-            android:layout_alignParentStart="true"
-            android:hint="nome do fornecedor"
+            android:hint="@string/nome_fornecedor"
             android:gravity="center"
-            android:layout_below="@+id/nome_prod"
-            android:layout_centerHorizontal="true" />
+             />
 
         <EditText
             android:ems="10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/fabricante"
-            android:layout_alignParentStart="true"
-            android:hint="nome do fabricante"
+            android:hint="@string/nome_fabricante"
             android:gravity="center"
-            android:layout_below="@+id/fornecedor"
-            android:layout_centerHorizontal="true" />
+             />
 
 
 
@@ -100,12 +91,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quantidade:"
+                android:text="@string/quantidade"
                 android:id="@+id/textView18"
                 android:textColor="#000000"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:gravity="center"
-                android:layout_centerHorizontal="true"
                 android:layout_marginRight="10dp"
                 />
             <EditText
@@ -114,44 +104,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/quantidade"
-                android:layout_alignParentStart="true"
-                android:hint="valor"
-                android:gravity="center"
-                android:layout_below="@+id/textView8"
-                android:layout_centerHorizontal="true" />
+                android:hint="@string/hint_valor"
+                android:gravity="center" />
         </LinearLayout>
         <TextView
             android:layout_marginTop="20dp"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Observações:"
+            android:text="@string/observacoes"
             android:id="@+id/textView6"
             android:textColor="#000000"
-            android:gravity="center"
-            android:layout_centerHorizontal="true" />
+            android:gravity="center" />
 
         <EditText
             android:lines="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/observações"
-            android:layout_alignParentStart="true"
-            android:hint="adicione alguma informação"
-            android:gravity="center"
-            android:layout_below="@+id/textView6"
-            android:layout_centerHorizontal="true" />
+            android:hint="@string/observacoes_entrada"
+            android:gravity="center" />
 
         <Button
             android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Submeter"
+            android:text="@string/submeter"
             android:id="@+id/submeter"
             android:background="@color/colorAccent"
-            android:textColor="@android:color/white"
-            android:layout_below="@+id/observações"
-            android:layout_centerHorizontal="true" />
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 </ScrollView>

@@ -134,22 +134,22 @@
             <ImageButton
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:id="@+id/estatisticas_botao"
-                android:background="@drawable/stats2"
+                android:id="@+id/meteorologia_botao"
+                android:background="@drawable/tempo"
                 android:layout_below="@+id/registar_estado_fenologico"
                 android:layout_alignStart="@+id/registo_estados_fenologicos_botao" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/statistics"
-                android:id="@+id/estatisticas"
+                android:text="Meteorologia"
+                android:id="@+id/Meteorologia"
                 android:textSize="15sp"
                 android:textAlignment="center"
                 android:gravity="center_horizontal"
-                android:layout_below="@+id/estatisticas_botao"
-                android:layout_alignStart="@+id/estatisticas_botao"
-                android:layout_alignEnd="@+id/estatisticas_botao" />
+                android:layout_below="@+id/meteorologia_botao"
+                android:layout_alignStart="@+id/meteorologia_botao"
+                android:layout_alignEnd="@+id/meteorologia_botao" />
 
         </RelativeLayout>
     </ScrollView>

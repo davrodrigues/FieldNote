@@ -47,11 +47,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton estatisticas = (ImageButton) findViewById(R.id.estatisticas_botao);
+        ImageButton estatisticas = (ImageButton) findViewById(R.id.meteorologia_botao);
         estatisticas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Estatisticas.class));
+                startActivity(new Intent(getApplicationContext(), Meteorologia.class));
             }
         });
 

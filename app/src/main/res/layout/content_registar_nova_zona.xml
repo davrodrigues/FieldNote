@@ -17,15 +17,15 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adicione uma nova zona"
+            android:text="@string/add_zona"
             android:id="@+id/textView3"
-            android:textSize="25dp"
+            android:textSize="25sp"
              />
 
             <EditText
@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/z_nome"
-                android:hint="nome da zona"
+                android:hint="@string/nome_zona"
                 android:gravity="center"
                  />
         <EditText
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:id="@+id/z_local"
-            android:hint="localização"
+            android:hint="@string/localizacao"
             android:gravity="center"
              />
 
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/z_fito"
-            android:hint="fitossanidade"
+            android:hint="@string/fitossanidade"
             android:gravity="center"
             />
 
@@ -62,18 +62,18 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Modo de Produção"
+                android:text="@string/modo_producao"
                 android:id="@+id/textView17" />
 
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/z_modo"
-                android:hint="modo de produção"
+
                 android:gravity="center"
                 android:fitsSystemWindows="true"
                 android:layout_marginLeft="5dp"
@@ -89,11 +89,11 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Textura do Solo"
+                android:text="@string/text_solo"
                 android:id="@+id/textView18" />
             <Spinner
                 android:fitsSystemWindows="true"
@@ -101,7 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/z_solo"
-                android:hint="textura do solo"
+
                 android:gravity="center"
                 />
         </LinearLayout>
@@ -109,14 +109,15 @@
 
 
         <Button
-            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Submeter"
+            android:text="@string/submeter"
             android:id="@+id/zsubmeter"
             android:background="@color/colorPrimaryDark"
             android:textColor="@android:color/white"
-            android:layout_below="@+id/observações"
+
            />
 
     </LinearLayout>

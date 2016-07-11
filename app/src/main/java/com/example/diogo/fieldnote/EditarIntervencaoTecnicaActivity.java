@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegistarIntervencaoTecnicaActivity extends AppCompatActivity {
+public class EditarIntervencaoTecnicaActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
 
@@ -35,6 +35,12 @@ public class RegistarIntervencaoTecnicaActivity extends AppCompatActivity {
 
         // botão voltar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Intent myIntent = getIntent();
+        final String id = myIntent.getStringExtra("id");
+
+        getSupportActionBar().setTitle("Editar Intervenção Técnica");
+
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener() {

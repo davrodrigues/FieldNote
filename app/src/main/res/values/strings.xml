@@ -20,9 +20,27 @@
     <string name="entries">Registo \n de Entradas</string>
     <string name="register_feno">Estados \n Fenológicos</string>
     <string name="obs_organism">Observações \n de Organismos</string>
-    <string name="tec_intervention">Intervenções \n Técnicas</string>
+    <string name="tec_intervention">Intervenções \nTécnicas</string>
     <string name="statistics">Estatisticas \n</string>
     <string name="longo">"texto muito longo que \nnão cabe apenas numa linha"</string>
+
+
+    <!-- Registo Entradas -->
+    <string name="data_registo">Data do Registo</string>
+    <string name="produto">Produto</string>
+    <string name="fornecedor">Fornecedor</string>
+    <string name="fabricante">Fabricante</string>
+    <string name="quantidade">Quantidade</string>
+    <string name="observacoes">Observações</string>
+    <string name="just_data">Data</string>
+    <string name="sub_entrada">Adicione uma nova entrada</string>
+
+    <!-- Registo Nova Entradas -->
+    <string name="data_exemplo">dd-mm-yyyy</string>
+    <string name="nome_produto">Nome do Produto</string>
+    <string name="nome_fornecedor">Nome do Fornecedor</string>
+    <string name="nome_fabricante">Nome do Fabricante</string>
+    <string name="observacoes_entrada">adicione alguma informação</string>
 
     <!-- Meus Campos  -->
     <string name="zones">Zonas</string>
@@ -33,6 +51,40 @@
     <string name="harvest">Colheitas</string>
     <string name="products_used">Produtos Utilizados</string>
     <string name="make_cc">Produzir \nCaderno Campo</string>
+
+
+    <!-- Zonas -->
+    <string name="localizacao">Localização</string>
+    <string name="n_parcelas"># Parcelas</string>
+    <string name="add_zona">Adicione uma nova zona</string>
+    <string name="nome_zona">Nome da Zona</string>
+    <string name="fitossanidade">Fitossanidade</string>
+    <string name="modo_producao">Modo de Produção</string>
+    <string name="text_solo">Textura do Solo</string>
+    <string name="area_total">Área Total</string>
+    <string name="parcelas">Parcelas</string>
+    <string name="add_parcela">Adicionar Parcela</string>
+
+
+
+    <!-- Menu Parcelas -->
+    <string name="parcela">Parcela</string>
+    <string name="zona">Zona</string>
+    <string name="area">Área</string>
+    <string name="fertilizacao">Fertilização</string>
+    <string name="rega">Tipo de Rega</string>
+    <string name="data_plantacao">Data Plantação</string>
+    <string name="cultura">Cultura</string>
+
+    <!-- registar nova parcela -->
+    <string name="sub_title">Preencha os dados da parcela</string>
+    <string name="nome_parcela">Nome da Parcela</string>
+    <string name="hint_valor">Valor</string>
+    <string name="submeter">Confirmar</string>
+
+
+
+
 
     <!-- Menus -->
     <string name="title_activity_my_fields">Meus Campos</string>
@@ -80,6 +132,10 @@
     <string name="tutorial">Tutorial</string>
     <string name="sair">Terminar Sessão</string>
 
+
+
+    <!-- Extras -->
+    <string name="exemplo">default</string>
 
 
 </resources>
