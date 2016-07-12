@@ -58,12 +58,9 @@ public class JSONWeatherParser {
 		weather.clouds.setPerc(getInt("all", cObj));
 		
 		// We download the icon to show
-		
-		
 		return weather;
 	}
-	
-	
+
 	private static JSONObject getObject(String tagName, JSONObject jObj)  throws JSONException {
 		JSONObject subObj = jObj.getJSONObject(tagName);
 		return subObj;

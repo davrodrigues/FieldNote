@@ -23,6 +23,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,8 +55,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         setContentView(R.layout.activity_login);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
-
-
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -97,7 +96,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             });
         }
 
-        Button mEmailRegister = (Button) findViewById(R.id.email_register_button);
+        TextView mEmailRegister = (TextView) findViewById(R.id.email_register_button);
         if (mEmailRegister != null) {
             mEmailRegister.setOnClickListener(new OnClickListener() {
                 @Override

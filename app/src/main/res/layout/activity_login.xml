@@ -3,101 +3,109 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/field1"
 
     tools:context="com.example.diogo.fieldnote.LoginActivity"
     android:orientation="vertical"
     android:weightSum="1">
 
     <!-- Login progress -->
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
-
-    <ScrollView
-
-        android:id="@+id/login_form"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        >
-
-        <LinearLayout
-            android:id="@+id/email_login_form"
-            android:layout_width="fill_parent"
+        <ProgressBar
+            android:id="@+id/login_progress"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <ScrollView
+            android:id="@+id/login_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+            <LinearLayout
 
-                <AutoCompleteTextView
-                    android:id="@+id/email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/prompt_email"
-                    android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/password"
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/prompt_password"
-                    android:imeActionId="@+id/login"
-                    android:imeActionLabel="@string/action_sign_in_short"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <Button
-                android:id="@+id/email_sign_in_button"
-                style="?android:textAppearanceSmall"
-                android:layout_width="wrap_content"
+                android:padding="25dp"
+                android:id="@+id/email_login_form"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="LOGIN"
-                android:textStyle="bold"
-                android:textColor="#ffffff"
-                android:textSize="18sp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:layout_marginTop="20dp"
-                android:background="#369901" />
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/email_register_button"
-                style="?android:textAppearanceSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Criar Conta"
-                android:textStyle="bold"
-                android:textColor="#369901"
-                android:textSize="18sp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:layout_marginTop="20dp"
-                android:background="#ffffff" />
+                <ImageView
 
-        </LinearLayout>
-    </ScrollView>
+                    android:id="@+id/logotipo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/logolimpo2" />
+
+
+
+                    <AutoCompleteTextView
+                        android:textSize="22sp"
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/prompt_email"
+                        android:textColorHint="#494949"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:singleLine="true"
+
+                        />
+
+                    <EditText
+                        android:textColorHint="#494949"
+                        android:textSize="22sp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/prompt_password"
+                        android:imeActionId="@+id/login"
+                        android:imeActionLabel="@string/action_sign_in_short"
+                        android:imeOptions="actionUnspecified"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                <Button
+                    android:ems="6"
+                    android:id="@+id/email_sign_in_button"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:textSize="22sp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#369901" />
+
+                <TextView
+                    android:ems="8"
+                    android:textAlignment="center"
+                    android:id="@+id/email_register_button"
+                    style="?android:textAppearanceSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Criar Conta"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:textSize="24sp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true"
+                     />
+
+            </LinearLayout>
+        </ScrollView>
+
 </LinearLayout>

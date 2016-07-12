@@ -128,6 +128,7 @@
 
 
 <RelativeLayout
+
     android:layout_weight="6"
     android:layout_width="match_parent"
     android:layout_height="0dp"
@@ -149,11 +150,10 @@
 
 
     <TextView
-
         android:gravity="center"
-        android:layout_width="150dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/localizacao"
+        android:text="@string/cidade"
         android:textSize="20sp"
         android:id="@+id/textView14"
         android:layout_alignParentTop="true"
@@ -161,11 +161,11 @@
         android:layout_toEndOf="@+id/textView16" />
 
     <TextView
-        android:layout_marginEnd="5dp"
+
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/n_parcelas"
+        android:text="@string/tempo"
         android:textSize="20sp"
         android:id="@+id/textView15"
         android:layout_alignParentTop="true"

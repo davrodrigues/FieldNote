@@ -290,6 +290,8 @@ public class EditarIntervencaoTecnicaActivity extends AppCompatActivity {
                             //cria novo nó com as mudanças
                             childUpdates.put("FieldNote/Intervencoes/" + date +" - "+ oper+" - " + spin_zona + "/", dados);
                             mDatabase.updateChildren(childUpdates);
+
+
                             finish();
                             startActivity(new Intent(getApplicationContext(), IntervencaoTecnicaActivity.class));
                         }
