@@ -43,6 +43,11 @@ public class EditarIntervencaoTecnicaActivity extends AppCompatActivity {
         //partir a string
         String partes[] = id.split(" - ");
 
+
+        //data
+        final String obj1 = partes[0];
+        //operador
+        final String obj2 = partes[1];
         //zona
         final String obj3 = partes[2];
 
@@ -278,6 +283,11 @@ public class EditarIntervencaoTecnicaActivity extends AppCompatActivity {
                             dados.put("operador",oper);
                             dados.put("area",ar);
 
+                            //se ocorreu alteração na chave apaga o nó
+                            if((obj1 !=date) ||(obj2!=oper) ||(obj3!=spin_zona))
+                                mDatabase.child("FieldNote/Intervencoes/" + obj1 +" - "+ obj2+" - " + obj3 + "/").removeValue();
+
+                            //cria novo nó com as mudanças
                             childUpdates.put("FieldNote/Intervencoes/" + date +" - "+ oper+" - " + spin_zona + "/", dados);
                             mDatabase.updateChildren(childUpdates);
                             finish();

@@ -1,102 +1,204 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Meteorologia" >
+
+
+
+    tools:context=".Meteorologia"
+    tools:showIn="@layout/activity_meteo"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+    android:weightSum="100"
+    android:orientation="vertical"
+    android:baselineAligned="false">
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_weight="30"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        >
+
+        <TextView
+            android:id="@+id/cityText"
+            style="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:hint="cidade"
+            android:textAlignment="center" />
+
+        <ImageView
+            android:id="@+id/condIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/cityText"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+
+            android:id="@+id/condDescr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="descrição"
+            android:layout_below="@+id/condIcon"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/temp"
+            style="@style/tempStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_alignBaseline="@id/condDescr"
+            android:layout_toRightOf="@id/condDescr"
+            android:hint="temp" />
+
+        <TextView
+            android:id="@+id/pressLab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/condDescr"
+            android:text="Pressure"
+            android:layout_marginTop="15dp" />
+
+        <TextView
+            android:id="@+id/press"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/pressLab"
+            android:layout_toRightOf="@id/pressLab"
+            style="@style/valData"
+            android:hint="@string/exemplo" />
+
+        <TextView
+            android:id="@+id/humLab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/pressLab"
+            android:text="Humidity" />
+
+        <TextView
+            android:id="@+id/hum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/humLab"
+            android:layout_toRightOf="@id/humLab"
+            android:layout_marginLeft="4dp"
+            style="@style/valData"
+            android:hint="@string/exemplo" />
+
+        <TextView
+            android:id="@+id/windLab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/humLab"
+            android:text="Wind" />
+
+        <TextView
+            android:id="@+id/windSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/windLab"
+            android:layout_toRightOf="@id/windLab"
+            android:layout_marginLeft="4dp"
+            style="@style/valData"
+            android:hint="@string/exemplo" />
+
+        <TextView
+            android:id="@+id/windDeg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/windLab"
+            android:layout_toRightOf="@id/windSpeed"
+            android:layout_marginLeft="4dp"
+            style="@style/valData"
+            android:hint="@string/exemplo" />
+
+    </RelativeLayout>
+
+
+<RelativeLayout
+    android:layout_weight="6"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="0dp"
+    android:layout_marginRight="10dp">
 
     <TextView
-        android:id="@+id/cityText"
-        style="?android:attr/textAppearanceMedium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" />
 
-    <ImageView
-        android:id="@+id/condIcon"
-        android:layout_width="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/cityText" />
+        android:text="@string/zona"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView16" />
 
-    <TextView
-        android:id="@+id/condDescr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/condIcon"
-        android:layout_alignLeft="@id/condIcon" 
-       />
+
 
     <TextView
-        android:id="@+id/temp"
-        style="@style/tempStyle"
-        android:layout_width="wrap_content"
+
+        android:gravity="center"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_alignBaseline="@id/condDescr"
-        android:layout_toRightOf="@id/condDescr"/>
+        android:text="@string/localizacao"
+        android:textSize="20sp"
+        android:id="@+id/textView14"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/textView15"
+        android:layout_toEndOf="@+id/textView16" />
 
     <TextView
-        android:id="@+id/pressLab"
+        android:layout_marginEnd="5dp"
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/condDescr"
-        android:text="Pressure"
-        android:layout_marginTop="15dp" />
-
-    <TextView
-        android:id="@+id/press"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/pressLab"
-        android:layout_toRightOf="@id/pressLab" 
-        style="@style/valData"/>
-
-    <TextView
-        android:id="@+id/humLab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/pressLab"
-        android:text="Humidity" />
-
-    <TextView
-        android:id="@+id/hum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/humLab"
-        android:layout_toRightOf="@id/humLab" 
-        android:layout_marginLeft="4dp"
-        style="@style/valData"/>
-
-    <TextView
-        android:id="@+id/windLab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/humLab"
-        android:text="Wind" />
-
-    <TextView
-        android:id="@+id/windSpeed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/windLab"
-        android:layout_toRightOf="@id/windLab"
-        android:layout_marginLeft="4dp"
-        style="@style/valData" />
-
-    <TextView
-        android:id="@+id/windDeg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/windLab"
-        android:layout_toRightOf="@id/windSpeed"
-        android:layout_marginLeft="4dp" 
-        style="@style/valData"/>
+        android:text="@string/n_parcelas"
+        android:textSize="20sp"
+        android:id="@+id/textView15"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
+
+<RelativeLayout
+    android:layout_weight="64"
+    android:layout_width="wrap_content"
+    android:layout_height="0dp">
+
+    <ListView
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/zonasView"
+        />
+
+    <ListView
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/localView"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/zonasView" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nparcelasView"
+        android:layout_toEndOf="@+id/localView"
+        android:layout_alignTop="@+id/localView">
+    </ListView>
+</RelativeLayout>
+
+
+</LinearLayout>

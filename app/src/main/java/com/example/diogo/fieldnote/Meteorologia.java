@@ -14,13 +14,17 @@ import org.json.JSONObject;
 import com.example.diogo.fieldnote.model.Location;
 import com.example.diogo.fieldnote.model.Weather;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,9 +44,20 @@ public class Meteorologia extends AppCompatActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.meteo);
-		String city = "London,UK";
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_meteo);
+
+
+		//toolbar
+		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
+
+		// botão voltar
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+		String city = "Lisboa,PT";
 		
 		cityText = (TextView) findViewById(R.id.cityText);
 		condDescr = (TextView) findViewById(R.id.condDescr);
@@ -57,13 +72,13 @@ public class Meteorologia extends AppCompatActivity {
 		task.execute(new String[]{city});
 	}
 
-	@Override
+	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
+*/
 	
 	private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
 		
@@ -72,9 +87,12 @@ public class Meteorologia extends AppCompatActivity {
 			Weather weather = new Weather();
 			String data = ( (new WeatherHttpClient()).getWeatherData(params[0]));
 
+
 			try {
 				weather = JSONWeatherParser.getWeather(data);
-				
+                System.out.println("xxx:"+data);
+                System.out.println("codigo:"+weather.currentCondition.getIcon());
+
 				// Let's retrieve the icon
 				weather.iconData = ( (new WeatherHttpClient()).getImage(weather.currentCondition.getIcon()));
 				
@@ -84,8 +102,6 @@ public class Meteorologia extends AppCompatActivity {
 			return weather;
 		
 	}
-		
-		
 		
 		
 	@Override

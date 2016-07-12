@@ -60,7 +60,7 @@
             android:textStyle="bold"
             android:textSize="25sp"
             android:id="@+id/datav"
-            android:layout_marginLeft="100dp" />
+            android:layout_marginLeft="50dp" />
 
         <TextView
             android:layout_marginLeft="10dp"

@@ -55,6 +55,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
 
+
+
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -69,6 +71,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
 
         mPasswordView = (EditText) findViewById(R.id.password);
+
+        //TODO remover-me
+        mEmailView.setText("d@mail.com");
+        mPasswordView.setText("123456");
+
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {

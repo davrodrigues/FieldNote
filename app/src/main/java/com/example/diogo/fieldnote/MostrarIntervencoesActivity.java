@@ -136,8 +136,6 @@ public class MostrarIntervencoesActivity extends AppCompatActivity {
 
                         Intent intent = new Intent(getApplicationContext(), EditarIntervencaoTecnicaActivity.class);
                         intent.putExtra("id", parseme );
-                        //TODO remove-me
-                        System.out.println("parseme:"+parseme);
                         finish();
                         startActivity(intent);
                     }
