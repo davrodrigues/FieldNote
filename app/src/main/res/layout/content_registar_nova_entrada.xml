@@ -65,6 +65,14 @@
             />
 
         <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/custo"
+            android:hint="@string/custo_total"
+            android:gravity="center" />
+
+        <EditText
             android:ems="10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

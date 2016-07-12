@@ -85,6 +85,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
+        <activity
+            android:name=".EditarIntervencaoTecnicaActivity"
+            android:label="@string/title_activity_intervencao_tecnica"
+            android:parentActivityName=".IntervencaoTecnicaActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".IntervencaoTecnicaActivity" />
+        </activity>
+
         <activity
             android:name=".OrganismosActivity"
             android:label="@string/title_activity_organismos"

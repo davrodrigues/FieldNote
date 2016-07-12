@@ -38,6 +38,7 @@
     <!-- Registo Nova Entradas -->
     <string name="data_exemplo">dd-mm-yyyy</string>
     <string name="nome_produto">Nome do Produto</string>
+    <string name="custo_total">Custo Total</string>
     <string name="nome_fornecedor">Nome do Fornecedor</string>
     <string name="nome_fabricante">Nome do Fabricante</string>
     <string name="observacoes_entrada">adicione alguma informação</string>

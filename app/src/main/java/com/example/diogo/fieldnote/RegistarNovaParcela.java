@@ -47,8 +47,6 @@ public class RegistarNovaParcela extends AppCompatActivity {
         p_rega.setAdapter(regaAdapter);
 
 
-
-
         //zona passada anteriormente
         Intent myIntent = getIntent();
         final String id = myIntent.getStringExtra("id");

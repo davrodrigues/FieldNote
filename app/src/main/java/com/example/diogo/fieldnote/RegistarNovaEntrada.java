@@ -51,6 +51,11 @@ public class RegistarNovaEntrada extends AppCompatActivity {
                         EditText nome_produto = (EditText)findViewById(R.id.nome_prod) ;
                         String nprod =  nome_produto.getText().toString();
 
+                        //custo do produto
+                        EditText custo = (EditText)findViewById(R.id.custo) ;
+                        String ncusto =  nome_produto.getText().toString();
+                        ncusto = ncusto.isEmpty()==true?"0":ncusto;
+
                         //fornecedor
                         EditText nome_fornecedor = (EditText)findViewById(R.id.fornecedor) ;
                         String nforn =nome_fornecedor.getText().toString();

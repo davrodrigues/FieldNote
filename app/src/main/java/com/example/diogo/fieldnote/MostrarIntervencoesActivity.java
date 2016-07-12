@@ -2,6 +2,7 @@ package com.example.diogo.fieldnote;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.SparseArray;
@@ -36,7 +37,7 @@ public class MostrarIntervencoesActivity extends AppCompatActivity {
 
         Intent myIntent = getIntent();
         final String id = myIntent.getStringExtra("id");
-
+        final String parseme = id;
        getSupportActionBar().setTitle("Intervenção Técnica");
 
 
@@ -133,17 +134,10 @@ public class MostrarIntervencoesActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        //data
-                        String obj1, obj2;
-                        obj1 = data.getText().toString();
-                        obj2 = inter.getText().toString();
-
-                        //buscar operador TODO acabar
-
-
-                        Intent intent = new Intent(getApplicationContext(), RegistarIntervencaoTecnicaActivity.class);
-                        intent.putExtra("id", id );
-
+                        Intent intent = new Intent(getApplicationContext(), EditarIntervencaoTecnicaActivity.class);
+                        intent.putExtra("id", parseme );
+                        //TODO remove-me
+                        System.out.println("parseme:"+parseme);
                         finish();
                         startActivity(intent);
                     }
