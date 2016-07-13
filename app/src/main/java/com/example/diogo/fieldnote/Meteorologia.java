@@ -6,6 +6,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import com.example.diogo.fieldnote.WeatherHttpClient;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,6 +31,7 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -38,6 +44,7 @@ import android.widget.TextView;
 
 public class Meteorologia extends AppCompatActivity {
 
+    public String temperatura;
 
 	private TextView cityText;
 	private TextView condDescr;
@@ -48,10 +55,12 @@ public class Meteorologia extends AppCompatActivity {
 
 	private TextView hum;
 	private ImageView imgView;
-    private String tempo[]= new String[8];
 
     //db
     private DatabaseReference mDatabase;
+
+    List<Weather>  listat = new ArrayList<Weather>();
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +75,9 @@ public class Meteorologia extends AppCompatActivity {
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+        //localização atual
+		final String city = "Lisboa";
 
-		String city = "Lisboa,PT";
 
 		cityText = (TextView) findViewById(R.id.cityText);
 		condDescr = (TextView) findViewById(R.id.condDescr);
@@ -78,8 +88,8 @@ public class Meteorologia extends AppCompatActivity {
 		windDeg = (TextView) findViewById(R.id.windDeg);
 		imgView = (ImageView) findViewById(R.id.condIcon);
 
-		JSONWeatherTask task = new JSONWeatherTask();
-		task.execute(new String[]{city});
+		//final JSONWeatherTask task = new JSONWeatherTask();
+		//task.execute(city);
 
 
         //firebase
@@ -94,15 +104,14 @@ public class Meteorologia extends AppCompatActivity {
                 int x = ((int) dataSnapshot.child("zonas").getChildrenCount());
                 String[] nzona = new String[x];
                 String[] local = new String[x];
-                String[] tempo = new String[x];
+                //String[] tempo = new String[x];
 
                 for (DataSnapshot postSnapshot: dataSnapshot.child("zonas").getChildren()) {
                     Zona zone = postSnapshot.getValue(Zona.class);
 
                     nzona[i]=zone.getNomezona();
                     local[i] = zone.getLocalização();
-                    tempo[i] = String.valueOf(postSnapshot.child("parcelas").getChildrenCount());
-
+                //  tempo[i] = String.valueOf(postSnapshot.child("parcelas").getChildrenCount());
                     i++;
                 }
 
@@ -116,10 +125,10 @@ public class Meteorologia extends AppCompatActivity {
                 ListView localView = (ListView) findViewById(R.id.localView);
                 localView.setAdapter(localAdapter);
 
-                //numero parcelas
-                ListAdapter nparcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, tempo);
-                ListView nparcelasView = (ListView) findViewById(R.id.nparcelasView);
-                nparcelasView.setAdapter(nparcelasAdapter);
+                //buscar e preencher o tempo em cada cidade
+                new JSONWeatherTask().execute(local);
+
+
 
             }
 
@@ -156,24 +165,26 @@ public class Meteorologia extends AppCompatActivity {
 	}
 */
 
-	private class JSONWeatherTask extends AsyncTask<String, Void, Weather> {
+	private class JSONWeatherTask extends AsyncTask<String[], Void, Weather> {
 
 		@Override
-		protected Weather doInBackground(String... params) {
-			Weather weather = new Weather();
-			String data = ( (new WeatherHttpClient()).getWeatherData(params[0]));
+		protected Weather doInBackground(String[]... params) {
 
+            Weather weather = new Weather();
+            for (String w1 : params[0]) {
 
-			try {
-				weather = JSONWeatherParser.getWeather(data);
-				// Let's retrieve the icon
-				weather.iconData = ( (new WeatherHttpClient()).getImage(weather.currentCondition.getIcon()));
+                String data = ((new WeatherHttpClient()).getWeatherData(w1));
+                try {
+                    weather = JSONWeatherParser.getWeather(data);
+                    // Let's retrieve the icon
+                    weather.iconData = ((new WeatherHttpClient()).getImage(weather.currentCondition.getIcon()));
+                    listat.add(weather);
 
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-			return weather;
-
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+                return weather;
 	}
 
 
@@ -194,8 +205,25 @@ public class Meteorologia extends AppCompatActivity {
 			windSpeed.setText("" + weather.wind.getSpeed() + " mps");
 			windDeg.setText("" + weather.wind.getDeg() + " ");
 
+            //escreve para uma variavel global
 
-		}
+            String cidade;
+            List<String> tempo = new ArrayList<>();
+
+            for (Weather elem : listat){
+
+                temperatura = "" + Math.round((elem.temperature.getTemp() - 273.15)) + " C";
+                cidade= elem.location.getCity();
+                cidade = cidade.equalsIgnoreCase("lisbon")==true?"lisboa":cidade;
+                tempo.add(temperatura);
+                System.out.println("temperatura de " + cidade +": "+temperatura);
+            }
+
+        ListAdapter nparcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, tempo);
+        ListView nparcelasView = (ListView) findViewById(R.id.nparcelasView);
+        nparcelasView.setAdapter(nparcelasAdapter);
+
+        }
 
   }
 }

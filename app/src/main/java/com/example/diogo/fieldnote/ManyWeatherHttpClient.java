@@ -8,9 +8,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class WeatherHttpClient {
+public class ManyWeatherHttpClient {
 
-	private static String BASE_URL = "http://api.openweathermap.org/data/2.5/weather?q=";
+	//rectangulo com forma de portugal
+	private static String BASE_URL = "http://api.openweathermap.org/data/2.5/box/city?bbox=-9.045459,36.899364,-6.386857,41.999097,160&cluster=yes&lang=en";
 	private static String IMG_URL = "http://openweathermap.org/img/w/";
 	private static String appid = "&APPID=c3740a59f58aa0d3a818f5bea2e6e668";
 	
@@ -19,13 +20,12 @@ public class WeatherHttpClient {
 		InputStream is = null;
 
 		try {
-			con = (HttpURLConnection) ( new URL(BASE_URL + location+ appid)).openConnection();
+			con = (HttpURLConnection) ( new URL(BASE_URL+ appid)).openConnection();
 			con.setRequestMethod("GET");
 			con.setDoInput(true);
 			con.setDoOutput(true);
-
 			con.connect();
-			
+
 			// Let's read the response
 			StringBuffer buffer = new StringBuffer();
 			is = con.getInputStream();
@@ -33,7 +33,7 @@ public class WeatherHttpClient {
 			String line = null;
 			while (  (line = br.readLine()) != null )
 				buffer.append(line + "\r\n");
-			
+
 			is.close();
 			con.disconnect();
 			return buffer.toString();

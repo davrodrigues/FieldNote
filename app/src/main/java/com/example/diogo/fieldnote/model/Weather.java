@@ -18,8 +18,7 @@ public class Weather {
 		private String condition;
 		private String descr;
 		private String icon;
-		
-		
+
 		private float pressure;
 		private float humidity;
 		
@@ -162,4 +161,7 @@ public class Weather {
 		
 	}
 
+	public Weather( ) {
+
+	}
 }

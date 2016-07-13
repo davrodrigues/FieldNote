@@ -72,7 +72,7 @@ public class RegistarNovaZona extends AppCompatActivity {
                             //localidade
                             EditText localidade = (EditText)findViewById(R.id.z_local) ;
                             String loca = localidade.getText().toString();
-                            loca = loca.isEmpty()==true?"empty":loca;
+                            loca = loca.isEmpty()==true?"vazio":loca;
 
                             //fitossanidade
                             EditText fito = (EditText)findViewById(R.id.z_fito) ;
