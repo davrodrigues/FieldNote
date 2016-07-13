@@ -36,10 +36,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class Meteorologia extends AppCompatActivity {
@@ -50,11 +52,10 @@ public class Meteorologia extends AppCompatActivity {
 	private TextView condDescr;
 	private TextView temp;
 	private TextView press;
-	private TextView windSpeed;
-	private TextView windDeg;
 
 	private TextView hum;
 	private ImageView imgView;
+    private RelativeLayout relTopoView;
 
     //db
     private DatabaseReference mDatabase;
@@ -74,23 +75,13 @@ public class Meteorologia extends AppCompatActivity {
 		// botão voltar
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-        //localização atual
-		final String city = "Lisboa";
-
-
 		cityText = (TextView) findViewById(R.id.cityText);
 		condDescr = (TextView) findViewById(R.id.condDescr);
 		temp = (TextView) findViewById(R.id.temp);
 		hum = (TextView) findViewById(R.id.hum);
 		press = (TextView) findViewById(R.id.press);
-		windSpeed = (TextView) findViewById(R.id.windSpeed);
-		windDeg = (TextView) findViewById(R.id.windDeg);
 		imgView = (ImageView) findViewById(R.id.condIcon);
-
-		//final JSONWeatherTask task = new JSONWeatherTask();
-		//task.execute(city);
-
+        relTopoView = (RelativeLayout) findViewById(R.id.reltopo);
 
         //firebase
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -104,14 +95,12 @@ public class Meteorologia extends AppCompatActivity {
                 int x = ((int) dataSnapshot.child("zonas").getChildrenCount());
                 String[] nzona = new String[x];
                 String[] local = new String[x];
-                //String[] tempo = new String[x];
 
                 for (DataSnapshot postSnapshot: dataSnapshot.child("zonas").getChildren()) {
                     Zona zone = postSnapshot.getValue(Zona.class);
 
                     nzona[i]=zone.getNomezona();
                     local[i] = zone.getLocalização();
-                //  tempo[i] = String.valueOf(postSnapshot.child("parcelas").getChildrenCount());
                     i++;
                 }
 
@@ -127,8 +116,6 @@ public class Meteorologia extends AppCompatActivity {
 
                 //buscar e preencher o tempo em cada cidade
                 new JSONWeatherTask().execute(local);
-
-
 
             }
 
@@ -164,7 +151,6 @@ public class Meteorologia extends AppCompatActivity {
 		return true;
 	}
 */
-
 	private class JSONWeatherTask extends AsyncTask<String[], Void, Weather> {
 
 		@Override
@@ -197,32 +183,37 @@ public class Meteorologia extends AppCompatActivity {
 				imgView.setImageBitmap(img);
 			}
 
-			cityText.setText(weather.location.getCity() + "," + weather.location.getCountry());
-			condDescr.setText(weather.currentCondition.getCondition() + "(" + weather.currentCondition.getDescr() + ")");
-			temp.setText("" + Math.round((weather.temperature.getTemp() - 273.15)) + " C");
-			hum.setText("" + weather.currentCondition.getHumidity() + "%");
-			press.setText("" + weather.currentCondition.getPressure() + " hPa");
-			windSpeed.setText("" + weather.wind.getSpeed() + " mps");
-			windDeg.setText("" + weather.wind.getDeg() + " ");
 
-            //escreve para uma variavel global
-
-            String cidade;
             List<String> tempo = new ArrayList<>();
 
+        //preencher a lista de temperaturas
             for (Weather elem : listat){
-
                 temperatura = "" + Math.round((elem.temperature.getTemp() - 273.15)) + " C";
-                cidade= elem.location.getCity();
-                cidade = cidade.equalsIgnoreCase("lisbon")==true?"lisboa":cidade;
                 tempo.add(temperatura);
-                System.out.println("temperatura de " + cidade +": "+temperatura);
+               // System.out.println("temperatura de " + cidade +": "+temperatura);
             }
 
         ListAdapter nparcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, tempo);
         ListView nparcelasView = (ListView) findViewById(R.id.nparcelasView);
         nparcelasView.setAdapter(nparcelasAdapter);
 
+
+
+		//Mostrar dados sobre o tempo ao clicar nas temperaturas
+		nparcelasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String cidade= listat.get(position).location.getCity();
+                cidade = cidade.equalsIgnoreCase("lisbon")==true?"Lisboa":cidade;
+
+                cityText.setText(cidade + "," + listat.get(position).location.getCountry());
+                condDescr.setText(listat.get(position).currentCondition.getCondition() + "(" + listat.get(position).currentCondition.getDescr() + ")");
+                temp.setText("" + Math.round((listat.get(position).temperature.getTemp() - 273.15)) + " C");
+                hum.setText("" + listat.get(position).currentCondition.getHumidity() + "%");
+                press.setText("" + listat.get(position).currentCondition.getPressure() + " hPa");
+			}
+		});
         }
 
   }

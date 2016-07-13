@@ -133,12 +133,12 @@
     <string name="tutorial">Tutorial</string>
     <string name="sair">Terminar Sessão</string>
 
-
-
     <!-- Extras -->
     <string name="exemplo">default</string>
     <string name="tempo">Temperatura</string>
     <string name="cidade">Cidade</string>
+    <string name="loading">Aguardando...</string>
+
 
 
 </resources>
