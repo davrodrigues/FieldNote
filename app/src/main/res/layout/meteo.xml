@@ -19,7 +19,7 @@
 
     <RelativeLayout
         android:layout_marginTop="10dp"
-        android:layout_weight="30"
+        android:layout_weight="40"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:visibility="visible"
@@ -51,7 +51,8 @@
             android:layout_height="wrap_content"
             android:hint="Descrição"
             android:layout_below="@+id/pressLab"
-            android:layout_alignEnd="@+id/pressLab" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp" />
 
         <TextView
             android:id="@+id/temp"
@@ -59,10 +60,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/loading"
-            android:layout_above="@+id/pressLab"
-            android:layout_toEndOf="@+id/pressLab"
-            android:layout_marginLeft="10dp"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:layout_below="@+id/condIcon"
+            android:layout_alignStart="@+id/hum" />
 
         <TextView
             android:textSize="18sp"
@@ -79,18 +79,25 @@
             android:layout_height="wrap_content"
             style="@style/valData"
             android:hint="@string/loading"
-            android:layout_below="@+id/temp"
-            android:layout_toEndOf="@+id/pressLab"
-            android:layout_marginLeft="10dp"
-            android:visibility="visible" />
 
+            android:layout_alignBaseline="@+id/pressLab"
+            android:layout_alignBottom="@+id/pressLab"
+            android:layout_alignStart="@+id/hum" />
+        <TextView
+        android:hint="Temperatura"
+        android:textSize="18sp"
+        android:id="@+id/templabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/condIcon"
+        android:layout_toStartOf="@+id/condIcon" />
         <TextView
             android:hint="Humidade"
             android:textSize="18sp"
             android:id="@+id/humLab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/condIcon"
+            android:layout_below="@+id/templabel"
             android:layout_toStartOf="@+id/condIcon" />
 
         <TextView
@@ -100,11 +107,10 @@
 
             style="@style/valData"
             android:hint="@string/loading"
-            android:layout_alignBaseline="@+id/condDescr"
-            android:layout_alignBottom="@+id/condDescr"
-            android:layout_toEndOf="@+id/condDescr"
             android:layout_marginLeft="10dp"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:layout_below="@+id/temp"
+            android:layout_toEndOf="@+id/templabel" />
 
     </RelativeLayout>
 
