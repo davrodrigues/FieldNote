@@ -28,8 +28,10 @@
         android:text="Zona"
         android:id="@+id/Zona"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:textStyle="bold" />
+        android:layout_alignParentEnd="false"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/operador"
+        android:layout_marginLeft="25dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,9 +45,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/zonasView"
-        android:layout_below="@+id/Data"
+        android:layout_below="@+id/Zona"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/Data" />
+        android:layout_toRightOf="@+id/Data"
+        android:layout_marginLeft="30dp" />
 
     <ListView
         android:layout_width="wrap_content"
@@ -53,7 +56,7 @@
         android:id="@+id/operadorView"
         android:layout_below="@+id/Data"
         android:layout_marginLeft="130dp"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentEnd="false"
         android:layout_centerHorizontal="true" />
 
     <ListView
@@ -64,5 +67,13 @@
         android:layout_alignParentStart="true"
 
         />
+
+    <Spinner
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/filtro"
+        android:layout_above="@+id/zonasView"
+        android:layout_toRightOf="@+id/Zona"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

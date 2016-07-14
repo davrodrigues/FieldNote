@@ -7,18 +7,15 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -33,23 +30,28 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.*;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-
-import static android.Manifest.permission.READ_CONTACTS;
+import java.util.Map;
 
 /**
  * A login screen that offers login via email/password.
  */
-public class RegistarActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class CriarContaActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
 
     // views.
     private AutoCompleteTextView mEmailView;
     private EditText mPasswordView;
+    private EditText mNome;
     private View mProgressView;
     private View mLoginFormView;
+
+    private DatabaseReference mDatabase;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -59,7 +61,18 @@ public class RegistarActivity extends AppCompatActivity implements LoaderCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registar);
 
+        //toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //up button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
         mEmailView = (AutoCompleteTextView) findViewById(R.id.emailRegisto);
+        mNome = (EditText) findViewById(R.id.nomeRegisto);
+
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -74,7 +87,6 @@ public class RegistarActivity extends AppCompatActivity implements LoaderCallbac
             }
         };
         mAuth.addAuthStateListener(mAuthListener);
-
 
         mPasswordView = (EditText) findViewById(R.id.passwordRegisto);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -122,14 +134,15 @@ public class RegistarActivity extends AppCompatActivity implements LoaderCallbac
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
+        final String email = mEmailView.getText().toString();
+        final String password = mPasswordView.getText().toString();
+        final String nome = mNome.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (TextUtils.isEmpty(password) || !isPasswordValid(password)) {
             mPasswordView.setError("A password deve ter no mínimo 6 caracteres");
             focusView = mPasswordView;
             cancel = true;
@@ -137,11 +150,11 @@ public class RegistarActivity extends AppCompatActivity implements LoaderCallbac
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
+            mEmailView.setError("Preencha este campo");
             focusView = mEmailView;
             cancel = true;
         } else if (!isEmailValid(email)) {
-            mEmailView.setError("O endereço de email introduzido não é válido.");
+            mEmailView.setError("O endereço de email introduzido não é válido");
             focusView = mEmailView;
             cancel = true;
         }
@@ -155,14 +168,20 @@ public class RegistarActivity extends AppCompatActivity implements LoaderCallbac
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (!task.isSuccessful()) {
-                                Toast.makeText(RegistarActivity.this, "O endereço de email introduzido não é válido.",
+                                Toast.makeText(CriarContaActivity.this, "O endereço de email introduzido não é válido.",
                                         Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(),RegistarActivity.class));
+                                startActivity(new Intent(getApplicationContext(),CriarContaActivity.class));
                                 finish();
                             }
                             else{
-                                Toast.makeText(RegistarActivity.this, "Conta registada com sucesso.",
+                                Toast.makeText(CriarContaActivity.this, "Conta registada com sucesso.",
                                         Toast.LENGTH_SHORT).show();
+                                Map<String, Object> childUpdates = new HashMap<>();
+                                Map<String, Object> dados = new HashMap<String, Object>();
+                                dados.put("nome", nome);
+                                String[] arr = email.split("[.]");
+                                childUpdates.put("FieldNote/utilizadores/" + arr[0] + "/", dados);
+                                mDatabase.updateChildren(childUpdates);
                                 finish();
                             }
                         }
@@ -245,7 +264,7 @@ public class RegistarActivity extends AppCompatActivity implements LoaderCallbac
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
 
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(RegistarActivity.this,
+                new ArrayAdapter<>(CriarContaActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
         mEmailView.setAdapter(adapter);

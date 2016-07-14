@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
@@ -21,6 +22,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class OrganismosActivity extends AppCompatActivity {
@@ -41,30 +44,54 @@ public class OrganismosActivity extends AppCompatActivity {
         final ListView datasView = (ListView) findViewById(R.id.datesView);
         final ListView parcelasView = (ListView) findViewById(R.id.parcelasView);
         final ListView cruzesView = (ListView) findViewById(R.id.cruzesView);
+        final Spinner filtro = (Spinner) findViewById(R.id.filtro);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                int i =0;
-                int x = ((int) dataSnapshot.child("observações").getChildrenCount());
-                String[] datas = new String[x];
-                String[] parcelas = new String[x];
-                String[] cruzes = new String[x];
-                for (DataSnapshot postSnapshot: dataSnapshot.child("observações").getChildren()) {
-                    Observacao est = postSnapshot.getValue(Observacao.class);
-                    datas[i] = est.getData();
-                    cruzes[i] = "X";
-                    StringTokenizer str = new StringTokenizer(est.getParcela());
-                    parcelas[i++] = str.nextToken();
+                final DataSnapshot dataSnap = dataSnapshot;
+                List<String> filtros = new ArrayList<String>();
+                filtros.add("Todos");
+                for (DataSnapshot postSnapshot: dataSnapshot.child("parcelas").getChildren()) {
+                    filtros.add(postSnapshot.getKey());
                 }
-                ListAdapter datasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, datas);
-                ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, parcelas);
-                ListAdapter cruzesAdapter = new ArrayAdapter<String>(getApplication(), R.layout.red_center_list, cruzes);
-                datasView.setAdapter(datasAdapter);
-                parcelasView.setAdapter(parcelasAdapter);
-                cruzesView.setAdapter(cruzesAdapter);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplication(), R.layout.black_spinner, filtros);
+                filtro.setAdapter(adapter);
+
+                filtro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        List<String> datas = new ArrayList<String>();
+                        List<String> parcelas = new ArrayList<String>();
+                        List<String> cruzes = new ArrayList<String>();
+                        for (DataSnapshot postSnapshot: dataSnap.child("observações").getChildren()) {
+                            Observacao est = postSnapshot.getValue(Observacao.class);
+                            StringTokenizer str = new StringTokenizer(est.getParcela());
+                            String filter = str.nextToken();
+                            if(filtro.getSelectedItem().toString().equalsIgnoreCase("todos")){
+                                parcelas.add(filter);
+                                datas.add(est.getData());
+                                cruzes.add("X");
+                            }
+                            else if (filter.equalsIgnoreCase(filtro.getSelectedItem().toString())) {
+                                parcelas.add(filter);
+                                datas.add(est.getData());
+                                cruzes.add("X");
+                            }
+                        }
+                        ListAdapter datasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, datas);
+                        ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, parcelas);
+                        ListAdapter cruzesAdapter = new ArrayAdapter<String>(getApplication(), R.layout.red_center_list, cruzes);
+                        datasView.setAdapter(datasAdapter);
+                        parcelasView.setAdapter(parcelasAdapter);
+                        cruzesView.setAdapter(cruzesAdapter);
+                    }
+
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+                        return;
+                    }
+                });
             }
 
             @Override

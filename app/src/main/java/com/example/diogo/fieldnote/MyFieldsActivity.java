@@ -1,6 +1,7 @@
 package com.example.diogo.fieldnote;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -52,6 +53,16 @@ public class MyFieldsActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), CampanhasActivity.class));
             }
         });
+
+        ImageButton produzir = (ImageButton) findViewById(R.id.make_cc_botao);
+        produzir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.dgadr.mamaot.pt/images/docs/prod_sust/c_campo/i005874.pdf")));
+            }
+        });
+
+
 
     }
 

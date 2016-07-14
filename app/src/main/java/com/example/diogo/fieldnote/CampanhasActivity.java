@@ -17,6 +17,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CampanhasActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
@@ -40,14 +43,12 @@ public class CampanhasActivity extends AppCompatActivity {
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                int i =0;
-                int x = ((int) dataSnapshot.child("campanhas").getChildrenCount());
-                String[] culturas = new String[x];
-                String[] parcelas = new String[x];
+                List<String> culturas = new ArrayList<String>();
+                List<String> parcelas = new ArrayList<String>();
                 for (DataSnapshot postSnapshot: dataSnapshot.child("campanhas").getChildren()) {
                     Campanha est = postSnapshot.getValue(Campanha.class);
-                    culturas[i] = est.getCultura();
-                    parcelas[i++] = est.getParcela();
+                    culturas.add(est.getCultura());
+                    parcelas.add(est.getParcela());
                 }
                 ListAdapter campanhasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.black_list, culturas);
                 ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, parcelas);

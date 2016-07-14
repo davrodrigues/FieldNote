@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/novo"
@@ -27,8 +26,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/main_menu"
-            android:uiOptions="splitActionBarWhenNarrow"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:uiOptions="splitActionBarWhenNarrow" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -146,7 +145,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.diogo.fieldnote.IntervencaoTecnicaActivity" />
         </activity>
-
         <activity
             android:name=".CampanhasActivity"
             android:label="@string/title_activity_campanhas"
@@ -235,8 +233,51 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ZonasActivity" />
         </activity>
-        <activity android:name=".RegistarActivity"></activity>
-
+        <activity
+            android:name=".CriarContaActivity"
+            android:label="Criar Conta"
+            android:parentActivityName=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+        </activity>
+        <activity
+            android:name=".AjudaActivity"
+            android:label="Ajuda"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".TutorialActivity"
+            android:label="Tutorial"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".EditarObservacao"
+            android:label="Editar observação"
+            android:parentActivityName=".OrganismosActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.OrganismosActivity" />
+        </activity>
+        <activity
+            android:name=".RegistarDadosPessoais"
+            android:label="Dados Pessoais"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>
