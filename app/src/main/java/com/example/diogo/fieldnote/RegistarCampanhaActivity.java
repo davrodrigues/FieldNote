@@ -40,9 +40,9 @@ public class RegistarCampanhaActivity extends AppCompatActivity {
         final Spinner culturas = (Spinner)findViewById(R.id.estadoSpinner);
         final TextView textView = (TextView)findViewById(R.id.dataRegistarEstado);
 
-        String[] items1 = new String[]{"Abóbora", "Alface", "Alho", "Arroz", "Batata",
-                                        "Beringela", "Cebola", "Cereais", "Feijão", "Melancia", "Melão",
-                                        "Milho", "Morango", "Pepino", "Pêssego", "Pimento", "Tomate"};
+        String[] items1 = new String[]{"Abóbora", "Alface", "Alho", "Ameixa", "Arroz", "Batata",
+                                        "Beringela", "Cebola", "Cereais", "Citrinos", "Fava", "Feijão", "Maçã", "Melancia", "Melão",
+                                        "Milho", "Morango", "Pepino", "Pera", "Pêssego", "Pimento", "Tomate"};
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items1);
         culturas.setAdapter(adapter1);
 

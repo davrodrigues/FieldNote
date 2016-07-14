@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:background="@drawable/campo2"
-    tools:context="com.example.diogo.fieldnote.LoginActivity"
+    tools:context="com.example.diogo.fieldnote.CriarContaActivity"
     android:orientation="vertical"
     >
 

@@ -63,6 +63,9 @@ public class MostrarEntradaActivity extends AppCompatActivity {
                 TextView Observacoes = (TextView) findViewById(R.id.obs);
                 Observacoes.setText(ent.getObservações());
 
+                TextView custoTotal = (TextView) findViewById(R.id.custot);
+                custoTotal.setText(ent.getCusto());
+
 
             }
 

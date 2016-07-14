@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
@@ -20,6 +21,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 public class ParcelasActivity extends AppCompatActivity {
 
@@ -38,43 +43,63 @@ public class ParcelasActivity extends AppCompatActivity {
         //home
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        final ListView areaView = (ListView) findViewById(R.id.areaView);
+        final ListView parcsView = (ListView) findViewById(R.id.parcsView);
+        final ListView zonaView = (ListView) findViewById(R.id.zonaView);
+        final ListView remover = (ListView) findViewById(R.id.cruzView);
+        final Spinner filtro = (Spinner) findViewById(R.id.filtroParc);
+
         //firebase
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.addChildEventListener(new ChildEventListener(){
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-                int i =0;
-                int x = ((int) dataSnapshot.child("parcelas").getChildrenCount());
-                String[] area = new String[x];
-                String[] nome_parcelas = new String[x];
-                String[] zona = new String[x];
-                String[] vazia = new String[x];
-
-                for (DataSnapshot postSnapshot: dataSnapshot.child("parcelas").getChildren()) {
-                    Parcela parc = postSnapshot.getValue(Parcela.class);
-                    area[i] = parc.getÁrea();
-                    nome_parcelas[i] = postSnapshot.getKey();
-                    zona[i] = parc.getZona();
-                    vazia[i]= "X";
-                    i++;
+                final DataSnapshot dataSnap = dataSnapshot;
+                List<String> filtros = new ArrayList<String>();
+                filtros.add("Todos");
+                for (DataSnapshot postSnapshot: dataSnapshot.child("zonas").getChildren()) {
+                    filtros.add(postSnapshot.getKey());
                 }
-                ListAdapter areaAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, area);
-                ListView areaView = (ListView) findViewById(R.id.areaView);
-                areaView.setAdapter(areaAdapter);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplication(), R.layout.black_spinner, filtros);
+                filtro.setAdapter(adapter);
 
-                ListAdapter parcsAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, nome_parcelas);
-                ListView parcsView = (ListView) findViewById(R.id.parcsView);
-                parcsView.setAdapter(parcsAdapter);
+                filtro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        List<String> area = new ArrayList<String>();
+                        List<String> nome_parcelas = new ArrayList<String>();
+                        List<String> zonas = new ArrayList<String>();
+                        List<String> cruzes = new ArrayList<String>();
+                        for (DataSnapshot postSnapshot: dataSnap.child("parcelas").getChildren()) {
+                            Parcela parc = postSnapshot.getValue(Parcela.class);
+                            String escolhido = parc.getZona();
+                            if(filtro.getSelectedItem().toString().equalsIgnoreCase("todos")){
+                                nome_parcelas.add(postSnapshot.getKey());
+                                area.add(parc.getÁrea());
+                                zonas.add(parc.getZona());
+                                cruzes.add("X");
+                            }
+                            else if (escolhido.equalsIgnoreCase(filtro.getSelectedItem().toString())) {
+                                nome_parcelas.add(postSnapshot.getKey());
+                                area.add(parc.getÁrea());
+                                zonas.add(parc.getZona());
+                                cruzes.add("X");
+                            }
+                        }
+                        ListAdapter areaAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, area);
+                        ListAdapter parcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, nome_parcelas);
+                        ListAdapter zonasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, zonas);
+                        ListAdapter cruzesAdapter = new ArrayAdapter<String>(getApplication(), R.layout.red_center_list, cruzes);
+                        areaView.setAdapter(areaAdapter);
+                        parcsView.setAdapter(parcelasAdapter);
+                        zonaView.setAdapter(zonasAdapter);
+                        remover.setAdapter(cruzesAdapter);
+                    }
 
-                ListAdapter zonaAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, zona);
-                ListView zonaView = (ListView) findViewById(R.id.zonaView);
-                zonaView.setAdapter(zonaAdapter);
-
-                ListAdapter removerAdapter = new ArrayAdapter<String>(getApplication(), R.layout.red_center_list, vazia);
-                ListView remover = (ListView) findViewById(R.id.cruzView);
-                remover.setAdapter(removerAdapter);
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+                        return;
+                    }
+                });
 
             }
 
@@ -103,11 +128,6 @@ public class ParcelasActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), RegistarNovaParcela.class));
             }
         });
-
-        final ListView areaView = (ListView) findViewById(R.id.areaView);
-        final ListView parcsView = (ListView) findViewById(R.id.parcsView);
-        final ListView zonaView = (ListView) findViewById(R.id.zonaView);
-        final ListView remover = (ListView) findViewById(R.id.cruzView);
 
         //Mostrar produto ao clicar numa linha da lista de area
         areaView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

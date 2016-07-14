@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mEmailRegister.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    startActivity(new Intent(getApplicationContext(),RegistarActivity.class));
+                    startActivity(new Intent(getApplicationContext(),CriarContaActivity.class));
                 }
             });
         }
@@ -125,19 +125,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         boolean cancel = false;
         View focusView = null;
 
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
+        if (TextUtils.isEmpty(password) || !isPasswordValid(password)) {
+            mPasswordView.setError("A password deve ter no mínimo 6 caracteres");
             focusView = mPasswordView;
             cancel = true;
         }
 
         // verifica e-mail
         if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
+            mEmailView.setError("Preencha este campo");
             focusView = mEmailView;
             cancel = true;
         } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
+            mEmailView.setError("O endereço de email introduzido não é válido");
             focusView = mEmailView;
             cancel = true;
         }

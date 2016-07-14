@@ -1,5 +1,7 @@
 package com.example.diogo.fieldnote;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +13,11 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
+        mAuth = FirebaseAuth.getInstance();
 
         ImageButton meusCampos = (ImageButton) findViewById(R.id.meus_campos_botao);
         meusCampos.setOnClickListener(new View.OnClickListener() {
@@ -89,18 +96,35 @@ public class MainActivity extends AppCompatActivity {
         switch(item.getItemId()){
 
             case R.id.dados:
-                Toast.makeText(getBaseContext(), "You selected dados pessoais", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),RegistarDadosPessoais.class));
                 break;
 
             case R.id.tutorial:
-                Toast.makeText(getBaseContext(), "You selected tutorial", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),TutorialActivity.class));
                 break;
 
             case R.id.ajuda:
-                Toast.makeText(getBaseContext(), "You selected ajuda", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(),AjudaActivity.class));
                 break;
             case R.id.sair:
-                Toast.makeText(getBaseContext(), "You selected sair", Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("Terminar sessão")
+                        .setMessage("Tem a certeza que pretende terminar a sessão?")
+                        .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getApplicationContext(),
+                                        "Sessão terminada", Toast.LENGTH_SHORT).show();
+                                mAuth.signOut();
+                                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                                finish();                           }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                //nao faz nada
+                            }
+                        })
+                        .setIcon(R.drawable.alert_smallest)
+                        .show();
                 break;
 
 

@@ -32,6 +32,7 @@
     <string name="fabricante">Fabricante</string>
     <string name="quantidade">Quantidade</string>
     <string name="observacoes">Observações</string>
+
     <string name="just_data">Data</string>
     <string name="sub_entrada">Adicione uma nova entrada</string>
 
@@ -138,7 +139,6 @@
     <string name="tempo">Temperatura</string>
     <string name="cidade">Cidade</string>
     <string name="loading">Aguardando...</string>
-
 
 
 </resources>

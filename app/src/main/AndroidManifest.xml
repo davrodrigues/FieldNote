@@ -18,8 +18,7 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar2"
-            android:windowSoftInputMode="stateVisible|adjustPan"
-            >
+            android:windowSoftInputMode="stateVisible|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,7 +41,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.example.diogo.fieldnote.MainActivity" />
         </activity>
         <activity
             android:name=".RegistoEntradasActivity"
@@ -51,8 +50,9 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.example.diogo.fieldnote.MainActivity" />
         </activity>
+
         <activity
             android:name=".Meteorologia"
             android:parentActivityName=".MainActivity"
@@ -70,24 +70,14 @@
                 android:value="com.example.diogo.fieldnote.RegistoEntradasActivity" />
         </activity>
         <activity
-            android:name=".Estatisticas"
-            android:label="@string/title_activity_estatisticas"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
             android:name=".IntervencaoTecnicaActivity"
             android:label="@string/title_activity_intervencao_tecnica"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.example.diogo.fieldnote.MainActivity" />
         </activity>
-
         <activity
             android:name=".EditarIntervencaoTecnicaActivity"
             android:label="@string/title_activity_intervencao_tecnica"
@@ -105,7 +95,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.example.diogo.fieldnote.MainActivity" />
         </activity>
         <activity
             android:name=".MostrarOrganismoActivity"
@@ -148,7 +138,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value="com.example.diogo.fieldnote.MainActivity" />
         </activity>
         <activity
             android:name=".RegistarIntervencaoTecnicaActivity"
@@ -256,10 +246,52 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ZonasActivity" />
         </activity>
-        <activity android:name=".RegistarActivity"
-            android:windowSoftInputMode="stateVisible|adjustPan"
-            android:theme="@style/AppTheme.NoActionBar2"
-            ></activity>
+        <activity
+            android:name=".CriarContaActivity"
+            android:label="Criar Conta"
+            android:parentActivityName=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateVisible|adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+        </activity>
+        <activity
+            android:name=".AjudaActivity"
+            android:label="Ajuda"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".TutorialActivity"
+            android:label="Tutorial"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".EditarObservacao"
+            android:label="Editar observação"
+            android:parentActivityName=".OrganismosActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.diogo.fieldnote.OrganismosActivity" />
+        </activity>
+        <activity
+            android:name=".RegistarDadosPessoais"
+            android:label="Dados Pessoais"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
 
     </application>
 

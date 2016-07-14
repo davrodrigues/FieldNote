@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.SparseArray;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
@@ -111,6 +113,19 @@ public class MostrarOrganismoActivity extends AppCompatActivity {
         MyExpandableListAdapter adapter = new MyExpandableListAdapter(this,
                 groups);
         listView.setAdapter(adapter);
-    }
 
+        Button editarObs = (Button) findViewById(R.id.editObs);
+        editarObs.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent intent = new Intent(getApplicationContext(), EditarObservacao.class);
+                        intent.putExtra("id", id );
+                        finish();
+                        startActivity(intent);
+                    }
+                });
+
+    }
 }

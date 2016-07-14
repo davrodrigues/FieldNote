@@ -40,6 +40,9 @@ public class RegistarNovaEntrada extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
+
+
+
                         Map<String, Object> childUpdates = new HashMap<>();
                         Map<String, Object> dados = new HashMap<String, Object>();
 
@@ -51,45 +54,57 @@ public class RegistarNovaEntrada extends AppCompatActivity {
                         EditText nome_produto = (EditText)findViewById(R.id.nome_prod) ;
                         String nprod =  nome_produto.getText().toString();
 
-                        //custo do produto
-                        EditText custo = (EditText)findViewById(R.id.custo) ;
-                        String ncusto =  nome_produto.getText().toString();
-                        ncusto = ncusto.isEmpty()==true?"0":ncusto;
 
-                        //fornecedor
-                        EditText nome_fornecedor = (EditText)findViewById(R.id.fornecedor) ;
-                        String nforn =nome_fornecedor.getText().toString();
-                        nforn= nforn.isEmpty()==true?"empty":nforn;
+                        if (nprod.isEmpty()){
+                            nome_produto.setError("O nome do produto é obrigatório!");
 
-                        //fabricante
-                        EditText nome_fabricante = (EditText)findViewById(R.id.fabricante) ;
-                        String nfabr = nome_fabricante.getText().toString();
-                        nfabr = nfabr.isEmpty()==true?"empty":nfabr;
+                        }
+                        else if(data.isEmpty()) {
+                            textView.setError("A data é obrigatória!");
 
-                        //quantidade
-                        EditText quantidade = (EditText)findViewById(R.id.quantidade) ;
-                        String quant =  quantidade.getText().toString();
-                        quant = quant.isEmpty()==true?"0":quant;
+                        }
+                        else {
 
-                        //observações
-                        TextView obser = (TextView)findViewById(R.id.observações);
-                        String obs = obser.getText().toString();
-                        obs = obs.isEmpty()==true?"empty":obs;
+                            //custo do produto
+                            EditText custo = (EditText) findViewById(R.id.custo);
+                            String ncusto = custo.getText().toString();
+                            ncusto = ncusto.isEmpty() == true ? "0" : ncusto;
 
-                        dados.put("data", data);
-                        dados.put("fabricante", nfabr);
-                        dados.put("fornecedor", nforn);
-                        dados.put("observações", obs);
-                        dados.put("produto", nprod);
-                        dados.put("quantidade", quant);
+                            //fornecedor
+                            EditText nome_fornecedor = (EditText) findViewById(R.id.fornecedor);
+                            String nforn = nome_fornecedor.getText().toString();
+                            nforn = nforn.isEmpty() == true ? "empty" : nforn;
 
-                        childUpdates.put("FieldNote/entradas/" + nprod + " - " + data + "/", dados);
-                        mDatabase.updateChildren(childUpdates);
+                            //fabricante
+                            EditText nome_fabricante = (EditText) findViewById(R.id.fabricante);
+                            String nfabr = nome_fabricante.getText().toString();
+                            nfabr = nfabr.isEmpty() == true ? "empty" : nfabr;
+
+                            //quantidade
+                            EditText quantidade = (EditText) findViewById(R.id.quantidade);
+                            String quant = quantidade.getText().toString();
+                            quant = quant.isEmpty() == true ? "0" : quant;
+
+                            //observações
+                            TextView obser = (TextView) findViewById(R.id.observações);
+                            String obs = obser.getText().toString();
+                            obs = obs.isEmpty() == true ? "empty" : obs;
+
+                            dados.put("data", data);
+                            dados.put("fabricante", nfabr);
+                            dados.put("fornecedor", nforn);
+                            dados.put("observações", obs);
+                            dados.put("produto", nprod);
+                            dados.put("quantidade", quant);
+                            dados.put("custo", ncusto);
+
+                            childUpdates.put("FieldNote/entradas/" + nprod + " - " + data + "/", dados);
+                            mDatabase.updateChildren(childUpdates);
 
 
-                        finish();
-                        startActivity(new Intent(getApplicationContext(), RegistoEntradasActivity.class));
-
+                            finish();
+                            startActivity(new Intent(getApplicationContext(), RegistoEntradasActivity.class));
+                        }
                     }
 
                 });

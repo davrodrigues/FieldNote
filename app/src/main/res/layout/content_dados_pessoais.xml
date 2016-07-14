@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.diogo.fieldnote.RegistarDadosPessoais"
+
+    >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        android:fitsSystemWindows="false">
+    <ImageView
+        android:src="@drawable/unknown"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:id="@+id/imagemPerfil"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="25dp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Carregando..."
+        android:id="@+id/name"
+        android:textStyle="bold"
+        android:layout_below="@+id/imagemPerfil"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Morada:"
+        android:id="@+id/morada"
+        android:layout_gravity="left"
+        android:textSize="15dp"
+        android:layout_below="@+id/codpostal"
+        android:layout_alignStart="@+id/contacto"
+        android:layout_marginTop="15dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data de nascimento:"
+        android:id="@+id/datanasc"
+        android:layout_below="@+id/name"
+        android:layout_gravity="left"
+        android:textSize="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Localização"
+        android:id="@+id/localização"
+        android:layout_below="@+id/mostrardatanasc"
+        android:layout_gravity="left"
+        android:textSize="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Concelho:"
+        android:id="@+id/concelho"
+        android:layout_below="@+id/freguesia"
+        android:layout_gravity="left"
+        android:textSize="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Freguesia:"
+        android:id="@+id/freguesia"
+        android:textSize="15dp"
+        android:layout_below="@+id/localização"
+        android:layout_alignStart="@+id/localização"
+        android:layout_marginTop="25dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Código-Postal:"
+        android:id="@+id/codpostal"
+        android:layout_below="@+id/concelho"
+        android:layout_alignStart="@+id/concelho"
+        android:textSize="15dp"
+
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contacto"
+        android:id="@+id/contacto"
+        android:layout_below="@+id/morada"
+        android:layout_gravity="left"
+        android:textSize="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:textStyle="bold"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefone:"
+        android:id="@+id/telefone"
+        android:layout_below="@+id/contacto"
+        android:layout_gravity="left"
+        android:textSize="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignBottom="@+id/Telemovel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telemovel:"
+        android:id="@+id/Telemovel"
+        android:layout_below="@+id/contacto"
+        android:layout_toEndOf="@id/telefone"
+        android:textSize="15dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-mail:"
+        android:id="@+id/email"
+        android:layout_below="@+id/mostrartelefone"
+        android:layout_alignStart="@+id/telefone"
+        android:textSize="15dp"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:id="@+id/mostrarmorada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+
+        android:ems="10"
+        android:layout_alignBaseline="@+id/morada"
+        android:layout_alignBottom="@+id/morada"
+        android:layout_alignEnd="@+id/mostrartelemovel"
+        android:layout_toEndOf="@+id/morada"
+        android:layout_marginLeft="5dp" />
+    <EditText
+        android:id="@+id/mostrardatanasc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:inputType="date"
+        android:layout_marginLeft="5dp"
+        android:ems="7"
+        android:layout_alignBaseline="@+id/datanasc"
+        android:layout_alignBottom="@+id/datanasc"
+        android:layout_toEndOf="@+id/datanasc" />
+    <EditText
+        android:id="@+id/mostrarconcelho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+
+        android:layout_marginLeft="5dp"
+        android:ems="6"
+        android:layout_alignEnd="@+id/mostrarcodpostal"
+        android:layout_toEndOf="@+id/freguesia"
+        android:layout_alignBaseline="@+id/concelho"
+        android:layout_alignBottom="@+id/concelho" />
+    <EditText
+        android:id="@+id/mostrarfreguesia"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:ems="5"
+        android:layout_marginLeft="5dp"
+        android:layout_alignEnd="@+id/mostrarcodpostal"
+        android:layout_alignStart="@+id/mostrarconcelho"
+        android:layout_alignBaseline="@+id/freguesia"
+        android:layout_alignBottom="@+id/freguesia" />
+    <EditText
+        android:id="@+id/mostrarcodpostal"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:layout_marginLeft="5dp"
+        android:ems="10"
+        android:layout_alignEnd="@+id/mostrarmorada"
+        android:layout_toEndOf="@+id/codpostal"
+        android:layout_alignBottom="@+id/codpostal"
+        android:layout_alignBaseline="@+id/codpostal" />
+
+    <EditText
+        android:id="@+id/mostrartelefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:inputType="number"
+        android:ems="5"
+        android:layout_below="@id/contacto"
+        android:layout_marginLeft="5dp"
+        android:layout_toEndOf="@+id/concelho"
+        android:layout_marginTop="5dp"
+        />
+    <EditText
+        android:id="@+id/mostrartelemovel"
+        android:inputType="number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/Telemovel"
+        android:textSize="14dp"
+        android:ems="5"
+        android:layout_below="@id/contacto"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        />
+
+    <EditText
+        android:id="@+id/mostraremail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:ems="15"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/mostrartelefone"
+        android:layout_marginTop="5dp"
+        android:layout_alignEnd="@+id/mostrartelemovel"
+        android:layout_toEndOf="@+id/email" />
+        <!--Botão-->
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar Alterações"
+            android:id="@+id/dadosButton"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/mostraremail"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"/>
+
+
+</RelativeLayout>
+</ScrollView>
+</RelativeLayout>

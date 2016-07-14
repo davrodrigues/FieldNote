@@ -65,6 +65,18 @@
         android:layout_height="wrap_content"
         android:id="@+id/cruzesView"
         android:layout_alignTop="@+id/datesView"
-        android:layout_toRightOf="@+id/parcelasView" />
-</RelativeLayout>
+        android:layout_toRightOf="@+id/parcelasView"
+        android:layout_alignParentRight="false" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/filtro"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/cruzesView"
+            android:layout_alignLeft="@+id/cruzesView"
+            android:spinnerMode="dropdown"
+            android:layout_alignParentRight="true"
+            android:textAlignment="viewEnd" />
+    </RelativeLayout>
 </ScrollView>
