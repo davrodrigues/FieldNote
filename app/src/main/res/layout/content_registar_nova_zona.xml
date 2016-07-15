@@ -115,9 +115,8 @@
             android:layout_height="wrap_content"
             android:text="@string/submeter"
             android:id="@+id/zsubmeter"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorPrimary"
             android:textColor="@android:color/white"
-
            />
 
     </LinearLayout>

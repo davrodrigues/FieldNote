@@ -219,13 +219,15 @@
                 android:layout_height="0dp">
 
                 <Button
-                    android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAllCaps="false"
                     android:text="@string/add_parcela"
                     android:id="@+id/addparcela"
-                    android:layout_centerHorizontal="true" />
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@android:color/white"
+                    android:padding="10dp"/>
 
             </RelativeLayout>
 

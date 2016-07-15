@@ -88,7 +88,10 @@
         android:text="Editar Intervenção"
         android:id="@+id/edit_intervencao"
         android:layout_below="@+id/expandableListView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:padding="10dp"/>
 
 
 </RelativeLayout>

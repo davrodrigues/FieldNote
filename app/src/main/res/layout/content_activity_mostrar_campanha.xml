@@ -113,6 +113,7 @@
         android:layout_below="@+id/dataPlant"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="58dp"
-        android:backgroundTint="@android:color/holo_green_dark"
-        android:textColor="@android:color/white" />
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:padding="10dp" />
 </RelativeLayout>

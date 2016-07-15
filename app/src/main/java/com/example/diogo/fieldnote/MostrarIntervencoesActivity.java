@@ -38,7 +38,7 @@ public class MostrarIntervencoesActivity extends AppCompatActivity {
         Intent myIntent = getIntent();
         final String id = myIntent.getStringExtra("id");
         final String parseme = id;
-       getSupportActionBar().setTitle("Intervenção Técnica");
+        getSupportActionBar().setTitle("Intervenção Técnica");
 
 
         final TextView data = (TextView) findViewById(R.id.data);

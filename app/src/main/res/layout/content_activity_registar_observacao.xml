@@ -70,16 +70,16 @@
         android:textStyle="bold" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="170dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registar Observação"
         android:id="@+id/registarObsButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/observações"
-        android:background="@android:color/holo_green_dark"
+        android:background="@color/colorPrimary"
         android:textColor="@android:color/white"
+        android:padding="10dp"
         android:layout_marginTop="15dp" />
 
     <EditText
