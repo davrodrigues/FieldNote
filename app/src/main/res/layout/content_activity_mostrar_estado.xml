@@ -20,11 +20,13 @@
         android:text="@string/estado_fenologico_atual"
         android:id="@+id/parcelaEstado"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"
+    />
 
     <ImageView
         android:layout_width="175dp"
-        android:layout_height="175dp"
+        android:layout_height="150dp"
         android:id="@+id/imageView"
         android:layout_below="@+id/parcelaEstado"
         android:layout_centerHorizontal="true"
@@ -36,7 +38,9 @@
         android:text="Sem registos"
         android:id="@+id/estadoAtual"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/imageView" />
+        android:layout_below="@+id/imageView"
+        android:textSize="15sp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,15 +48,9 @@
         android:id="@+id/dataEstado"
         android:layout_below="@+id/estadoAtual"
         android:layout_centerHorizontal="true"
-        android:text="Vazia" />
-
-    <ImageSwitcher
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageSwitcher"
-        android:layout_below="@+id/dataEstado"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="85dp" />
+        android:text=""
+        android:textSize="15sp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,7 +60,9 @@
         android:layout_below="@+id/dataEstado"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textSize="15sp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -72,7 +72,9 @@
         android:layout_below="@+id/textView20"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/dataEstado"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textSize="14sp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -81,7 +83,9 @@
         android:id="@+id/textView22"
         android:layout_alignTop="@+id/textView21"
         android:layout_alignParentEnd="false"
-        android:layout_toRightOf="@+id/textView21" />
+        android:layout_toRightOf="@+id/textView21"
+        android:textSize="14sp"
+        />
 
     <ListView
         android:layout_width="wrap_content"

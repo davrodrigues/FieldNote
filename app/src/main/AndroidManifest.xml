@@ -55,6 +55,7 @@
 
         <activity
             android:name=".Meteorologia"
+            android:label="Meteorologia"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

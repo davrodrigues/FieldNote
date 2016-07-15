@@ -42,7 +42,9 @@
         android:id="@+id/textView23"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textSize="18sp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,7 +53,9 @@
         android:id="@+id/dateObs"
         android:layout_below="@+id/textView23"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:textSize="18sp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,7 +65,9 @@
         android:layout_below="@+id/dateObs"
         android:layout_alignParentStart="true"
         android:layout_marginTop="25dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textSize="18sp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -70,7 +76,9 @@
         android:id="@+id/parcelaObs"
         android:layout_below="@+id/textView25"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:textSize="18sp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -80,7 +88,9 @@
         android:layout_below="@+id/parcelaObs"
         android:layout_alignParentStart="true"
         android:layout_marginTop="25dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textSize="18sp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -89,7 +99,9 @@
         android:id="@+id/campanhaObs"
         android:layout_below="@+id/textView27"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:textSize="18sp"
+        />
 
     <Button
         android:layout_width="160dp"

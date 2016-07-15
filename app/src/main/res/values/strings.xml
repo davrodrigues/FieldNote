@@ -107,8 +107,8 @@
     <string name="Irrigacao">Irrigação Fertirrigação:</string>
     <string name="Fertilização">Fertilização:</string>
     <string name="Tratamento">Tratamento Fitossanitário:</string>
-    <string name="Vendas">Produção Vendas:</string>
-    <string name="Visitas">Visitas e Intervinientes:</string>
+    <string name="Vendas">Produção e Vendas:</string>
+    <string name="Visitas">Visitas e Intervenientes:</string>
 
 
     <!-- Organismos e estados -->
