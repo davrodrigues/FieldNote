@@ -188,9 +188,9 @@ public class Meteorologia extends AppCompatActivity {
 
         //preencher a lista de temperaturas
             for (Weather elem : listat){
-                temperatura = "" + Math.round((elem.temperature.getTemp() - 273.15)) + " C";
+                temperatura = "" + Math.round((elem.temperature.getMaxTemp())) + " ºC";
                 tempo.add(temperatura);
-               // System.out.println("temperatura de " + cidade +": "+temperatura);
+
             }
 
         ListAdapter nparcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, tempo);
@@ -209,7 +209,7 @@ public class Meteorologia extends AppCompatActivity {
 
                 cityText.setText(cidade + "," + listat.get(position).location.getCountry());
                 condDescr.setText(listat.get(position).currentCondition.getCondition() + "(" + listat.get(position).currentCondition.getDescr() + ")");
-                temp.setText("" + Math.round((listat.get(position).temperature.getTemp() - 273.15)) + " C");
+                temp.setText("" + Math.round(listat.get(position).temperature.getMaxTemp()) + " ºC");
                 hum.setText("" + listat.get(position).currentCondition.getHumidity() + "%");
                 press.setText("" + listat.get(position).currentCondition.getPressure() + " hPa");
 			}

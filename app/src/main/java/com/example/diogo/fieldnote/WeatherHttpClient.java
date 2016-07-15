@@ -13,13 +13,14 @@ public class WeatherHttpClient {
 	private static String BASE_URL = "http://api.openweathermap.org/data/2.5/weather?q=";
 	private static String IMG_URL = "http://openweathermap.org/img/w/";
 	private static String appid = "&APPID=c3740a59f58aa0d3a818f5bea2e6e668";
+    private static String units = "&units=metric";
 	
 	public String getWeatherData(String location) {
 		HttpURLConnection con = null ;
 		InputStream is = null;
 
 		try {
-			con = (HttpURLConnection) ( new URL(BASE_URL + location+ appid)).openConnection();
+			con = (HttpURLConnection) ( new URL(BASE_URL + location+ appid + units)).openConnection();
 			con.setRequestMethod("GET");
 		//	con.setDoInput(true);
 		//	con.setDoOutput(true);
