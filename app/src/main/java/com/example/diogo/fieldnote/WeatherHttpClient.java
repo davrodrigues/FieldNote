@@ -39,8 +39,9 @@ public class WeatherHttpClient {
 			con.disconnect();
 			return buffer.toString();
 	    }
-		catch(Throwable t) {
+		catch(Exception t) {
 			t.printStackTrace();
+
 		}
 		finally {
 			try { is.close(); } catch(Throwable t) {}

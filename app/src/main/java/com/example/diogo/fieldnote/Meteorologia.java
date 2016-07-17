@@ -48,58 +48,57 @@ public class Meteorologia extends AppCompatActivity {
 
     public String temperatura;
 
-	private TextView cityText;
-	private TextView condDescr;
-	private TextView temp;
-	private TextView press;
+    private TextView cityText;
+    private TextView condDescr;
+    private TextView temp;
+    private TextView press;
 
-	private TextView hum;
-	private ImageView imgView;
-    private RelativeLayout relTopoView;
+    private TextView hum;
+    private ImageView imgView;
 
     //db
     private DatabaseReference mDatabase;
 
-    List<Weather>  listat = new ArrayList<Weather>();
+    List<Weather> listat = new ArrayList<Weather>();
 
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meteo);
 
-		//toolbar
-		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
+        //toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-		// botão voltar
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // botão voltar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-		cityText = (TextView) findViewById(R.id.cityText);
-		condDescr = (TextView) findViewById(R.id.condDescr);
-		temp = (TextView) findViewById(R.id.temp);
-		hum = (TextView) findViewById(R.id.hum);
-		press = (TextView) findViewById(R.id.press);
-		imgView = (ImageView) findViewById(R.id.condIcon);
-        relTopoView = (RelativeLayout) findViewById(R.id.reltopo);
+        cityText = (TextView) findViewById(R.id.cityText);
+        condDescr = (TextView) findViewById(R.id.condDescr);
+        temp = (TextView) findViewById(R.id.temp);
+        hum = (TextView) findViewById(R.id.hum);
+        press = (TextView) findViewById(R.id.press);
+        imgView = (ImageView) findViewById(R.id.condIcon);
+
 
         //firebase
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        mDatabase.addChildEventListener(new ChildEventListener(){
+        mDatabase.addChildEventListener(new ChildEventListener() {
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-                int i =0;
+                int i = 0;
                 int x = ((int) dataSnapshot.child("zonas").getChildrenCount());
                 String[] nzona = new String[x];
                 String[] local = new String[x];
 
-                for (DataSnapshot postSnapshot: dataSnapshot.child("zonas").getChildren()) {
+                for (DataSnapshot postSnapshot : dataSnapshot.child("zonas").getChildren()) {
                     Zona zone = postSnapshot.getValue(Zona.class);
 
-                    nzona[i]=zone.getNomezona();
+                    nzona[i] = zone.getNomezona();
                     local[i] = zone.getLocalização();
                     i++;
                 }
@@ -142,21 +141,21 @@ public class Meteorologia extends AppCompatActivity {
         });
 
 
-	}
+    }
 
-	/*@Override
+    /*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 */
-	private class JSONWeatherTask extends AsyncTask<String[], Void, Weather> {
+    private class JSONWeatherTask extends AsyncTask<String[], Void, List<Weather>> {
 
-		@Override
-		protected Weather doInBackground(String[]... params) {
+        @Override
+        protected List<Weather> doInBackground(String[]... params) {
 
-            Weather weather = new Weather();
+            Weather weather;
             for (String w1 : params[0]) {
 
                 String data = ((new WeatherHttpClient()).getWeatherData(w1));
@@ -170,51 +169,50 @@ public class Meteorologia extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-                return weather;
-	}
-
-
-	@Override
-		protected void onPostExecute(Weather weather) {
-			super.onPostExecute(weather);
-
-			if (weather.iconData != null && weather.iconData.length > 0) {
-				Bitmap img = BitmapFactory.decodeByteArray(weather.iconData, 0, weather.iconData.length);
-				imgView.setImageBitmap(img);
-			}
-
-
-            List<String> tempo = new ArrayList<>();
-
-        //preencher a lista de temperaturas
-            for (Weather elem : listat){
-                temperatura = "" + Math.round((elem.temperature.getMaxTemp())) + " ºC";
-                tempo.add(temperatura);
-
-            }
-
-        ListAdapter nparcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, tempo);
-        ListView nparcelasView = (ListView) findViewById(R.id.nparcelasView);
-        nparcelasView.setAdapter(nparcelasAdapter);
-
-
-
-		//Mostrar dados sobre o tempo ao clicar nas temperaturas
-		nparcelasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                String cidade= listat.get(position).location.getCity();
-                cidade = cidade.equalsIgnoreCase("lisbon")==true?"Lisboa":cidade;
-
-                cityText.setText(cidade + "," + listat.get(position).location.getCountry());
-                condDescr.setText(listat.get(position).currentCondition.getCondition() + "(" + listat.get(position).currentCondition.getDescr() + ")");
-                temp.setText("" + Math.round(listat.get(position).temperature.getMaxTemp()) + " ºC");
-                hum.setText("" + listat.get(position).currentCondition.getHumidity() + "%");
-                press.setText("" + listat.get(position).currentCondition.getPressure() + " hPa");
-			}
-		});
+            return listat;
         }
 
-  }
+
+        @Override
+        protected void onPostExecute(List<Weather> weathers) {
+            super.onPostExecute(weathers);
+
+            List<String> tempo = new ArrayList<>();
+            for (Weather wea : weathers) {
+               /* if (wea.iconData != null && wea.iconData.length > 0) {
+                    Bitmap img = BitmapFactory.decodeByteArray(wea.iconData, 0, wea.iconData.length);
+                    imgView.setImageBitmap(img);
+                }
+    */
+                //preencher a lista de temperaturas
+                temperatura = "" + Math.round((wea.temperature.getMaxTemp())) + " ºC";
+                tempo.add(temperatura);
+            }
+
+            ListAdapter nparcelasAdapter = new ArrayAdapter<String>(getApplication(), R.layout.center_list, tempo);
+            ListView nparcelasView = (ListView) findViewById(R.id.nparcelasView);
+            nparcelasView.setAdapter(nparcelasAdapter);
+
+
+            //Mostrar dados sobre o tempo ao clicar nas temperaturas
+            nparcelasView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                    String cidade = listat.get(position).location.getCity();
+                    cidade = cidade.equalsIgnoreCase("lisbon") == true ? "Lisboa" : cidade;
+
+                    //poe o icone
+                    Bitmap img = BitmapFactory.decodeByteArray(listat.get(position).iconData, 0, listat.get(position).iconData.length);
+                    imgView.setImageBitmap(img);
+
+                    cityText.setText(cidade + "," + listat.get(position).location.getCountry());
+                    condDescr.setText(listat.get(position).currentCondition.getCondition() + "(" + listat.get(position).currentCondition.getDescr() + ")");
+                    temp.setText("" + Math.round(listat.get(position).temperature.getMaxTemp()) + " ºC");
+                    hum.setText("" + listat.get(position).currentCondition.getHumidity() + "%");
+                    press.setText("" + listat.get(position).currentCondition.getPressure() + " hPa");
+                }
+            });
+        }
+    }
 }
